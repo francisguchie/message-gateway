@@ -63,8 +63,6 @@ public class SmsApiResource {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getMessageId());
 
-            } catch (Exception e) { 
-
             } catch (Exception e) {
                 "Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign" ;
 
