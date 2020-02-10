@@ -1,6 +1,6 @@
 # server configuration
 server:
-  port: 9191
+  port: 31937
 
 # endpoint configuration
 endpoints:
@@ -16,12 +16,12 @@ spring:
       ddl-auto: none
 
   datasource:
-    url: jdbc:mysql:thin://localhost:3306/messagegateway
+    url: jdbc:mysql:thin://localhost:1102/messagegateway
     username: root
-    password: mysql
+    password: B1melabumez1
     driver-class-name: org.drizzle.jdbc.DrizzleDriver
 
 # Status Callback configuration for Twilio. Port will be taken from server configuration
 hostconfig:
-  host-address: localhost
+  host-address: 52.90.12.107
   protocol: http
