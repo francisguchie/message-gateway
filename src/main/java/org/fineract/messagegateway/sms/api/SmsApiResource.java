@@ -64,8 +64,6 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getMessageId());
 
             } catch (Exception e) {
-              
-            } catch (Exception e) {
               System.out.println("Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign");  
 
             }
