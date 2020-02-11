@@ -40,7 +40,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.MsgStatus;
-import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.trueAfricanClientConfig;
+import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.*;
 
 public class Settings {
 	

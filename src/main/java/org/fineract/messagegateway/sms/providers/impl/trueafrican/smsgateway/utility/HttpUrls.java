@@ -60,7 +60,7 @@ public class HttpUrls {
 			if (statusCode == HttpStatus.SC_OK) {
 				String httpResponse = postMethod.getResponseBodyAsString();
 			
-				return Settings.parseWirepickResultXML(new StringReader(httpResponse)) ; 
+				return Settings.parseTrueAfricanResultXML(new StringReader(httpResponse)) ; 
 				
 			}
 		}  catch (Exception e) {
@@ -86,7 +86,7 @@ public class HttpUrls {
 
             if (responseCode == HttpStatus.SC_OK) {
 
-              return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
+              return  Settings.parseTrueAfricanResultXML(con.getInputStream()) ; 
                
             } else {
             	return null ; 
