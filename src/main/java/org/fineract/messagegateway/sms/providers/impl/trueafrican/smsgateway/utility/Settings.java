@@ -106,7 +106,7 @@ public class Settings {
 		return status;
 	}
 	
-	public static String HTTPparameters(WpkClientConfig config) throws UnsupportedEncodingException
+	public static String HTTPparameters(trueAfricanClientConfig config) throws UnsupportedEncodingException
 	{
 		StringBuffer buffer = new  StringBuffer(HOST) ; 
 		
@@ -121,7 +121,7 @@ public class Settings {
 		
 	}
 
-	private static void ValidateParams(WpkClientConfig config) {
+	private static void ValidateParams(trueAfricanClientConfig config) {
 		if(config.getMsisdn() == null || config.getMsisdn().isEmpty())
 		{
 			throw new NullPointerException("Phone number is required") ; 

@@ -26,7 +26,7 @@ import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.mod
 
 public class trueAfricanSMS {
 	
-	public MsgStatus SendGETSMS(WpkClientConfig clientConfig) throws Exception
+	public MsgStatus SendGETSMS(trueAfricanClientConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
@@ -40,7 +40,7 @@ public class trueAfricanSMS {
 	}
 	
 	
-	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception
+	public MsgStatus SendPOSTSMS(trueAfricanClientConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
