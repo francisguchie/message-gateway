@@ -34,6 +34,7 @@ import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod; 
 import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.MsgStatus;
 
+
 public class HttpUrls {
 	
 	

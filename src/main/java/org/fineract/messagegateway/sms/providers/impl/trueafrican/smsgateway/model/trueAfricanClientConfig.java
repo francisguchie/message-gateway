@@ -19,7 +19,7 @@
 
 package org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model;
 
-public class trueAfricanClientConfig {
+public class trueAfricanClientConfig{
 	
 	private String msisdn ;
 	private String message;	
@@ -40,6 +40,7 @@ public class trueAfricanClientConfig {
 		
 		
 	}
+	
 	public String getMsisdn() {
 		return msisdn;
 	}
