@@ -84,9 +84,11 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getMsisdn());
 
             } catch (Exception e) {
-                System.out.println(msgStatus.getMsisdn());
+                
               System.out.println( " Check that username, password, message are ok and make sure the Phone number includes the international code without the plus sign");  
 
+            } finally {
+                System.out.println(msgStatus.getMsisdn());
             }
         }  
        return new ResponseEntity<>(HttpStatus.ACCEPTED);
