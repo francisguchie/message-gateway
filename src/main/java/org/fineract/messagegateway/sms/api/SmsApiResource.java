@@ -84,8 +84,8 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getMsisdn());
 
             } catch (Exception e) {
-                throw e;
-              // System.out.println("Check UserName, Password, Msisdn are correct and the Phone number includes the international code without the plus sign");  
+               // throw e;
+              System.out.println("Check UserName, Password, Msisdn are correct and the Phone number includes the international code without the plus sign");  
 
             }
         } 
