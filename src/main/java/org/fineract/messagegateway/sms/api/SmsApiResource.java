@@ -83,7 +83,7 @@ public class SmsApiResource {
                 taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getMsisdn());
 
-            } catch (Exception ex) {
+            } catch (RuntimeException ex) {
                 
                 taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getMsisdn());
