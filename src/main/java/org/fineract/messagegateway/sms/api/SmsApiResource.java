@@ -85,9 +85,9 @@ public class SmsApiResource {
 
             } catch (Exception e) {
                 // guchie added this to see the config
-                System.out.println(taSettings.HOST); 
-                system.out.println(taHttpUrls.sendByPostMethod()) ;
-
+                // System.out.println(taSettings.HOST); 
+                System.out.println(msgStatus.getMsisdn());
+               
               System.out.println("Check UserName, Password, Msisdn are correct and the Phone number includes the international code without the plus sign");  
 
             }

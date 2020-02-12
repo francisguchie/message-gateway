@@ -118,6 +118,8 @@ public class taSettings {
 		buffer.append("&password=").append(URLEncoder.encode(config.getPassword(), UTF_8));
 		
 		return buffer.toString() ; 
+		//guchie added this
+		System.out.println(buffer.toString());
 		
 	}
 
