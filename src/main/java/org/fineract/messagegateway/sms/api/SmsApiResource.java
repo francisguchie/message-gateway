@@ -81,10 +81,10 @@ public class SmsApiResource {
                      taConstantValues.SMS_CLIENT_USER_NAME, taConstantValues.SMS_CLIENT_PWD) ; 
              try {
                 taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                System.out.println(msgStatus.getMessageId());
+                System.out.println(msgStatus.getMsisdn());
 
             } catch (Exception e) {
-              System.out.println("Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign");  
+              System.out.println(msgStatus.getMsisdn() + " Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign");  
 
             }
         }  
