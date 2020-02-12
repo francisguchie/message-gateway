@@ -80,7 +80,7 @@ public class SmsApiResource {
             taClientConfig config = new taClientConfig(sMessage.getMobileNumber() ,sMessage.getMessage(), 
                      taConstantValues.SMS_CLIENT_USER_NAME, taConstantValues.SMS_CLIENT_PWD) ; 
              try {
-                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getMessageId());
 
             } catch (Exception e) {
