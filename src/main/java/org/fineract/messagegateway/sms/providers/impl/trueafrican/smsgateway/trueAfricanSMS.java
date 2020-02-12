@@ -26,27 +26,27 @@ import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.mod
 
 public class trueAfricanSMS {
 	
-	public MsgStatus SendGETSMS(taClientConfig clientConfig) throws Exception
+	public taMsgStatus SendGETSMS(taClientConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
-		String httpUrl = Settings.HTTPparameters(clientConfig) ; 
-		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
+		String httpUrl = taSettings.taHTTPparameters(clientConfig) ; 
+		if(httpUrl != null && httpUrl.startsWith(taSettings.HOST))
 		{
-			return HttpUrls.sendByUrlHttpConnection(httpUrl) ; 
+			return taHttpUrls.sendByUrlHttpConnection(httpUrl) ; 
 		}
 		
 		return null;
 	}
 	
 	
-	public MsgStatus SendPOSTSMS(taClientConfig clientConfig) throws Exception
+	public taMsgStatus SendPOSTSMS(taClientConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
-		String httpUrl = Settings.HOST ; 
+		String httpUrl = taSettings.HOST ; 
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ; 
-		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
+		return taHttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
 
 }

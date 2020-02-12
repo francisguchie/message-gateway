@@ -38,6 +38,12 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.Constants.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
 
+import org.fineract.messagegateway.sms.providers.impl.trueafrican.Constants.*;
+import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.*;
+import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.*;
+import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.utility.*;
+
+
 @RestController
 @RequestMapping("/sms")
 public class SmsApiResource {
@@ -55,7 +61,7 @@ public class SmsApiResource {
     		@RequestHeader(MessageGatewayConstants.TENANT_APPKEY_HEADER) final String appKey, 
     		@RequestBody final List<SMSMessage> payload) {
         
-    	WirepickSMS sms = new WirepickSMS() ;
+  /*  	WirepickSMS sms = new WirepickSMS() ;
          for(SMSMessage sMessage : payload) {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_ID, ConstantValues.SMS_CLIENT_PWD, 
                     ConstantValues.SMS_CLIENT_AFFILIATE, sMessage.getMobileNumber() ,sMessage.getMessage(), ConstantValues.SMS_CLIENT_SENDER_ID, ConstantValues.SMS_TAG) ; 
@@ -67,8 +73,21 @@ public class SmsApiResource {
               System.out.println("Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign");  
 
             }
-        }
+        } */
 
+        trueAfricanSMS sms = new trueAfricanSMS() ;
+         for(SMSMessage sMessage : payload) {
+            taClientConfig config = new taClientConfig(taConstantValues.SMS_CLIENT_USER_NAME, taConstantValues.SMS_CLIENT_PWD, 
+                     sMessage.getMobileNumber() ,sMessage.getMessage()) ; 
+            try {
+                taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                System.out.println(msgStatus.getMessageId());
+
+            } catch (Exception e) {
+              System.out.println("Check UserName, Password, Msisdn are correct and the Phone number includes the international code without the plus sign");  
+
+            }
+        } 
        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
     

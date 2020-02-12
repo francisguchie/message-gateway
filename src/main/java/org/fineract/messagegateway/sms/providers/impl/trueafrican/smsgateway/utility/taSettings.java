@@ -106,7 +106,7 @@ public class taSettings {
 		return status;
 	}
 	
-	public static String HTTPparameters(taClientConfig config) throws UnsupportedEncodingException
+	public static String taHTTPparameters(taClientConfig config) throws UnsupportedEncodingException
 	{
 		StringBuffer buffer = new  StringBuffer(HOST) ; 
 		
