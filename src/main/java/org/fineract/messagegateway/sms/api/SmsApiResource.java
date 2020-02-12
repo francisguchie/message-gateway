@@ -79,16 +79,15 @@ public class SmsApiResource {
          for(SMSMessage sMessage : payload) {
             taClientConfig config = new taClientConfig(sMessage.getMobileNumber() ,sMessage.getMessage(), 
                      taConstantValues.SMS_CLIENT_USER_NAME, taConstantValues.SMS_CLIENT_PWD) ; 
-            try {
-                taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                System.out.println(msgStatus.getMsisdn());
+             try {
+                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                System.out.println(msgStatus.getMessageId());
 
             } catch (Exception e) {
-               // throw e;
-              System.out.println("Check UserName, Password, Msisdn are correct and the Phone number includes the international code without the plus sign");  
+              System.out.println("Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign");  
 
             }
-        } 
+        }  
        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
     
