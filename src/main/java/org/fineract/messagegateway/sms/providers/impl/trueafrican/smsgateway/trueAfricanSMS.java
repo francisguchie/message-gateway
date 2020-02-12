@@ -45,7 +45,7 @@ public class trueAfricanSMS {
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 		String httpUrl = taSettings.HOST ; 
-		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ; 
+		NameValuePair[] valuePairs = taSettings.GetParameters(clientConfig) ; 
 		return taHttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
 

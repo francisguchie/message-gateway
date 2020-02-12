@@ -32,7 +32,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus; 
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod; 
-import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.MsgStatus;
+import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.taMsgStatus;
 
 
 public class taHttpUrls {
@@ -41,7 +41,7 @@ public class taHttpUrls {
 	
 	private static final String GET = "GET";
 	
-	public static MsgStatus sendByPostMethod(String sUrl, NameValuePair[] data,Map<String, String> headers) throws Exception {
+	public static taMsgStatus sendByPostMethod(String sUrl, NameValuePair[] data,Map<String, String> headers) throws Exception {
 		HttpClient httpClient = new HttpClient() ; 
 		
 		PostMethod postMethod = new PostMethod(sUrl);
@@ -61,7 +61,7 @@ public class taHttpUrls {
 			if (statusCode == HttpStatus.SC_OK) {
 				String httpResponse = postMethod.getResponseBodyAsString();
 			
-				return Settings.parseTrueAfricanResultXML(new StringReader(httpResponse)) ; 
+				return taSettings.parseTrueAfricanResultXML(new StringReader(httpResponse)) ; 
 				
 			}
 		}  catch (Exception e) {
@@ -73,7 +73,7 @@ public class taHttpUrls {
 		return null;
 	}
 
-	public static MsgStatus sendByUrlHttpConnection(String url) throws Exception {
+	public static taMsgStatus sendByUrlHttpConnection(String url) throws Exception {
 
         HttpURLConnection con = null;
         try {
@@ -87,7 +87,7 @@ public class taHttpUrls {
 
             if (responseCode == HttpStatus.SC_OK) {
 
-              return  Settings.parseTrueAfricanResultXML(con.getInputStream()) ; 
+              return  taSettings.parseTrueAfricanResultXML(con.getInputStream()) ; 
                
             } else {
             	return null ; 

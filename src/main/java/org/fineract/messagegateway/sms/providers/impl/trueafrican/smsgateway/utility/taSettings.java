@@ -39,8 +39,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.MsgStatus;
-import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.taClientConfig ;
+import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.*;
+// import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.taClientConfig ;
 
 public class taSettings {
 	
@@ -54,7 +54,7 @@ public class taSettings {
 	public static final String HOST = "https://mysms.trueafrican.com/v1/api/esme/send" ; 
 	// private static final String DEFAULT_AFFILIATE = "999" ; 
 	
-	public static MsgStatus parseTrueAfricanResultXML(InputStream stream) throws Exception, IOException  {
+	public static taMsgStatus parseTrueAfricanResultXML(InputStream stream) throws Exception, IOException  {
         DocumentBuilder objDocumentBuilder = DocBuilder();
         
         Document doc = objDocumentBuilder.parse(stream);
@@ -71,17 +71,17 @@ public class taSettings {
 		return objDocumentBuilder;
 	}
 	
-	public static MsgStatus parseTrueAfricanResultXML(StringReader stream) throws Exception, IOException  {
+	public static taMsgStatus parseTrueAfricanResultXML(StringReader stream) throws Exception, IOException  {
         DocumentBuilder objDocumentBuilder = DocBuilder();
         
         Document doc = objDocumentBuilder.parse(new InputSource(stream));
         return DocumentProcessor(doc);
     }
 
-	private static MsgStatus DocumentProcessor(Document doc) {
+	private static taMsgStatus DocumentProcessor(Document doc) {
 		NodeList nList = doc.getElementsByTagName(SMS);
 
-        MsgStatus status = new MsgStatus();
+        taMsgStatus status = new taMsgStatus();
         
         for (int temp = 0; temp < nList.getLength(); temp++) {
 

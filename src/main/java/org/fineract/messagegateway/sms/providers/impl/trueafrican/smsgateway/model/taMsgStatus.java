@@ -24,7 +24,15 @@ public class taMsgStatus {
 	private String status;
 	private String code;
 	private String error;
+	private String msisdn;
 	
+	public String getMsisdn() {
+		return msisdn;
+	}
+
+	public void setMsisdn(String msisdn) {
+		this.msisdn = msisdn;
+	}
 
 	public String getStatus() {
 		return status;
