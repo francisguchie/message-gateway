@@ -93,7 +93,7 @@ public class Settings {
 
                 if (eElement.getElementsByTagName(MSISDN) != null) {
                     //status.setMsgid(eElement.getElementsByTagName(MSGID).item(0).getTextContent());
-                    status.setMsisdn( eElement.getElementsByTagName(MSISDN).item(0).getTextContent());
+                   // status.setMsisdn( eElement.getElementsByTagName(MSISDN).item(0).getTextContent());
                     status.setStatus(eElement.getElementsByTagName(STATUS2).item(0).getTextContent());
                 } else {
                     
