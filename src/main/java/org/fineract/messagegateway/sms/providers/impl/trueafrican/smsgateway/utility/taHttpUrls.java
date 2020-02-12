@@ -82,14 +82,13 @@ public class taHttpUrls {
             con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod(GET);
             con.connect();
-
-            System.out.println(con); // Guchie added this to see the connection 
-
             int responseCode = con.getResponseCode();
 
             if (responseCode == HttpStatus.SC_OK) {
 
               return  taSettings.parseTrueAfricanResultXML(con.getInputStream()) ; 
+
+              System.out.println(con.getInputStream()); //guchie added 
                
             } else {
             	return null ; 
