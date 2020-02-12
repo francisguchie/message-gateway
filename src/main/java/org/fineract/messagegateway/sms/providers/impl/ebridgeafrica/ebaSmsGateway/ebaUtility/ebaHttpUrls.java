@@ -34,7 +34,7 @@ import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod; 
 import org.fineract.messagegateway.sms.providers.impl.ebridgeafrica.ebaSmsGateway.ebaModel.ebaMsgStatus;
 
-public class HttpUrls {
+public class ebaHttpUrls {
 	
 	
 	
@@ -60,8 +60,8 @@ public class HttpUrls {
 			if (statusCode == HttpStatus.SC_OK) {
 				String httpResponse = postMethod.getResponseBodyAsString();
 			
-				return Settings.parseWirepickResultXML(new StringReader(httpResponse)) ; 
-				
+				return ebaSettings.parseEbridgeAfricaResultXML(new StringReader(httpResponse)) ;
+
 			}
 		}  catch (Exception e) {
 			throw e;
@@ -86,7 +86,7 @@ public class HttpUrls {
 
             if (responseCode == HttpStatus.SC_OK) {
 
-              return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
+              return  ebaSettings.parseEbridgeAfricaResultXML(con.getInputStream()) ;
                
             } else {
             	return null ; 

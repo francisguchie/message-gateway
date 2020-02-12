@@ -54,7 +54,7 @@ public class Settings {
 	public static final String HOST = "https://ebridgeafrica.com/api" ;
 	private static final String DEFAULT_AFFILIATE = "999" ; 
 	
-	public static ebaMsgStatus parseWirepickResultXML(InputStream stream) throws Exception, IOException  {
+	public static ebaMsgStatus parseEbridgeAfricaResultXML(InputStream stream) throws Exception, IOException  {
         DocumentBuilder objDocumentBuilder = DocBuilder();
         
         Document doc = objDocumentBuilder.parse(stream);
@@ -71,7 +71,7 @@ public class Settings {
 		return objDocumentBuilder;
 	}
 	
-	public static ebaMsgStatus parseWirepickResultXML(StringReader stream) throws Exception, IOException  {
+	public static ebaMsgStatus parseEbridgeAfricaResultXML(StringReader stream) throws Exception, IOException  {
         DocumentBuilder objDocumentBuilder = DocBuilder();
         
         Document doc = objDocumentBuilder.parse(new InputSource(stream));

@@ -19,7 +19,7 @@
 
 package org.fineract.messagegateway.sms.providers.impl.ebridgeafrica.ebaSmsGateway.ebaModel;
 
-public class MsgStatus {
+public class ebaMsgStatus {
 	
 	private String msgid;
 	private String phone;
