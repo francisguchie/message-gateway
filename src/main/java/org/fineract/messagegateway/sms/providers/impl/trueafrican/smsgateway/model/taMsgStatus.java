@@ -19,7 +19,7 @@
 
 package org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model;
 
-public class MsgStatus {
+public class taMsgStatus {
 	
 	private String status;
 	private String code;

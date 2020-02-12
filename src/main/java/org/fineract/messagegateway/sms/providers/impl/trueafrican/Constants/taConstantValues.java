@@ -19,7 +19,7 @@
 
 package org.fineract.messagegateway.sms.providers.impl.trueafrican.Constants;
 
-public class ConstantValues {
+public class taConstantValues {
 
 	// public static final String SMS_CLIENT_AFFILIATE = "999";
 	// public static final String SMS_TAG = "api";
@@ -36,4 +36,16 @@ public class ConstantValues {
 "username": "advanc",
 "password": "2017Aumf#"
 }
+*/
+
+/* INFO  o.a.f.i.s.s.SmsMessageScheduledJobServiceImpl - Sending triggered SMS with request - 
+[
+{
+"internalId":50922,
+"mobileNumber":"256785285379",
+"message":"Feb:12:2020 Credit of SLL 1.00 into act No. 0000000038. 
+Your new Balance is 100270851.11 Leones. Thank you for banking with ACTB",
+"providerId":2
+}
+]
 */

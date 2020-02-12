@@ -19,19 +19,19 @@
 
 package org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model;
 
-public class trueAfricanClientConfig{
+public class taClientConfig{
 	
 	private String msisdn ;
 	private String message;	
 	private String username ;
 	private String password ;
 	
-	public trueAfricanClientConfig()
+	public taClientConfig()
 	{
 		
 	}
 	
-	public trueAfricanClientConfig(String msisdn, String message, String username, String password) {
+	public taClientConfig(String msisdn, String message, String username, String password) {
 		
 		this.msisdn = msisdn;
 		this.message = message;

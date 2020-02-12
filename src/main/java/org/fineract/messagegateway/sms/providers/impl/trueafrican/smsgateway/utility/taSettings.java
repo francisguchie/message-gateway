@@ -40,9 +40,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.MsgStatus;
-import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.trueAfricanClientConfig ;
+import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.taClientConfig ;
 
-public class Settings {
+public class taSettings {
 	
 	
 	//private static final String API = "API";
@@ -106,7 +106,7 @@ public class Settings {
 		return status;
 	}
 	
-	public static String HTTPparameters(trueAfricanClientConfig config) throws UnsupportedEncodingException
+	public static String HTTPparameters(taClientConfig config) throws UnsupportedEncodingException
 	{
 		StringBuffer buffer = new  StringBuffer(HOST) ; 
 		
@@ -121,7 +121,7 @@ public class Settings {
 		
 	}
 
-	private static void ValidateParams(trueAfricanClientConfig config) {
+	private static void ValidateParams(taClientConfig config) {
 		if(config.getMsisdn() == null || config.getMsisdn().isEmpty())
 		{
 			throw new NullPointerException("Phone number is required") ; 
@@ -142,7 +142,7 @@ public class Settings {
 	}
 	
 	
-	public static  NameValuePair[] GetParameters(trueAfricanClientConfig config) throws UnsupportedEncodingException
+	public static  NameValuePair[] GetParameters(taClientConfig config) throws UnsupportedEncodingException
 	{
 		
 		ValidateParams(config);
