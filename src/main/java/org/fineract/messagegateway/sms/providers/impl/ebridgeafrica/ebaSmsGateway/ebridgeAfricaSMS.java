@@ -33,7 +33,7 @@ public class ebridgeAfricaSMS {
 		String httpUrl = ebaSettings.HTTPparameters(clientConfig) ;
 		if(httpUrl != null && httpUrl.startsWith(ebaSettings.HOST))
 		{
-			return HttpUrls.sendByUrlHttpConnection(httpUrl) ; 
+			return ebaHttpUrls.sendByUrlHttpConnection(httpUrl) ;
 		}
 		
 		return null;
