@@ -83,6 +83,8 @@ public class taHttpUrls {
             con.setRequestMethod(GET);
             con.connect();
 
+            System.out.println(con); // Guchie added this to see the connection 
+
             int responseCode = con.getResponseCode();
 
             if (responseCode == HttpStatus.SC_OK) {

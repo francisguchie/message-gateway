@@ -77,14 +77,15 @@ public class SmsApiResource {
 
         trueAfricanSMS sms = new trueAfricanSMS() ;
          for(SMSMessage sMessage : payload) {
-            taClientConfig config = new taClientConfig(taConstantValues.SMS_CLIENT_USER_NAME, taConstantValues.SMS_CLIENT_PWD, 
-                     sMessage.getMobileNumber() ,sMessage.getMessage()) ; 
+            taClientConfig config = new taClientConfig(sMessage.getMobileNumber() ,sMessage.getMessage(), 
+                     taConstantValues.SMS_CLIENT_USER_NAME, taConstantValues.SMS_CLIENT_PWD) ; 
             try {
                 taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getMsisdn());
 
             } catch (Exception e) {
-                System.out.println(config().toString());
+                System.out.println(config());
+                
               System.out.println("Check UserName, Password, Msisdn are correct and the Phone number includes the international code without the plus sign");  
 
             }
