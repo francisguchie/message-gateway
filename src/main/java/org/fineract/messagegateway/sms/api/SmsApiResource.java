@@ -84,7 +84,8 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getMsisdn());
 
             } catch (Exception e) {
-              System.out.println(msgStatus.getMsisdn() + " Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign");  
+                taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+              System.out.println(msgStatus.getMsisdn() + " Check that username, password, message are ok and make sure the Phone number includes the international code without the plus sign");  
 
             }
         }  
