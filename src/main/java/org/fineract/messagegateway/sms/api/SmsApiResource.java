@@ -88,6 +88,7 @@ public class SmsApiResource {
               System.out.println( " Check that username, password, message are ok and make sure the Phone number includes the international code without the plus sign");  
 
             } finally {
+                taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getMsisdn());
             }
         }  
