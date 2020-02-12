@@ -26,7 +26,7 @@ import org.fineract.messagegateway.sms.providers.impl.ebridgeafrica.ebaSmsGatewa
 
 public class ebridgeAfricaSMS {
 	
-	public ebaMsgStatus SendGETSMS(ebridgeAfricaSMS clientConfig) throws Exception
+	public MsgStatus SendGETSMS(ebridgeAfricaSMS clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
@@ -40,7 +40,7 @@ public class ebridgeAfricaSMS {
 	}
 	
 	
-	public ebaMsgStatus SendPOSTSMS(ebridgeAfricaSMS clientConfig) throws Exception
+	public MsgStatus SendPOSTSMS(ebridgeAfricaSMS clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;

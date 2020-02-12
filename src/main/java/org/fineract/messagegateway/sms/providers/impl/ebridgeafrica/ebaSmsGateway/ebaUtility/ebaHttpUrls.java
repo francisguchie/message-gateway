@@ -40,7 +40,7 @@ public class ebaHttpUrls {
 	
 	private static final String GET = "GET";
 	
-	public static ebaMsgStatus sendByPostMethod(String sUrl, NameValuePair[] data,Map<String, String> headers) throws Exception {
+	public static MsgStatus sendByPostMethod(String sUrl, NameValuePair[] data,Map<String, String> headers) throws Exception {
 		HttpClient httpClient = new HttpClient() ; 
 		
 		PostMethod postMethod = new PostMethod(sUrl);
@@ -72,7 +72,7 @@ public class ebaHttpUrls {
 		return null;
 	}
 
-	public static ebaMsgStatus sendByUrlHttpConnection(String url) throws Exception {
+	public static MsgStatus sendByUrlHttpConnection(String url) throws Exception {
 
         HttpURLConnection con = null;
         try {
