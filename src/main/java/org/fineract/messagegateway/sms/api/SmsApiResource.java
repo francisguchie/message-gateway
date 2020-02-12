@@ -84,13 +84,11 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getMsisdn());
 
             } catch (RuntimeException ex) {
-                
-                taMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                System.out.println(msgStatus.getMsisdn());
+                throw ex;
 
             } catch (Exception e2) {
                 throw e2;
-              System.out.println("Check UserName, Password, Msisdn are correct and the Phone number includes the international code without the plus sign");  
+              // System.out.println("Check UserName, Password, Msisdn are correct and the Phone number includes the international code without the plus sign");  
 
             }
         } 
