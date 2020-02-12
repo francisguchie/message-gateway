@@ -41,7 +41,7 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.
 import org.fineract.messagegateway.sms.providers.impl.trueafrican.Constants.*;
 import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.*;
 import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.*;
-import org.fineract.messagegateway.sms.providers.impl.trueafrican.smsgateway.model.Utility.*;
+
 
 
 @RestController
