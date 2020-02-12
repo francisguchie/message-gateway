@@ -47,7 +47,7 @@ public class ebridgeAfricaSMS {
 		System.out.println(" throwing a null pointer Exception");
 		String httpUrl = ebaSettings.HOST ;
 		NameValuePair[] valuePairs = ebaSettings.GetParameters(clientConfig) ;
-		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
+		return ebaHttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
 
 }
