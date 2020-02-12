@@ -55,7 +55,7 @@ public class SmsApiResource {
     		@RequestHeader(MessageGatewayConstants.TENANT_APPKEY_HEADER) final String appKey, 
     		@RequestBody final List<SMSMessage> payload) {
         
-    	WirepickSMS sms = new WirepickSMS() ;
+    	/*WirepickSMS sms = new WirepickSMS() ;
          for(SMSMessage sMessage : payload) {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_ID, ConstantValues.SMS_CLIENT_PWD, 
                     ConstantValues.SMS_CLIENT_AFFILIATE, sMessage.getMobileNumber() ,sMessage.getMessage(), ConstantValues.SMS_CLIENT_SENDER_ID, ConstantValues.SMS_TAG) ; 
@@ -65,6 +65,21 @@ public class SmsApiResource {
 
             } catch (Exception e) {
               System.out.println("Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign");  
+
+            }
+        }*/
+
+        ebridgeAfricaSMS sms = new ebridgeAfricaSMS() ;
+        for(SMSMessage sMessage : payload) {
+            // ?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB "
+            ebaClientConfig config = new ebaClientConfig(ebaConstantValues.SMS_CLIENT_ID, ebaConstantValues.SMS_CLIENT_PWD,
+                    sMessage.getMessage(), sMessage.getMobileNumber() , ebaConstantValues.SMS_CLIENT_SENDER_ID) ;
+            try {
+                ebaMsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                System.out.println(msgStatus.getMessageId());
+
+            } catch (Exception e) {
+                System.out.println(" See that Useris, Password, Message as correct and make sure the Phone number includes the international code without the plus sign");
 
             }
         }
