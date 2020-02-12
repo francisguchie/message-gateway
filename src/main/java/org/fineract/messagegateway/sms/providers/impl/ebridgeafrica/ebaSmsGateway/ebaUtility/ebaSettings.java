@@ -42,7 +42,7 @@ import org.xml.sax.InputSource;
 import org.fineract.messagegateway.sms.providers.impl.ebridgeafrica.ebaSmsGateway.ebaModel.ebaMsgStatus;
 import org.fineract.messagegateway.sms.providers.impl.ebridgeafrica.ebaSmsGateway.ebaModel.ebaClientConfig;
 
-public class Settings {
+public class ebaSettings {
 	
 	
 	private static final String API = "API";
