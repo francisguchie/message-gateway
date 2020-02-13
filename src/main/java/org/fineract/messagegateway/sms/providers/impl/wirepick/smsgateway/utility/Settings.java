@@ -130,7 +130,9 @@ public class Settings {
 		buffer.append("&phone=").append(URLEncoder.encode(config.getPhone(), UTF_8));
 		buffer.append("&sender=").append(URLEncoder.encode(config.getSender(), UTF_8));
 
+		System.out.println(buffer.toString());
 		return buffer.toString() ;
+
 		
 	}
 	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
