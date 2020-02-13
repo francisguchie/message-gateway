@@ -20,42 +20,38 @@
 package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model;
 
 public class MsgStatus {
-	
-	private String msgid;
+	//{"phone":"23279194407","status":"OK",
+	// "description":"Message has been sent successfully","time":"2020-02-13T16:43:58.9460874+00:00"}
+
 	private String phone;
 	private String status;
-	private int messageId;
+	private String description;
+	private String time;
 
-	public String getMsgid() {
-		return msgid;
-	}
-
-	public void setMsgid(String msgid) {
-		this.msgid = msgid;
-	}
 
 	public String getPhone() {
 		return phone;
 	}
-
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
 	public String getStatus() {
 		return status;
 	}
-
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-	public int getMessageId() {
-		return messageId;
+	public String getDescription() {
+		return description;
 	}
-
-	public void setMessageId(int messageId) {
-		this.messageId = messageId;
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 }

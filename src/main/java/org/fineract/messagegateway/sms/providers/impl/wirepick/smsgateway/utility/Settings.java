@@ -43,17 +43,25 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.WpkClientConfig;
 
 public class Settings {
-	
-	
-	private static final String API = "API";
-	private static final String SMS = "sms";
-	private static final String STATUS2 = "status";
+
+	//{"phone":"23279194407","status":"OK",
+	// "description":"Message has been sent successfully","time":"2020-02-13T16:43:58.9460874+00:00"}
+
+
 	private static final String PHONE = "phone";
-	private static final String MSGID = "msgid";
+	private static final String STATUS2 = "status";
+	private static final String DESCRIPTION = "description";
+	private static final String TIME = "time";
+
+	private static final String SMS = "sms";
+	private static final String API = "API";
 	private static final String UTF_8 = "UTF-8";
-	public static final String HOST = "https://ebridgeafrica.com/sms/SendSMS" ; 
-	private static final String DEFAULT_AFFILIATE = "999" ; 
-	
+	public static final String HOST = "https://ebridgeafrica.com/api" ;
+
+	//private static final String DEFAULT_AFFILIATE = "999" ;
+
+	//https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
+
 	public static MsgStatus parseWirepickResultXML(InputStream stream) throws Exception, IOException  {
         DocumentBuilder objDocumentBuilder = DocBuilder();
         
@@ -91,10 +99,11 @@ public class Settings {
 
                 Element eElement = (Element) nNode;
 
-                if (eElement.getElementsByTagName(MSGID) != null) {
-                    status.setMsgid(eElement.getElementsByTagName(MSGID).item(0).getTextContent());
-                    status.setPhone( eElement.getElementsByTagName(PHONE).item(0).getTextContent());
+                if (eElement.getElementsByTagName(TIME) != null) {
+                    status.setPhone(eElement.getElementsByTagName(PHONE).item(0).getTextContent());
                     status.setStatus(eElement.getElementsByTagName(STATUS2).item(0).getTextContent());
+					status.setDescription(eElement.getElementsByTagName(DESCRIPTION).item(0).getTextContent());
+					status.setTime(eElement.getElementsByTagName(TIME).item(0).getTextContent());
                 } else {
                     
                 	return null ;
@@ -105,95 +114,60 @@ public class Settings {
         }
 		return status;
 	}
-	
+
+	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
 	public static String HTTPparameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
 		StringBuffer buffer = new  StringBuffer(HOST) ; 
 		
 		ValidateParams(config);
 		
-		buffer.append("?client=").append(URLEncoder.encode(config.getClientid(), UTF_8)) ;
-		
-		if(config.getAffiliate() != null)
-		{
-			buffer.append("&affiliate=").append(URLEncoder.encode(config.getAffiliate(), UTF_8));
-		}
-		else
-		{
-			buffer.append("&affiliate=").append(DEFAULT_AFFILIATE);
-		}
-		
-		buffer.append("&password=").append(URLEncoder.encode(config.getPws(), UTF_8));
+		buffer.append("?userid=").append(URLEncoder.encode(config.getUserId(), UTF_8)) ;
+		buffer.append("&password=").append(URLEncoder.encode(config.getPassword(), UTF_8));
+		buffer.append("&message=").append(URLEncoder.encode(config.getMessage(), UTF_8));
 		buffer.append("&phone=").append(URLEncoder.encode(config.getPhone(), UTF_8));
-		buffer.append("&text=").append(URLEncoder.encode(config.getSms(), UTF_8));
-		buffer.append("&from=").append(URLEncoder.encode(config.getSenderid(), UTF_8));
-		
-		if(config.getTag() != null)
-		{
-			buffer.append("&tag=").append(URLEncoder.encode(config.getTag(), UTF_8));
-		}
-		else
-		{
-			buffer.append("&tag=").append(URLEncoder.encode(API, UTF_8));
-		}
-		
-		
-		return buffer.toString() ; 
+		buffer.append("&sender=").append(URLEncoder.encode(config.getSender(), UTF_8));
+
+		return buffer.toString() ;
 		
 	}
-
+	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
 	private static void ValidateParams(WpkClientConfig config) {
-		if(config.getClientid() == null || config.getClientid().isEmpty())
+
+		if(config.getUserId() == null || config.getUserId().isEmpty())
 		{
-			throw new NullPointerException("Client id/Password is required") ; 
+			throw new NullPointerException("User id is required") ;
 		}
-		else if(config.getPws() == null || config.getPws().isEmpty())
+		else if(config.getPassword() == null || config.getPassword().isEmpty())
 		{
-			throw new NullPointerException("Client id/Password is required") ; 
+			throw new NullPointerException("Password is required") ;
+		}
+		else if(config.getMessage() == null || config.getMessage().isEmpty())
+		{
+			throw new NullPointerException("Message is required") ;
 		}
 		else if(config.getPhone() == null || config.getPhone().isEmpty())
 		{
-			throw new NullPointerException("Phone is required") ; 
+			throw new NullPointerException("Phone is required") ;
 		}
-		else if(config.getSms() == null || config.getSms().isEmpty())
+		else if(config.getSender() == null || config.getSender().isEmpty())
 		{
-			throw new NullPointerException("SMS content is required") ; 
-		}
-		else if(config.getSenderid() == null || config.getSenderid().isEmpty())
-		{
-			throw new NullPointerException("Sender id is required") ; 
+			throw new NullPointerException("Sender is required") ;
 		}
 	}
-	
-	
+
+	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
 	public static  NameValuePair[] GetParameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
-		
 		ValidateParams(config);
-		NameValuePair[] nameValuePairs = new NameValuePair[7] ; 
+		NameValuePair[] nameValuePairs = new NameValuePair[5] ;
 		
-		nameValuePairs[0] = new NameValuePair("client", config.getClientid()) ;
-		if(config.getAffiliate() != null)
-		{
-			nameValuePairs[1] = new NameValuePair("affiliate", config.getAffiliate()) ; 
-		}
-		else
-		{
-			nameValuePairs[1] = new NameValuePair("affiliate",DEFAULT_AFFILIATE) ; 
-		}
-		
-		nameValuePairs[2] = new NameValuePair("password", config.getPws()) ; 
-		nameValuePairs[3] = new NameValuePair("phone", config.getPhone()) ; 
-		nameValuePairs[4] = new NameValuePair("text",config.getSms()) ;
-		nameValuePairs[5] = new NameValuePair("from", config.getSenderid()) ;
-		if(config.getAffiliate() != null)
-		{
-			nameValuePairs[6] = new NameValuePair("tag",config.getTag()) ;
-		}
-		else
-		{
-			nameValuePairs[6] = new NameValuePair("tag",API) ;
-		}
+		nameValuePairs[0] = new NameValuePair("userid", config.getUserId()) ;
+		nameValuePairs[1] = new NameValuePair("password", config.getPassword()) ;
+		nameValuePairs[2] = new NameValuePair("message",config.getMessage()) ;
+		nameValuePairs[3] = new NameValuePair("phone", config.getPhone()) ;
+		nameValuePairs[4] = new NameValuePair("sender", config.getSender()) ;
+
 		return nameValuePairs;
 	}
 }

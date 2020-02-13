@@ -20,49 +20,41 @@
 package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model;
 
 public class WpkClientConfig {
-	
-	
-	private String clientid ;
-	private String pws ;
-	private String affiliate;
-	
+
+	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
+	private String userid ;
+	private String password ;
+	//private String affiliate;
+	private String message;
 	private String phone ;
-	private String sms;
-	private String senderid;
-	private String tag;
+	private String sender;
+	//private String tag;
 	
 	public WpkClientConfig()
 	{
 		
 	}
 	
-	public WpkClientConfig(String clientid, String pws, String affiliate, String phone, String sms, String senderid,
-			String tag) {
-		this.clientid = clientid;
-		this.pws = pws;
-		this.affiliate = affiliate;
+	public WpkClientConfig(String userid, String password,String message,  String phone,  String sender) {
+		this.userid = userid;
+		this.password = password;
+		this.message = message;
+		//this.affiliate = affiliate;
 		this.phone = phone;
-		this.sms = sms;
-		this.senderid = senderid;
-		this.tag = tag;
+		this.sender = sender;
+		//this.tag = tag;
 	}
-	public String getClientid() {
-		return clientid;
+	public String getUserId() {
+		return userid;
 	}
-	public void setClientid(String clientid) {
-		this.clientid = clientid;
+	public void setUserId(String userid) {
+		this.userid = userid;
 	}
-	public String getPws() {
-		return pws;
+	public String getPassword() {
+		return password;
 	}
-	public void setPws(String pws) {
-		this.pws = pws;
-	}
-	public String getAffiliate() {
-		return affiliate;
-	}
-	public void setAffiliate(String affiliate) {
-		this.affiliate = affiliate;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getPhone() {
 		return phone;
@@ -70,22 +62,17 @@ public class WpkClientConfig {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getSms() {
-		return sms;
+	public String getMessage() {
+		return message;
 	}
-	public void setSms(String sms) {
-		this.sms = sms;
+	public void setMessage(String message) {
+		this.message = message;
 	}
-	public String getSenderid() {
-		return senderid;
+	public String getSender() {
+		return sender;
 	}
-	public void setSenderid(String senderid) {
-		this.senderid = senderid;
+	public void setSender(String sender) {
+		this.sender = sender;
 	}
-	public String getTag() {
-		return tag;
-	}
-	public void setTag(String tag) {
-		this.tag = tag;
-	}
+
 }

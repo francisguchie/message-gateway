@@ -57,14 +57,15 @@ public class SmsApiResource {
         
     	WirepickSMS sms = new WirepickSMS() ;
          for(SMSMessage sMessage : payload) {
-            WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_ID, ConstantValues.SMS_CLIENT_PWD, 
-                    ConstantValues.SMS_CLIENT_AFFILIATE, sMessage.getMobileNumber() ,sMessage.getMessage(), ConstantValues.SMS_CLIENT_SENDER_ID, ConstantValues.SMS_TAG) ; 
+            WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
+                    sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                System.out.println(msgStatus.getMessageId());
+                System.out.println(msgStatus.getTime());
+                System.out.println(msgStatus.getPhone());
 
             } catch (Exception e) {
-              System.out.println("Message not sent please make sure your ClientID,TAG and Password are correct. Alse make sure the Phone number includes the international code without the plus sign");  
+              System.out.println("See tha User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
 
             }
         }
