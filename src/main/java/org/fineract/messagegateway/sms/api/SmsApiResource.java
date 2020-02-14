@@ -69,10 +69,14 @@ public class SmsApiResource {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getMobileNumber());
 
-                System.out.printf(msgStatus.toString());
+                //System.out.printf(msgStatus.toString());
 
             } catch (NullPointerException e) {
-                System.out.println(config.getMobileNumber);
+                //System.out.println(config.getMobileNumber);
+
+                System.out.println(e.getMessage());
+                //System.out.println(e.toString());
+                ///e.printStackTrace();
 
             }catch (Exception e) {
 
