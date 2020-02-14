@@ -109,8 +109,10 @@ public class Settings {
                     status.setStatus(eElement.getElementsByTagName(STATUS2).item(0).getTextContent());
 					status.setDescription(eElement.getElementsByTagName(DESCRIPTION).item(0).getTextContent());
 					status.setTime(eElement.getElementsByTagName(TIME).item(0).getTextContent());
+
+					System.out.println(" The phone No. is" + status.field.toString());
                 } else {
-                    
+					System.out.println(" there is no phone number");
                 	return null ;
                 }
                 

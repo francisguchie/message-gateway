@@ -57,7 +57,7 @@ public class WirepickSMS {
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
 		// Guchie added
-		System.out.println(java.util.Arrays.stream(valuePairs));
+		System.out.println(httpUrl+ valuePairs.toString());
 		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
