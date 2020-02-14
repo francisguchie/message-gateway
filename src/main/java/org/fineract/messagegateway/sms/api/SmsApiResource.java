@@ -40,9 +40,6 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.Constants.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
 
-import org.fineract.messagegateway.sms.service.SMSMessageService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 @RestController
@@ -71,9 +68,8 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getTime());
                 System.out.println(msgStatus.getPhone());
 
-                private static final Logger logger = LoggerFactory.getLogger(SMSMessageService.class);
-                logger.info("The message has been sent to.....");
-                // System.out.println(" The message has been sent to ");
+                // logger.info("The message has been sent to.....");
+                System.out.println(" The message has been sent to ");
 
             } catch (Exception e) {
 
