@@ -66,7 +66,7 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getTime());
                 System.out.println(msgStatus.getPhone());
 
-                System.out.println(" The message has been sent to "+msgStatus.getPhone().toString());
+                System.out.println(" The message has been sent to "+ sMessage.getMobileNumber());
 
             } catch (Exception e) {
 
