@@ -69,16 +69,14 @@ public class SmsApiResource {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getPhone());
 
-                //System.out.println(msgStatus.getPhone().toString());
-                //System.out.println(msgStatus.getDescription().toString());
-
             } catch (Exception e) {
 
-                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                System.out.println(msgStatus);
+                //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                //System.out.println(msgStatus);
+                e.printStackTrace();
 
               System.out.println("See tha User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
-              return null ;
+
             }
         }
 

@@ -44,8 +44,17 @@ public class WirepickSMS {
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
-		String httpUrl = Settings.HOST ; 
-		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ; 
+		String httpUrl = Settings.HOST ;
+
+		//Guchie added
+		System.out.println(httpUrl);
+		//Guchie added
+
+		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
+
+		// Guchie added
+		System.out.println(java.util.Arrays.stream(valuePairs));
+		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
 
