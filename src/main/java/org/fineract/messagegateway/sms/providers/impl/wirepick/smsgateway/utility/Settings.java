@@ -110,7 +110,7 @@ public class Settings {
 					status.setDescription(eElement.getElementsByTagName(DESCRIPTION).item(0).getTextContent());
 					status.setTime(eElement.getElementsByTagName(TIME).item(0).getTextContent());
 
-					System.out.println(" The phone No. is" + status.field.toString());
+					System.out.println(" The phone No. is" + status.setPhone.toString());
                 } else {
 					System.out.println(" there is no phone number");
                 	return null ;
