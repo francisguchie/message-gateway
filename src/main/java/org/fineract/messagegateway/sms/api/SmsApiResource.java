@@ -55,7 +55,8 @@ public class SmsApiResource {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = {"application/json"}, produces = {"application/json"})
-    public ResponseEntity<Void> sendShortMessages(@RequestHeader(MessageGatewayConstants.TENANT_IDENTIFIER_HEADER) final String tenantId,
+    public ResponseEntity<Void> sendShortMessages(@RequestHeader(MessageGatewayConstants.TENANT_IDENTIFIER_HEADER)
+                                                      final String tenantId,
     		@RequestHeader(MessageGatewayConstants.TENANT_APPKEY_HEADER) final String appKey, 
     		@RequestBody final List<SMSMessage> payload) {
 
