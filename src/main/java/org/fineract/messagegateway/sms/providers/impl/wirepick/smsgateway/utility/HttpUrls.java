@@ -27,10 +27,12 @@ import java.net.URL;
 import java.util.Map;
 import java.util.Map.Entry;
 
-
+//doHttpUrlConnectionAction
 import org.apache.commons.httpclient.HttpClient; 
 import org.apache.commons.httpclient.HttpStatus; 
 import org.apache.commons.httpclient.NameValuePair;
+//import org.apache.commons.httpclient.doHttpUrlConnectionAction ;
+
 import org.apache.commons.httpclient.methods.PostMethod;
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
@@ -87,13 +89,13 @@ public class HttpUrls {
 
             if (responseCode == HttpStatus.SC_OK) {
             	// guchie added
-				System.out.println(doHttpUrlConnectionAction(con));
+				System.out.println(con.getResponseMessage());
 				// end of guchie added
               return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
                
             } else {
 				// guchie added
-				System.out.println(doHttpUrlConnectionAction(con));
+				System.out.println(con.getResponseMessage());
 				// end of guchie added
             	return null ; 
             }
