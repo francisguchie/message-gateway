@@ -56,8 +56,8 @@ public class Settings {
 	private static final String SMS = "sms";
 	private static final String API = "API";
 	private static final String UTF_8 = "UTF-8";
-	public static final String HOST = "https://ebridgeafrica.com/api/v1/sendsms" ;
-	//public static final String HOST = "https://ebridgeafrica.com/api" ;
+	//public static final String HOST = "https://ebridgeafrica.com/api/v1/sendsms" ;
+	public static final String HOST = "https://ebridgeafrica.com/api" ;
 	//public static final String HOST = "https://sms.wirepick.com/httpsms/send" ;
 
 	//private static final String DEFAULT_AFFILIATE = "999" ;

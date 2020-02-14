@@ -88,15 +88,11 @@ public class HttpUrls {
             int responseCode = con.getResponseCode();
 
             if (responseCode == HttpStatus.SC_OK) {
-            	// guchie added
-				System.out.println(con.getResponseMessage());
-				// end of guchie added
+
               return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
                
             } else {
-				// guchie added
-				System.out.println(con.getResponseMessage());
-				// end of guchie added
+
             	return null ; 
             }
 
