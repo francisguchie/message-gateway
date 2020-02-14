@@ -43,7 +43,7 @@ public class WirepickSMS {
 
 		}
 		else {
-			throw new Exception("Could not do stuff  :( " + HttpUrls);
+			throw new Exception("Could not do stuff  :( " );
 		}
 		
 		return null;
