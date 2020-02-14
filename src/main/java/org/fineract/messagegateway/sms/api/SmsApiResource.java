@@ -69,10 +69,7 @@ public class SmsApiResource {
                 System.out.println(" The message has been sent to "+msgStatus.getPhone().toString());
 
             } catch (Exception e) {
-                //System.out.println(doHttpUrlConnectionAction(uc));
-                // guchie added
-                System.out.println(con.getResponseMessage());
-                // end of guchie added
+
               System.out.println("See tha User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
 
             }
