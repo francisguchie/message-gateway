@@ -67,19 +67,19 @@ public class SmsApiResource {
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+
+                System.out.println("printing the config line 71 of SmsApiReasource.java");
+                System.out.println(config.toString());
+
                 System.out.println(msgStatus.getPhone());
 
             } catch (NullPointerException e) {
-
+                System.out.println("printing the NullPointerException line 77 of SmsApiReasource.java");
                 System.out.println(e.getMessage());
                 //System.out.println(e.toString());
                 ///e.printStackTrace();
 
             }catch (Exception e) {
-
-                //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                //System.out.println(msgStatus);
-                //e.printStackTrace();
 
               System.out.println("See tha User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
 

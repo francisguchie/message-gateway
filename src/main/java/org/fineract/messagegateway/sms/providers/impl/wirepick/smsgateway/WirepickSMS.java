@@ -34,6 +34,7 @@ public class WirepickSMS {
 		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
 		{
 			//Guchie added
+			System.out.println("printing the httpUrl thats set line 37 of WirepickSMS.java");
 			System.out.printf(httpUrl);
 			//Guchie added
 
@@ -51,13 +52,15 @@ public class WirepickSMS {
 		String httpUrl = Settings.HOST ;
 
 		//Guchie added
+		System.out.println("printing the httpUrl thats set line 55 of WirepickSMS.java ");
 		System.out.println(httpUrl);
 		//Guchie added
 
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
 		// Guchie added
-		System.out.println(httpUrl+ valuePairs.toString());
+		System.out.println("printing the httpUrl thats set line 62 of WirepickSMS.java ");
+		System.out.println(httpUrl);
 		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
