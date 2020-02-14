@@ -69,9 +69,8 @@ public class SmsApiResource {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 System.out.println(msgStatus.getPhone());
 
-                System.out.println(msgStatus.getPhone().toString());
-                System.out.println(msgStatus.getDescription().toString());
-
+                //System.out.println(msgStatus.getPhone().toString());
+                //System.out.println(msgStatus.getDescription().toString());
 
             } catch (Exception e) {
 

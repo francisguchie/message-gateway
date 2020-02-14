@@ -47,6 +47,7 @@ public class HttpUrls {
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
 
+
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
@@ -85,14 +86,16 @@ public class HttpUrls {
 
             int responseCode = con.getResponseCode();
 
+            //Guchie added
+            System.out.println(responseCode.toString());
+			//Guchie added
+
             if (responseCode == HttpStatus.SC_OK) {
 
               return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
                
             } else {
-            	// Guchie added
-              System.out.println(" it is failing at this point") ;
-               //Guchie added
+
             	return null ; 
             }
 
