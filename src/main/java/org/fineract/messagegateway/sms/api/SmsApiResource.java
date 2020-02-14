@@ -48,7 +48,7 @@ public class SmsApiResource {
 
 	//This class sends TRANSACTIONAL & PROMOTIONAL SMS
 	private SMSMessageService smsMessageService ;
-	
+
 	@Autowired
     public SmsApiResource(final SMSMessageService smsMessageService) {
 		this.smsMessageService = smsMessageService ;
@@ -67,13 +67,18 @@ public class SmsApiResource {
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                System.out.println(msgStatus.getPhone());
+                System.out.println(msgStatus.getMobileNumber());
 
-            } catch (Exception e) {
+                System.out.printf(msgStatus.toString());
+
+            } catch (NullPointerException e) {
+                System.out.println(config.getMobileNumber);
+
+            }catch (Exception e) {
 
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 //System.out.println(msgStatus);
-                e.printStackTrace();
+                //e.printStackTrace();
 
               System.out.println("See tha User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
 
