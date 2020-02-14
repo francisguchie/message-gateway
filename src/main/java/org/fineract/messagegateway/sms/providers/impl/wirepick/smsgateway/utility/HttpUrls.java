@@ -87,7 +87,7 @@ public class HttpUrls {
             int responseCode = con.getResponseCode();
 
             //Guchie added
-            System.out.println(responseCode.toString());
+            System.out.println(responseCode);
 			//Guchie added
 
             if (responseCode == HttpStatus.SC_OK) {
