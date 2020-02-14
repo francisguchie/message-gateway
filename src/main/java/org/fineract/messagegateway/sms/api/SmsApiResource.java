@@ -58,18 +58,20 @@ public class SmsApiResource {
     public ResponseEntity<Void> sendShortMessages(@RequestHeader(MessageGatewayConstants.TENANT_IDENTIFIER_HEADER) final String tenantId,
     		@RequestHeader(MessageGatewayConstants.TENANT_APPKEY_HEADER) final String appKey, 
     		@RequestBody final List<SMSMessage> payload) {
-        
+
+        /* this.smsMessageService.sendShortMessage(tenantId, appKey, payload); */
     	WirepickSMS sms = new WirepickSMS() ;
+        /* List<SMSmessage> list = new ArrayList<SMSmessage>() ; */
          for(SMSMessage sMessage : payload) {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                System.out.println(msgStatus.getTime());
                 System.out.println(msgStatus.getPhone());
 
-                // logger.info("The message has been sent to.....");
-                System.out.println(" The message has been sent to ");
+                System.out.println(msgStatus.getPhone().toString());
+                System.out.println(msgStatus.getDescription().toString());
+
 
             } catch (Exception e) {
 

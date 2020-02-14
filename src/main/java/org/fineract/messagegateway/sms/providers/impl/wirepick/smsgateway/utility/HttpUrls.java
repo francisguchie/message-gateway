@@ -27,12 +27,10 @@ import java.net.URL;
 import java.util.Map;
 import java.util.Map.Entry;
 
-//doHttpUrlConnectionAction
+
 import org.apache.commons.httpclient.HttpClient; 
 import org.apache.commons.httpclient.HttpStatus; 
 import org.apache.commons.httpclient.NameValuePair;
-//import org.apache.commons.httpclient.doHttpUrlConnectionAction ;
-
 import org.apache.commons.httpclient.methods.PostMethod;
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
@@ -92,7 +90,9 @@ public class HttpUrls {
               return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
                
             } else {
+            	// Guchie added
               System.out.println(" it is failing at this point") ;
+               //Guchie added
             	return null ; 
             }
 

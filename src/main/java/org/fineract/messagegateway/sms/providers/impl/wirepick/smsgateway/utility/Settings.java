@@ -104,7 +104,7 @@ public class Settings {
 
                 Element eElement = (Element) nNode;
 
-                if (eElement.getElementsByTagName(TIME) != null) {
+                if (eElement.getElementsByTagName(PHONE) != null) {
                     status.setPhone(eElement.getElementsByTagName(PHONE).item(0).getTextContent());
                     status.setStatus(eElement.getElementsByTagName(STATUS2).item(0).getTextContent());
 					status.setDescription(eElement.getElementsByTagName(DESCRIPTION).item(0).getTextContent());
@@ -133,7 +133,8 @@ public class Settings {
 		buffer.append("&phone=").append(URLEncoder.encode(config.getPhone(), UTF_8));
 		buffer.append("&sender=").append(URLEncoder.encode(config.getSender(), UTF_8));
 
-		System.out.println(buffer.toString());
+		System.out.println(buffer.toString().toString());
+
 		return buffer.toString() ;
 
 		
