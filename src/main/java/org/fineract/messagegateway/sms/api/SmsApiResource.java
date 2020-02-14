@@ -21,7 +21,7 @@ package org.fineract.messagegateway.sms.api;
 import java.util.Collection;
 import java.util.List;
 
-// import org.apache.http.impl.cookie.IgnoreSpecProvider;
+import org.apache.http.impl.cookie.IgnoreSpecProvider;
 
 import org.fineract.messagegateway.constants.MessageGatewayConstants;
 import org.fineract.messagegateway.sms.data.DeliveryStatusData;

@@ -33,6 +33,10 @@ public class WirepickSMS {
 		String httpUrl = Settings.HTTPparameters(clientConfig) ; 
 		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
 		{
+			//Guchie added
+			System.out.printf(httpUrl);
+			//Guchie added
+
 			return HttpUrls.sendByUrlHttpConnection(httpUrl) ; 
 		}
 		
