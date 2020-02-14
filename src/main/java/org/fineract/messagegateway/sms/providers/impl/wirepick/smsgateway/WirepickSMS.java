@@ -38,7 +38,12 @@ public class WirepickSMS {
 			System.out.printf(httpUrl);
 			//Guchie added
 
-			return HttpUrls.sendByUrlHttpConnection(httpUrl) ; 
+			return HttpUrls.sendByUrlHttpConnection(httpUrl) ;
+			//throws Exception("Could not do stuff  :( ");
+
+		}
+		else {
+			throw new Exception("Could not do stuff  :( " + HttpUrls);
 		}
 		
 		return null;
