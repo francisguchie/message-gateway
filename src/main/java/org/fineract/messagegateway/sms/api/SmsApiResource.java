@@ -74,6 +74,9 @@ public class SmsApiResource {
 
             } catch (Exception e) {
 
+                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                System.out.println(msgStatus);
+
               System.out.println("See tha User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
 
             }
