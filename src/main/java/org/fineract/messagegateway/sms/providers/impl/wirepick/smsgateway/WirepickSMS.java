@@ -42,10 +42,8 @@ public class WirepickSMS {
 			//throws Exception("Could not do stuff  :( ");
 
 		}
-		else {
-			throw new Exception("Could not do stuff  :( " );
-		}
-		
+
+		throw new Exception("Could not do stuff  :( " );
 		return null;
 	}
 	
