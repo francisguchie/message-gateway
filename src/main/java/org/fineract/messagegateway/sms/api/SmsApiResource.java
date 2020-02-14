@@ -40,6 +40,8 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.Constants.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
 
+import org.fineract.messagegateway.sms.service.SMSMessageService;
+
 @RestController
 @RequestMapping("/sms")
 public class SmsApiResource {
