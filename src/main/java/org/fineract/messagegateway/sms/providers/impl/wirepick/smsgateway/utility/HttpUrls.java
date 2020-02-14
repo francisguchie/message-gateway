@@ -92,7 +92,7 @@ public class HttpUrls {
               return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
                
             } else {
-
+              System.out.println(" it is failing at this point") ;
             	return null ; 
             }
 

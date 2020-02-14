@@ -21,7 +21,7 @@ package org.fineract.messagegateway.sms.api;
 import java.util.Collection;
 import java.util.List;
 
-import org.apache.http.impl.cookie.IgnoreSpecProvider;
+// import org.apache.http.impl.cookie.IgnoreSpecProvider;
 
 import org.fineract.messagegateway.constants.MessageGatewayConstants;
 import org.fineract.messagegateway.sms.data.DeliveryStatusData;
@@ -66,7 +66,8 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getTime());
                 System.out.println(msgStatus.getPhone());
 
-                System.out.println(" The message has been sent to "+ sMessage.getMobileNumber());
+                logger.info("The message has been sent to.....");
+                // System.out.println(" The message has been sent to ");
 
             } catch (Exception e) {
 
