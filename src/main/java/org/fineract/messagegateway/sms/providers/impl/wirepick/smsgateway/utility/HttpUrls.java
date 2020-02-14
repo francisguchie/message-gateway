@@ -31,7 +31,8 @@ import java.util.Map.Entry;
 import org.apache.commons.httpclient.HttpClient; 
 import org.apache.commons.httpclient.HttpStatus; 
 import org.apache.commons.httpclient.NameValuePair;
-import org.apache.commons.httpclient.methods.PostMethod; 
+import org.apache.commons.httpclient.methods.PostMethod;
+
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
 
 public class HttpUrls {
@@ -85,10 +86,15 @@ public class HttpUrls {
             int responseCode = con.getResponseCode();
 
             if (responseCode == HttpStatus.SC_OK) {
-
+            	// guchie added
+				System.out.println(doHttpUrlConnectionAction(con));
+				// end of guchie added
               return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
                
             } else {
+				// guchie added
+				System.out.println(doHttpUrlConnectionAction(con));
+				// end of guchie added
             	return null ; 
             }
 

@@ -67,6 +67,7 @@ public class SmsApiResource {
                 System.out.println(msgStatus.getPhone());
 
             } catch (Exception e) {
+                //System.out.println(doHttpUrlConnectionAction(uc));
               System.out.println("See tha User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
 
             }
