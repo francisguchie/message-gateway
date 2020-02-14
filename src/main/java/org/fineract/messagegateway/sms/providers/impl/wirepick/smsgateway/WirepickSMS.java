@@ -44,7 +44,7 @@ public class WirepickSMS {
 		}
 
 		throw new Exception("Could not do stuff  :( " );
-		return null;
+		//return null;
 	}
 	
 	
