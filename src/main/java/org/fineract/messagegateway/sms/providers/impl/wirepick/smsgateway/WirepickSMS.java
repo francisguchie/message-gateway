@@ -20,8 +20,9 @@
 package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway;
 
 import org.apache.commons.httpclient.NameValuePair;
-import org.apache.commons.beanutils.converters.AbstractConverter;
-import org.apache.commons.beanutils.converters.ArrayConverter;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.Utility.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
