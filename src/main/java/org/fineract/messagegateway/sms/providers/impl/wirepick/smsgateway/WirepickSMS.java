@@ -76,9 +76,9 @@ public class WirepickSMS {
 			// (JSONObject)JSONSerializer.toJSON(valuePairs pair);
 
 			Gson gson = new Gson();
-			String[] lang = Arrays.toString(valuePairs);
-			String json = gson.toJson(lang);
+			String json = gson.toJson(valuePairs);
 			System.out.println(json);
+
 		} catch (Exception e){
 			System.out.println("Could not do stuff  :( in SendPOSTSMS");
 		}
