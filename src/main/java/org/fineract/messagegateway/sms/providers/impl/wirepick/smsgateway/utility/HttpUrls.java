@@ -55,13 +55,15 @@ public class HttpUrls {
 				System.out.println(entry.getKey.toString());
 			}
 		}
+		String str = EntityUtils.toString(postMethod.getRequestEntity());
+		System.out.println(str);
 
 		postMethod.addParameters(data);
 
 		/* this is working well
 		Gson gson = new Gson();
 		String json = gson.toJson(data);
-		System.out.println(" line 62 HttpUrls ikr = " + json);
+		System.out.println(" the nameValuePair = " + json);
 		*/
 
 		try {
