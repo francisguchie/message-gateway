@@ -72,9 +72,9 @@ public class WirepickSMS {
 
 			// (JSONObject)JSONSerializer.toJSON(valuePairs pair);
 			// Guchie added
+			throw new Exception("could not do stuff in wirepickSMS hehehe" );
 
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 
-		throw new Exception("could not do stuff in wirepickSMS hehehe" );
 	}
 }
