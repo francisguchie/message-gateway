@@ -51,15 +51,16 @@ public class WirepickSMS {
 
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
-		String[] array = new String[] { valuePairs };
-		String joined2 = String.join(",", array);
+		// System.out.println(Arrays.toString(valuePairs));
+
+		// String joined2 = String.join(",", valuePairs);
 
 		//List<String> list = Arrays.asList(valuePairs);
 		//String joined3 = String.join(",", list);
 
 		// Guchie added
 		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
-		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is "+ joined3);
+		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is "+ Arrays.toString(valuePairs));
 		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
