@@ -55,12 +55,10 @@ public class WirepickSMS {
 
 		if(clientConfig == null)
 			throw new NullPointerException() ;
-
 			String httpUrl = Settings.HOST ;
-
 			NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
-			// Guchie added
+			// Guchie added -- the section above is working well
 			//System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 
 

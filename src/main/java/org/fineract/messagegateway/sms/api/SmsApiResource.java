@@ -61,28 +61,22 @@ public class SmsApiResource {
     		@RequestBody final List<SMSMessage> payload) {
 
 
-        /* this.smsMessageService.sendShortMessage(tenantId, appKey, payload); */
+        /* this.smsMessageService.sendShortMessage(tenantId, appKey, payload); */ // as it was fom Origin
     	WirepickSMS sms = new WirepickSMS() ;
-        /* List<SMSmessage> list = new ArrayList<SMSmessage>() ; */
+        /* List<SMSmessage> list = new ArrayList<SMSmessage>() ; */ // as it was fom Origin
          for(SMSMessage sMessage : payload) {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
-                //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                //System.out.println(msgStatus.getPhone());
-
-                MsgStatus msgStatus =  sms.sendByUrlHttpConnection(config) ;
-                // System.out.println(msgStatus.getDescription());
+                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                System.out.println(msgStatus.getPhone());
 
             } catch (NullPointerException e) {
                 //System.out.println(e);
-                System.out.println(" This is a null pointer exception"+ e.toString());
+                System.out.println(" This is a null pointer exception \n This might mean that no responce SMS provider"+ e.toString());
                 ///e.printStackTrace();
-
             }catch (Exception e) {
-
-              System.out.println("See tha User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
-
+              System.out.println("See that User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
             }
         }
 

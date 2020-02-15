@@ -52,6 +52,7 @@ public class HttpUrls {
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
+				System.out.println(entry.getKey.toString());
 			}
 		}
 
