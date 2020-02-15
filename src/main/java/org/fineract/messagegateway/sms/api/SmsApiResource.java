@@ -60,6 +60,7 @@ public class SmsApiResource {
     		@RequestHeader(MessageGatewayConstants.TENANT_APPKEY_HEADER) final String appKey, 
     		@RequestBody final List<SMSMessage> payload) {
 
+
         /* this.smsMessageService.sendShortMessage(tenantId, appKey, payload); */
     	WirepickSMS sms = new WirepickSMS() ;
         /* List<SMSmessage> list = new ArrayList<SMSmessage>() ; */
@@ -86,6 +87,8 @@ public class SmsApiResource {
 
             }
         }
+
+    	//this.smsMessageService.sendShortMessage(tenantId, appKey, payload);
 
        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

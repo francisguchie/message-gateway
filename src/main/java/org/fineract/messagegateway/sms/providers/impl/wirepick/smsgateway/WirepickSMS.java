@@ -34,36 +34,28 @@ public class WirepickSMS {
 		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
 		{
 			//Guchie added
-			System.out.println("printing the httpUrl thats set line 37 of WirepickSMS.java");
-			System.out.printf(httpUrl);
+			System.out.println("SendGETSMS - line 37 of WirepickSMS.java the URL is "+ httpUrl );
 			//Guchie added
-
 			return HttpUrls.sendByUrlHttpConnection(httpUrl) ;
-			//throws Exception("Could not do stuff  :( ");
-
 		}
 
 		throw new Exception("Could not do stuff  :( " );
 		//return null;
 	}
-	
-	
+
 	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HOST ;
 
-		//Guchie added
-		System.out.println("printing the httpUrl thats set line 55 of WirepickSMS.java ");
-		System.out.println(httpUrl);
-		//Guchie added
-
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
+		String joined2 = String.join(",", valuePairs);
+
 		// Guchie added
-		System.out.println("printing the httpUrl thats set line 62 of WirepickSMS.java ");
-		System.out.println(httpUrl);
+		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
+		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is "+ joined2);
 		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
