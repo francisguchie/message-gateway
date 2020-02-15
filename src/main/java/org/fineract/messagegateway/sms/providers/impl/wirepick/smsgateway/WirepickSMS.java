@@ -73,12 +73,11 @@ public class WirepickSMS {
 			// (JSONObject)JSONSerializer.toJSON(valuePairs pair);
 			// Guchie added
 
-			return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 
 		} catch (Exception e){
 			System.out.println("Could not do stuff  :( in SendPOSTSMS");
 		}
-
+		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 		// throw new Exception( );
 	}
 }
