@@ -55,7 +55,7 @@ public class WirepickSMS {
 
 	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception
 	{
-		try {
+
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 
@@ -73,11 +73,8 @@ public class WirepickSMS {
 			// (JSONObject)JSONSerializer.toJSON(valuePairs pair);
 			// Guchie added
 
-
-		} catch (Exception e){
-			System.out.println("Could not do stuff  :( in SendPOSTSMS");
-		}
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
-		// throw new Exception( );
+
+		throw new Exception("could not do stuff in wirepickSMS hehehe" );
 	}
 }
