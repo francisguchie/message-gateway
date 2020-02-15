@@ -20,6 +20,8 @@
 package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway;
 
 import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.codec.net.URLCodec;
+import org.apache.commons.lang3.stringutils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -57,14 +59,14 @@ public class WirepickSMS {
 
 		// System.out.println(Arrays.toString(valuePairs));
 
-		// String joined2 = String.join(",", valuePairs);
+		 String joined2 = String.join(",", valuePairs);
 
 		//List<String> list = Arrays.asList(valuePairs);
 		//String joined3 = String.join(",", list);
 
 		// Guchie added
 		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
-		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is "+ Arrays.toString(valuePairs));
+		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is "+ joined2);
 		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
