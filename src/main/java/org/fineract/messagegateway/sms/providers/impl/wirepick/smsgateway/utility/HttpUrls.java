@@ -27,6 +27,7 @@ import java.net.URL;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.google.gson.Gson;
 
 import org.apache.commons.httpclient.HttpClient; 
 import org.apache.commons.httpclient.HttpStatus; 
@@ -55,6 +56,11 @@ public class HttpUrls {
 		}
 
 		postMethod.addParameters(data);
+
+		Gson gson = new Gson();
+		String json = gson.toJson(data);
+		System.out.println(" line 62 HttpUrls ikr = " + json);
+
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);

@@ -23,20 +23,17 @@ import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.*;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Arrays;
 
 
+
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.Utility.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
 
-import com.google.gson.Gson;
+
 
 public class WirepickSMS {
 	
@@ -64,15 +61,9 @@ public class WirepickSMS {
 			NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
 			// Guchie added
-			System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
+			//System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 
-			Gson gson = new Gson();
-			String json = gson.toJson(valuePairs);
-			System.out.println(json);
 
-			// (JSONObject)JSONSerializer.toJSON(valuePairs pair);
-			// Guchie added
-			//throw new Exception("could not do stuff in wirepickSMS hehehe" );
 
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 
