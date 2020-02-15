@@ -56,7 +56,7 @@ public class HttpUrls {
 
 			}
 		}
-		String str = EntityUtils.toString(postMethod.getRequestEntity());
+		String str = EntityUtils.toString(postMethod.setRequestHeader());
 		System.out.println(str);
 
 		postMethod.addParameters(data);
