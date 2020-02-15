@@ -20,7 +20,7 @@
 package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway;
 
 import org.apache.commons.httpclient.NameValuePair;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.Utility.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
