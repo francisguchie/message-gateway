@@ -64,7 +64,7 @@ public class WirepickSMS {
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
 	public String concat(String[] args) {
-		String result = new SendPOSTSMS.valuePairs
+		String result = new SendPOSTSMS.valuePairs;
 		for (String arg : args) {
 			result += arg;
 		}
