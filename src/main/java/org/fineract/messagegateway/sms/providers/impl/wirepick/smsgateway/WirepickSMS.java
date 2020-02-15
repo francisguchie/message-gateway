@@ -51,9 +51,11 @@ public class WirepickSMS {
 
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
-		//String joined2 = String.join(",", valuePairs);
-		List<String> list = Arrays.asList(valuePairs);
-		String joined3 = String.join(",", list);
+		String[] array = new String[] { valuePairs };
+		String joined2 = String.join(",", array);
+
+		//List<String> list = Arrays.asList(valuePairs);
+		//String joined3 = String.join(",", list);
 
 		// Guchie added
 		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
