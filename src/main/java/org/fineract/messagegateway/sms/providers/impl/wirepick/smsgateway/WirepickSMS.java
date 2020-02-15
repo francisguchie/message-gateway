@@ -61,7 +61,7 @@ public class WirepickSMS {
 		// String joined2 = String.join(",", valuePairs);
 
 		List<String> list = Arrays.asList(valuePairs);
-		/String joined3 = String.join(",", list);
+		String joined3 = String.join(",", list);
 
 		// Guchie added
 		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
