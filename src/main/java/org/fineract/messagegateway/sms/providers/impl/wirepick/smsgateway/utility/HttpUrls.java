@@ -47,7 +47,7 @@ public class HttpUrls {
 		
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
-
+		System.out.println("This is the link sUrl " + sUrl);
 
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
@@ -57,10 +57,12 @@ public class HttpUrls {
 
 		postMethod.addParameters(data);
 
+		/* this is working well
 		Gson gson = new Gson();
 		String json = gson.toJson(data);
 		System.out.println(" line 62 HttpUrls ikr = " + json);
-
+		*/
+		 */
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
