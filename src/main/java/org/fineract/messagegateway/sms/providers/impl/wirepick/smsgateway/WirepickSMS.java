@@ -57,14 +57,10 @@ public class WirepickSMS {
 
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
-		String param = "";
-		if (!valuePairs.isEmpty()) {
-			try {
-				param = EntityUtils.toString(new UrlEncodedFormEntity(valuePairs, Charset.forName("UTF-8")));
-			} catch (IOException e) {
-				throw new RuntimeException("get request param error");
-			}
-		}
+		Object[] vp = valuePairs;
+		String[] dest = new String[vp.length];
+		System.arraycopy(vp,0,dest,0,vp.length);
+		System.out.println(Arrays.toString(dest));
 
 		// Guchie added
 		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
