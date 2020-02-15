@@ -77,6 +77,7 @@ public class SmsApiResource {
                 //System.out.println(e);
                 System.out.println(" This is a null pointer exception \n This might mean that no responce SMS provider"+ e.toString());
                 ///e.printStackTrace();
+
             }catch (Exception e) {
               System.out.println("See that User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
             }
