@@ -60,6 +60,7 @@ public class Settings {
 	public static final String HOST = "https://ebridgeafrica.com/api" ;
 	//public static final String HOST = "https://sms.wirepick.com/httpsms/send" ;
 	//private static final String DEFAULT_AFFILIATE = "999" ;
+
 	//https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
 
 	public static MsgStatus parseWirepickResultXML(InputStream stream) throws Exception, IOException  {
