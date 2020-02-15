@@ -60,8 +60,8 @@ public class WirepickSMS {
 		// System.out.println(Arrays.toString(valuePairs));
 		// String joined2 = String.join(",", valuePairs);
 
-		List<String> list = Arrays.asList(valuePairs);
-		String joined3 = String.join(",", list);
+		//List<String> list = Arrays.asList(valuePairs);
+		//String joined3 = String.join(",", list);
 
 		// Guchie added
 		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
@@ -69,5 +69,11 @@ public class WirepickSMS {
 		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
-
+	public String concat(String[] args) {
+		String result = new SendPOSTSMS.valuePairs
+		for (String arg : args) {
+			result += arg;
+		}
+		return result;
+	}
 }
