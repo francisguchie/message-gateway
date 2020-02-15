@@ -79,8 +79,10 @@ public class WirepickSMS {
 			String[] lang = Arrays.toString(valuePairs);
 			String json = gson.toJson(lang);
 			System.out.println(json);
+		} catch (Exception e){
+			System.out.println("Could not do stuff  :( in SendPOSTSMS");
 		}
 
-		throw new Exception("Could not do stuff  :( in SendPOSTSMS" );
+		// throw new Exception( );
 	}
 }
