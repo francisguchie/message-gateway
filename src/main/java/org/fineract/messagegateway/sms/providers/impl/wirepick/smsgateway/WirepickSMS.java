@@ -65,14 +65,14 @@ public class WirepickSMS {
 			// Guchie added
 			System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 
-			// Guchie added
-			return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
-
-			// (JSONObject)JSONSerializer.toJSON(valuePairs pair);
-
 			Gson gson = new Gson();
 			String json = gson.toJson(valuePairs);
 			System.out.println(json);
+
+			// (JSONObject)JSONSerializer.toJSON(valuePairs pair);
+			// Guchie added
+
+			return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 
 		} catch (Exception e){
 			System.out.println("Could not do stuff  :( in SendPOSTSMS");
