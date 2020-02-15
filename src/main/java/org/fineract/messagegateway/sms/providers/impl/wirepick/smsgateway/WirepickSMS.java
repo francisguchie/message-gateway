@@ -55,9 +55,10 @@ public class WirepickSMS {
 
 	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception
 	{
+		try {
 		if(clientConfig == null)
 			throw new NullPointerException() ;
-		try{
+
 			String httpUrl = Settings.HOST ;
 
 			NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
