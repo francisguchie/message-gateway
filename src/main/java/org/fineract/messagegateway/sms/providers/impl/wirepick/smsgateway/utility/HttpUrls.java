@@ -62,7 +62,6 @@ public class HttpUrls {
 		String json = gson.toJson(data);
 		System.out.println(" line 62 HttpUrls ikr = " + json);
 		*/
-		 */
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
