@@ -22,6 +22,10 @@ package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.lang.StringUtils;
 
+import java.io.*;
+import java.util.ArrayList;
+
+
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.Utility.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
 
@@ -54,11 +58,10 @@ public class WirepickSMS {
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
 		// System.out.println(Arrays.toString(valuePairs));
+		// String joined2 = String.join(",", valuePairs);
 
-		 String joined2 = String.join(",", valuePairs);
-
-		//List<String> list = Arrays.asList(valuePairs);
-		//String joined3 = String.join(",", list);
+		List<String> list = Arrays.asList(valuePairs);
+		/String joined3 = String.join(",", list);
 
 		// Guchie added
 		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
