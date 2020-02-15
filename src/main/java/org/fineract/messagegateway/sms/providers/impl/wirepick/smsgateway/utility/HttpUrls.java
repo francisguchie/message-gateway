@@ -48,12 +48,12 @@ public class HttpUrls {
 		
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
-		//System.out.println("This is the link sUrl " + sUrl);
 
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
-				System.out.println(entry.getKey().toString());
+				println("Sending this ${postMethod.toString()}")
+
 			}
 		}
 		postMethod.addParameters(data);
