@@ -50,21 +50,19 @@ public class HttpUrls {
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
 
-		StringBuilder postData = new StringBuilder();
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
 			}
 		}
-		byte[] postDataBytes = postData.toString().getBytes("UTF-8");
 
 		postMethod.addParameters(data);
 
-		// this is working well
+		/* // this is working well
 		Gson gson = new Gson();
 		String json = gson.toJson(postDataBytes);
-		System.out.println(" the nameValuePair = " + json);
-
+		System.out.println(" the nameValuePair = " + data);
+		*/
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
