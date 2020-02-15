@@ -65,7 +65,7 @@ public class WirepickSMS {
 
 		// Guchie added
 		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
-		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is " + param);
+		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is " + Arrays.toString(dest));
 		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
