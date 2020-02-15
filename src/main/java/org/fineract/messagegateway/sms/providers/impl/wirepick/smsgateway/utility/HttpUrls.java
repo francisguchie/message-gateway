@@ -53,12 +53,9 @@ public class HttpUrls {
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
-
+				System.out.println(entry.getKey().toString());
 			}
 		}
-		String str = EntityUtils.toString(postMethod.setRequestHeader());
-		System.out.println(str);
-
 		postMethod.addParameters(data);
 
 		/* this is working well
