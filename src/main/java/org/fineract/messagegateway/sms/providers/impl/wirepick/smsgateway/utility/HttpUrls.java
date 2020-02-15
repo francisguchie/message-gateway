@@ -37,17 +37,17 @@ import org.apache.commons.httpclient.methods.PostMethod;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
 
 public class HttpUrls {
-	
-	
+
 	
 	private static final String GET = "GET";
 	
 	public static MsgStatus sendByPostMethod(String sUrl, NameValuePair[] data,Map<String, String> headers) throws Exception {
-		HttpClient httpClient = new HttpClient() ; 
+
+		HttpClient httpClient = new HttpClient() ;
 		
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
-		System.out.println("This is the link sUrl " + sUrl);
+		//System.out.println("This is the link sUrl " + sUrl);
 
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {

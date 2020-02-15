@@ -64,7 +64,6 @@ public class WirepickSMS {
 			//System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 
 
-
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 
 	}
