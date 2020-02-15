@@ -57,18 +57,19 @@ public class WirepickSMS {
 
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
-		// Guchie added
-		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
-		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is " + result);
-		// Guchie added
-		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
-	}
-	public String concat(String[] args) {
-		String result = new SendPOSTSMS.valuePairs;
-		for (String arg : args) {
-			result += arg;
+		String param = "";
+		if (!valuePairs.isEmpty()) {
+			try {
+				param = EntityUtils.toString(new UrlEncodedFormEntity(valuePairs, Charset.forName("UTF-8")));
+			} catch (IOException e) {
+				throw new RuntimeException("get request param error");
+			}
 		}
 
-		return result;
+		// Guchie added
+		System.out.println("SendPOSTSMS - line 57 of WirepickSMS.java the URL in used is "+ httpUrl);
+		System.out.println("SendPOSTSMS - line 58 of WirepickSMS.java \the array in used is " + param);
+		// Guchie added
+		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
 }
