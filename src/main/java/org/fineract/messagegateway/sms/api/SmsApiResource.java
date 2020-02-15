@@ -70,15 +70,11 @@ public class SmsApiResource {
             try {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
 
-                System.out.println("printing the config line 71 of SmsApiReasource.java");
-                System.out.println(config.toString());
-
                 System.out.println(msgStatus.getPhone());
 
             } catch (NullPointerException e) {
-                System.out.println("printing the NullPointerException line 77 of SmsApiReasource.java");
-                System.out.println(e.getMessage());
-                //System.out.println(e.toString());
+                //System.out.println(e);
+                System.out.println(" This is a null pointer exception"+ e.toString());
                 ///e.printStackTrace();
 
             }catch (Exception e) {

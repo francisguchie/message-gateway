@@ -23,13 +23,25 @@ import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.lang.StringUtils;
 
 import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Arrays;
 
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.Utility.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
 
+import com.google.gson.Gson;
 
 public class WirepickSMS {
 	
@@ -40,12 +52,8 @@ public class WirepickSMS {
 		String httpUrl = Settings.HTTPparameters(clientConfig) ; 
 		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
 		{
-			//Guchie added
-			System.out.println("SendGETSMS - line 37 of WirepickSMS.java the URL is "+ httpUrl );
-			//Guchie added
 			return HttpUrls.sendByUrlHttpConnection(httpUrl) ;
 		}
-
 		throw new Exception("Could not do stuff  :( " );
 		//return null;
 	}
@@ -54,21 +62,25 @@ public class WirepickSMS {
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
-		String httpUrl = Settings.HOST ;
+		try{
+			String httpUrl = Settings.HOST ;
 
-		/*
-		NameValuePair[] valuePairsG = Settings.GetParameters(clientConfig) ;
-		Object[] vp = valuePairsG;
-		String[] dest = new String[vp.length];
-		System.arraycopy(vp,0,dest,0,vp.length);
-		System.out.println(Arrays.toString(dest));
-		System.out.println("SendPOSTSMS - line 64 of WirepickSMS.java \n the array in used is " + Arrays.toString(dest));
-		*/
-		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
-		System.out.println("SendPOSTSMS - line 64 of WirepickSMS.java \n the array in used is " + Arrays.toString(valuePairs));
-		// Guchie added
-		System.out.println("SendPOSTSMS - line 69 of WirepickSMS.java the URL in used is "+ httpUrl);
-		// Guchie added
-		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
+			NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
+
+			// Guchie added
+			System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
+
+			// Guchie added
+			return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
+
+			// (JSONObject)JSONSerializer.toJSON(valuePairs pair);
+
+			Gson gson = new Gson();
+			String[] lang = Arrays.toString(valuePairs);
+			String json = gson.toJson(lang);
+			System.out.println(json);
+		}
+
+		throw new Exception("Could not do stuff  :( in SendPOSTSMS" );
 	}
 }

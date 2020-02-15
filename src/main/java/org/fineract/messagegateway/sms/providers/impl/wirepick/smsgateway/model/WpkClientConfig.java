@@ -24,12 +24,10 @@ public class WpkClientConfig {
 	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
 	private String userid ;
 	private String password ;
-	//private String affiliate;
 	private String message;
 	private String phone ;
 	private String sender;
-	//private String tag;
-	
+
 	public WpkClientConfig()
 	{
 		
@@ -39,10 +37,9 @@ public class WpkClientConfig {
 		this.userid = userid;
 		this.password = password;
 		this.message = message;
-		//this.affiliate = affiliate;
 		this.phone = phone;
 		this.sender = sender;
-		//this.tag = tag;
+
 	}
 	public String getUserId() {
 		return userid;
