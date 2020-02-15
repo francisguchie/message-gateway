@@ -29,6 +29,7 @@ import java.util.Map.Entry;
 
 import com.google.gson.Gson;
 
+import org.apache.http.util.EntityUtils;
 import org.apache.commons.httpclient.HttpClient; 
 import org.apache.commons.httpclient.HttpStatus; 
 import org.apache.commons.httpclient.NameValuePair;
@@ -52,7 +53,7 @@ public class HttpUrls {
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
-				System.out.println(entry.getKey.toString());
+
 			}
 		}
 		String str = EntityUtils.toString(postMethod.getRequestEntity());
