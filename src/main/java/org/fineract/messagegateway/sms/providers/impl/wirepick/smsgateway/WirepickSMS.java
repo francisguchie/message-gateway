@@ -56,18 +56,18 @@ public class WirepickSMS {
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HOST ;
 
+		/*
 		NameValuePair[] valuePairsG = Settings.GetParameters(clientConfig) ;
 		Object[] vp = valuePairsG;
 		String[] dest = new String[vp.length];
 		System.arraycopy(vp,0,dest,0,vp.length);
 		System.out.println(Arrays.toString(dest));
 		System.out.println("SendPOSTSMS - line 64 of WirepickSMS.java \n the array in used is " + Arrays.toString(dest));
-
+		*/
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
-
+		System.out.println("SendPOSTSMS - line 64 of WirepickSMS.java \n the array in used is " + Arrays.toString(valuePairs));
 		// Guchie added
-		System.out.println("SendPOSTSMS - line 70 of WirepickSMS.java the URL in used is "+ httpUrl);
-
+		System.out.println("SendPOSTSMS - line 69 of WirepickSMS.java the URL in used is "+ httpUrl);
 		// Guchie added
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
