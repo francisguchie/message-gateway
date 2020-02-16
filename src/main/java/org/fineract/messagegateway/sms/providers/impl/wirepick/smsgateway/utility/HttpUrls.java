@@ -92,13 +92,13 @@ public class HttpUrls {
             con.setRequestMethod(GET);
 			con.connect();
 
-            int responseCode = con.getResponseCode();
-
 			System.out.println("Response code:" + con.getResponseCode());
 			System.out.println("Response message:" + con.getResponseMessage());
 
 			InputStream test = con.getErrorStream();
 			String result = new BufferedReader(new InputStreamReader(test)).lines().collect(Collectors.joining("\n"));
+
+            int responseCode = con.getResponseCode();
 
 			//String numberAsString = new Integer(responseCode).toString();
 			//System.out.println(" response code is " + numberAsString );
