@@ -26,7 +26,7 @@ public class ConstantValues {
 	//public static final String SMS_CLIENT_AFFILIATE = "999";
 	//public static final String SMS_TAG = "api";
 	public static final String SMS_CLIENT_USER_ID = "ACTB";
-	public static final String SMS_CLIENT_PASSWORD = "Actb@123";
+	public static final String SMS_CLIENT_PASSWORD = "VW3L8ttd";
 	public static final String SMS_CLIENT_SENDER = "ACTB";
 	
 }

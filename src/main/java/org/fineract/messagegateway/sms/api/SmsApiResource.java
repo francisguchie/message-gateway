@@ -60,10 +60,7 @@ public class SmsApiResource {
     		@RequestHeader(MessageGatewayConstants.TENANT_APPKEY_HEADER) final String appKey, 
     		@RequestBody final List<SMSMessage> payload) {
 
-
-        /* this.smsMessageService.sendShortMessage(tenantId, appKey, payload); */ // as it was fom Origin
     	WirepickSMS sms = new WirepickSMS() ;
-        /* List<SMSmessage> list = new ArrayList<SMSmessage>() ; */ // as it was fom Origin
          for(SMSMessage sMessage : payload) {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
@@ -82,7 +79,7 @@ public class SmsApiResource {
               System.out.println("See that User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
             }
         }
-    	//this.smsMessageService.sendShortMessage(tenantId, appKey, payload); // as it was fom Origin
+
        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
     
