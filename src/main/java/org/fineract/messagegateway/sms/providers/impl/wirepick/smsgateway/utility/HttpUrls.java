@@ -90,10 +90,12 @@ public class HttpUrls {
             URL obj = new java.net.URL(url);
             con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod(GET);
-			//con.setRequestMethod(POST);
-            con.connect();
+			con.connect();
 
             int responseCode = con.getResponseCode();
+
+			String numberAsString = new Integer(responseCode).toString();
+			System.out.println(" response code is " + numberAsString );
 
             if (responseCode == HttpStatus.SC_OK) {
 				System.out.println(" SMS is sent to \n " + url);
