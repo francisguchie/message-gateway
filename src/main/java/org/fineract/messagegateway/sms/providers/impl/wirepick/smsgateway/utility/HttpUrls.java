@@ -89,8 +89,8 @@ public class HttpUrls {
         	
             URL obj = new java.net.URL(url);
             con = (HttpURLConnection) obj.openConnection();
-            //con.setRequestMethod(GET);
-			con.setRequestMethod(POST);
+            con.setRequestMethod(GET);
+			//con.setRequestMethod(POST);
             con.connect();
 
             int responseCode = con.getResponseCode();
