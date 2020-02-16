@@ -64,13 +64,13 @@ public class SmsApiResource {
         /* this.smsMessageService.sendShortMessage(tenantId, appKey, payload); */ // as it was fom Origin
     	WirepickSMS sms = new WirepickSMS() ;
         /* List<SMSmessage> list = new ArrayList<SMSmessage>() ; */ // as it was fom Origin
-
          for(SMSMessage sMessage : payload) {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 //System.out.println(msgStatus.getPhone());
+
                 MsgStatus msgStatus =  sms.SendGETSMS(config) ;
 
             } catch (NullPointerException e) {
