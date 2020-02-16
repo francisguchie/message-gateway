@@ -67,7 +67,7 @@ public class Settings {
         DocumentBuilder objDocumentBuilder = DocBuilder();
         
         Document doc = objDocumentBuilder.parse(stream);
-        
+		System.out.println("the document is " + doc.toString());
         return DocumentProcessor(doc);
     }
 

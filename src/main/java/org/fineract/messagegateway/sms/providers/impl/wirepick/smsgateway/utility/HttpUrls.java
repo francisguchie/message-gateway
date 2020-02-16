@@ -96,11 +96,11 @@ public class HttpUrls {
             int responseCode = con.getResponseCode();
 
             if (responseCode == HttpStatus.SC_OK) {
-
+				System.out.println(" SMS is sent to \n " url);
               return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
                
             } else {
-
+				System.out.println(" SMS is not sent");
             	return null ; 
             }
 
