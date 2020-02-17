@@ -185,7 +185,7 @@ public class Settings {
 		return nameValuePairs;
 	}
 
-	public static void printingJsonData(String[] args){
+	static void printingJsonData() {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
