@@ -185,7 +185,7 @@ public class Settings {
 		return nameValuePairs;
 	}
 
-	public static  printingJsonData(WpkClientConfig config) {
+	public static void printingJsonData(WpkClientConfig config) {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
