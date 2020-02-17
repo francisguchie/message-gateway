@@ -190,11 +190,11 @@ public class Settings {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
 
-		items.put("userid", WpkClientConfig.config.getUserId());
-		items.put("password", WpkClientConfig.config.getPassword());
-		items.put("message", WpkClientConfig.config.getMessage());
-		items.put("phone", WpkClientConfig.config.getPhone());
-		items.put("sender", WpkClientConfig.config.getSender());
+		items.put("userid", "ACTB");
+		items.put("password", "");
+		items.put("message", "Testing");
+		items.put("phone", "23279194407");
+		items.put("sender", "ACTB");
 
 		gson.toJson(items, System.out);
 
