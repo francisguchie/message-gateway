@@ -69,7 +69,9 @@ public class HttpUrls {
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
 
 		// call the prettyPrintingClass
-		Settings.printingJsonData();
+		//Settings.printingJsonData();
+		String s = Settings.printingJsonData();
+		System.out.println(s);
 
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
