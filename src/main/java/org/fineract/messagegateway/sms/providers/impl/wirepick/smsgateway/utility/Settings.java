@@ -170,6 +170,9 @@ public class Settings {
 
 	public static  NameValuePair[] GetParameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
+
+		printingJsonData();
+
 		ValidateParams(config);
 		NameValuePair[] nameValuePairs = new NameValuePair[5] ;
 		
