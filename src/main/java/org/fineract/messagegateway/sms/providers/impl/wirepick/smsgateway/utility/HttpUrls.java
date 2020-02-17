@@ -40,7 +40,13 @@ import org.apache.http.util.EntityUtils;
 import org.apache.commons.httpclient.HttpClient; 
 import org.apache.commons.httpclient.HttpStatus; 
 import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.cookie.CookiePolicy;
+import org.apache.commons.httpclient.params.HttpClientParams;
+
+import org.apache.commons.io.IOUtils;
+
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
 
