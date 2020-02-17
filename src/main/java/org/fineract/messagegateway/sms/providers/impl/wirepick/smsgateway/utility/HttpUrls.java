@@ -46,7 +46,6 @@ import org.apache.commons.httpclient.cookie.CookiePolicy;
 import org.apache.commons.httpclient.params.HttpClientParams;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.io.IOUtils
 
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
