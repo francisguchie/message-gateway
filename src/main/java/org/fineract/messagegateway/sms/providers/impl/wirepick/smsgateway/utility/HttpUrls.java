@@ -55,6 +55,7 @@ import org.apache.commons.httpclient.params.HttpClientParams;
 
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
+import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.WpkClientConfig;
 
 public class HttpUrls {
 
