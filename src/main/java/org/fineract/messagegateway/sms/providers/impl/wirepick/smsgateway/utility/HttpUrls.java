@@ -71,13 +71,14 @@ public class HttpUrls {
 		postMethod.addParameters(data);
 
 		try {
-
 			int statusCode = httpClient.executeMethod(postMethod);
 
-			String statusCodeString = Integer.toString(statusCode);
-			System.out.println("Status code:" + statusCodeString);
+			result = postMethod.getResponseBodyAsString();
+			System.out.println("getting Response Body as String := " + statusCodeString);
 
-			
+			String statusCodeString = Integer.toString(statusCode);
+			System.out.println("Status code is:" + statusCodeString);
+
 			if (statusCode == HttpStatus.SC_OK) {
 
 				String httpResponse = postMethod.getResponseBodyAsString();
