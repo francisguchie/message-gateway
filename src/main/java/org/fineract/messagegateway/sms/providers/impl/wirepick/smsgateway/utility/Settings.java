@@ -190,11 +190,11 @@ public class Settings {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
 
-		items.put("userid", config.getUserId());
-		items.put("password", config.getPassword());
-		items.put("message", config.getMessage());
-		items.put("phone", config.getPhone());
-		items.put("sender", config.getSender());
+		items.add("userid", config.getUserId());
+		items.add("password", config.getPassword());
+		items.add("message", config.getMessage());
+		items.add("phone", config.getPhone());
+		items.add("sender", config.getSender());
 
 		gson.toJson(items, System.out);
 
