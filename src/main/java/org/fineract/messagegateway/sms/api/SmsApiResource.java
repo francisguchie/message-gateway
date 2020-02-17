@@ -65,10 +65,11 @@ public class SmsApiResource {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
-                //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                //System.out.println(msgStatus.getPhone());
 
-                MsgStatus msgStatus =  sms.SendGETSMS(config) ;
+                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+
+                /** this method works fine but most servers are now API based */
+                //MsgStatus msgStatus =  sms.SendGETSMS(config) ;
 
             } catch (NullPointerException e) {
                 //System.out.println(e);
