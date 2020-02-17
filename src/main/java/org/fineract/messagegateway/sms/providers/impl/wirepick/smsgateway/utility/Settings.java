@@ -184,8 +184,22 @@ public class Settings {
 
 		return nameValuePairs;
 	}
+	static void String printJsonDataMitData(WpkClientConfig config) {
 
-	static void printingJsonData() {
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Map<String, String> items = new HashMap<>();
+
+		items.put("userid", config.getUserId());
+		items.put("password", config.getPassword());
+		items.put("message", config.getMessage());
+		items.put("phone", config.getPhone());
+		items.put("sender", config.getSender());
+
+		gson.toJson(items, System.out);
+
+	}
+/*
+	static void printingJsonData() { // works well
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
@@ -199,4 +213,6 @@ public class Settings {
 		gson.toJson(items, System.out);
 
 	}
+*/
+
 }
