@@ -79,29 +79,14 @@ public class HttpUrls {
 		}
 		postMethod.addParameters(data);
 
-		gson.toJson(data, System.out);
-
 		// I need to print the postMethod data
+		gson.toJson(data, System.out);
 		//Gson gson = new Gson();
 		//String output = gson.toJson(headers);
 		//System.out.println(output);
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
-
-			/*
-			 String httpResponse = postMethod.getResponseBodyAsString();
-			 System.out.println("getting Response Body as String := " + httpResponse);
-			 InputStream inputStream = postMethod.getResponseBodyAsStream();
-			 byte[] buffer = new byte[1024 * 1024 * 5];
-			 String path = null;
-			 int length;
-			 while ((length = inputStream.read(buffer)) > 0) {
-			 				path = new String(buffer);
-			 }
-			 System.out.println("getting ResponseBody As Stream " + path);
-			 System.out.println("==================");
-			 */
 
 			String statusCodeString = Integer.toString(statusCode);
 			System.out.println("Status code is " + statusCodeString);
