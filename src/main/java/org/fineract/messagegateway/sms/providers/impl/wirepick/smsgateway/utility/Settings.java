@@ -28,6 +28,11 @@ import java.nio.ByteBuffer;
 import java.util.Calendar;
 import java.util.UUID;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -175,5 +180,21 @@ public class Settings {
 		nameValuePairs[4] = new NameValuePair("sender", config.getSender()) ;
 
 		return nameValuePairs;
+	}
+
+	public static prettyPrintingClass(String[] args){
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+		Map<String, Integer> items = new HashMap<>();
+
+		items.put("chair", 3);
+		items.put("pencil", 1);
+		items.put("book", 5);
+
+		gson.toJson(items, System.out);
+
+		return null ;
+
 	}
 }
