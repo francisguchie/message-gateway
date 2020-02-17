@@ -71,11 +71,18 @@ public class HttpUrls {
 		postMethod.addParameters(data);
 
 		try {
+
 			int statusCode = httpClient.executeMethod(postMethod);
+
+			String statusCodeString = Integer.toString(statusCode);
+			System.out.println("Status code:" + statusCodeString);
+
 			
 			if (statusCode == HttpStatus.SC_OK) {
+
 				String httpResponse = postMethod.getResponseBodyAsString();
-			
+				System.out.println(" Response is " + httpResponse );
+
 				return Settings.parseWirepickResultXML(new StringReader(httpResponse)) ; 
 				
 			}
