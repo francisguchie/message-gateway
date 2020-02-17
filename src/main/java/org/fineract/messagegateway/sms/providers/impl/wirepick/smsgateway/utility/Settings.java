@@ -185,15 +185,16 @@ public class Settings {
 		return nameValuePairs;
 	}
 
-	static void printingJsonData() {
+	static void printingJsonData(WpkClientConfig config) {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
 		Map<String, Integer> items = new HashMap<>();
 
-		items.put("chair", 3);
-		items.put("pencil", 1);
-		items.put("book", 5);
+		items.put("userid", config.getUserId());
+		items.put("password", config.getPassword());
+		items.put("message", config.getMessage());
+		items.put("phone", config.getPhone());
+		items.put("sender", config.getSender());
 
 		gson.toJson(items, System.out);
 

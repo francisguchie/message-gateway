@@ -81,10 +81,9 @@ public class HttpUrls {
 		postMethod.addParameters(data);
 
 		// I need to print the postMethod data
-		Gson gson = new Gson();
-		gson.toJson(data, System.out);
-		//String output = gson.toJson(headers);
-		//System.out.println(output);
+		//Gson gson = new Gson();
+		//gson.toJson(data, System.out); prints the NameValuePair[] data
+
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
