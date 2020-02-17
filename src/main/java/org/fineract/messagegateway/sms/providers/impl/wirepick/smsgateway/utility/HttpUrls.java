@@ -106,35 +106,6 @@ public class HttpUrls {
 		return null;
 	}
 
-	public static MsgStatus jsonPostRqstWithHttp(String[] Args) {
-
-		URL url = new URL ("https://ebridgeafrica.com/api/v1/sendsms");
-		HttpURLConnection con = (HttpURLConnection)url.openConnection();
-		con.setRequestMethod("POST");
-		con.setRequestProperty("Content-Type", "application/json; utf-8");
-		con.setRequestProperty("Accept", "application/json");
-		con.setDoOutput(true);
-
-		String jsonInputString = "{\"userid\":\"ACTB\",\"password\":\"VW3L8ttd\",\"message\":\"17feb-at-1515 - json api\",\"phone\":\"23280277388\",\"sender\":\"ACTB\"}";
-
-		//String jsonInputString = printJsonDataMitData(config);
-
-		try(OutputStream os = con.getOutputStream()) {
-			byte[] input = jsonInputString.getBytes("utf-8");
-			os.write(input, 0, input.length);
-		}
-
-		try(BufferedReader br = new BufferedReader(
-				new InputStreamReader(con.getInputStream(), "utf-8"))) {
-			StringBuilder response = new StringBuilder();
-			String responseLine = null;
-			while ((responseLine = br.readLine()) != null) {
-				response.append(responseLine.trim());
-			}
-			System.out.println(response.toString());
-		}
-	}
-
 	public static MsgStatus sendByUrlHttpConnection(String url) throws Exception {
 
         HttpURLConnection con = null;
