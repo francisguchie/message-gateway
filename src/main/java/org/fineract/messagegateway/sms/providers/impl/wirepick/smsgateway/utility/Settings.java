@@ -137,7 +137,8 @@ public class Settings {
 
 		
 	}
-	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
+
+
 	private static void ValidateParams(WpkClientConfig config) {
 
 		if(config.getUserId() == null || config.getUserId().isEmpty())
@@ -162,7 +163,6 @@ public class Settings {
 		}
 	}
 
-	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
 	public static  NameValuePair[] GetParameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
 		ValidateParams(config);
@@ -174,7 +174,6 @@ public class Settings {
 		nameValuePairs[3] = new NameValuePair("phone", config.getPhone()) ;
 		nameValuePairs[4] = new NameValuePair("sender", config.getSender()) ;
 
-		System.out.println(" print the name value pairs ......");
 		return nameValuePairs;
 	}
 }

@@ -29,13 +29,16 @@ import java.io.BufferedReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.*;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.apache.http.util.EntityUtils;
+
 import org.apache.commons.httpclient.HttpClient; 
 import org.apache.commons.httpclient.HttpStatus; 
 import org.apache.commons.httpclient.NameValuePair;
@@ -61,6 +64,7 @@ public class HttpUrls {
 		httpClient.getParams().setParameter(HttpClientParams.ALLOW_CIRCULAR_REDIRECTS, true);
 		httpClient.getParams().setParameter(HttpClientParams.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
 
+		System.out.println(" print the name value pairs ......");
 
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
@@ -69,13 +73,15 @@ public class HttpUrls {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
 			}
+
+			// I need to print the postMethod data
+			Gson gson = new Gson();
+			String output = gson.toJson(headers);
+			System.out.println(output);
 		}
 		postMethod.addParameters(data);
 
-		// I need to print the postMethod data
-		Gson gson = new Gson();
-		String output = gson.toJson(headers);
-		System.out.println(output);
+
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
