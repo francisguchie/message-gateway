@@ -188,7 +188,7 @@ public class Settings {
 	static void printingJsonData(WpkClientConfig config) {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		Map<String, Integer> items = new HashMap<>();
+		Map<String, String> items = new HashMap<>();
 
 		items.put("userid", config.getUserId());
 		items.put("password", config.getPassword());
