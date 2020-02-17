@@ -171,7 +171,7 @@ public class Settings {
 	public static  NameValuePair[] GetParameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
 
-		printingJsonData();
+		printJsonDataMitData(config);
 
 		ValidateParams(config);
 		NameValuePair[] nameValuePairs = new NameValuePair[5] ;
@@ -184,7 +184,7 @@ public class Settings {
 
 		return nameValuePairs;
 	}
-	static void String printJsonDataMitData(WpkClientConfig config) {
+	public static String printJsonDataMitData(WpkClientConfig config) {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
