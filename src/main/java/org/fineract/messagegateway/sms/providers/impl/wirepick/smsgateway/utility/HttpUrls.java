@@ -64,7 +64,6 @@ public class HttpUrls {
 		httpClient.getParams().setParameter(HttpClientParams.ALLOW_CIRCULAR_REDIRECTS, true);
 		httpClient.getParams().setParameter(HttpClientParams.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
 
-		System.out.println(" print the name value pairs ......");
 
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
@@ -72,16 +71,20 @@ public class HttpUrls {
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
+				System.out.println(" print the name value pairs ......");
 			}
 
-			// I need to print the postMethod data
-			Gson gson = new Gson();
-			String output = gson.toJson(headers);
-			System.out.println(output);
+		} else {
+			System.out.println(" the headers are empty ");
 		}
 		postMethod.addParameters(data);
 
+		gson.toJson(data, System.out);
 
+		// I need to print the postMethod data
+		//Gson gson = new Gson();
+		//String output = gson.toJson(headers);
+		//System.out.println(output);
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
