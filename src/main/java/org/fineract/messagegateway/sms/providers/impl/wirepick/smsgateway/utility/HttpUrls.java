@@ -71,7 +71,7 @@ public class HttpUrls {
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
 
-		Settings.printJsonDataMitData(config);
+		Settings.printJsonDataMitData();
 
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
