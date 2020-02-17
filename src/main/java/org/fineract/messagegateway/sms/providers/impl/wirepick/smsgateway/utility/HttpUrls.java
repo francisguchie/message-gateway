@@ -61,6 +61,7 @@ public class HttpUrls {
 		httpClient.getParams().setParameter(HttpClientParams.ALLOW_CIRCULAR_REDIRECTS, true);
 		httpClient.getParams().setParameter(HttpClientParams.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
 
+
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
 
@@ -72,9 +73,9 @@ public class HttpUrls {
 		postMethod.addParameters(data);
 
 		// I need to print the postMethod data
-		String str = EntityUtils.toString(postMethod.getRequestEntity());
-		System.out.println(str);
-
+		StringRequestEntity requestEntity = new StringRequestEntity(JSON_STRING,"application/json",	"UTF-8");
+		postMethod.setRequestEntity(requestEntity);
+		System.out.println(requestEntity);
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
