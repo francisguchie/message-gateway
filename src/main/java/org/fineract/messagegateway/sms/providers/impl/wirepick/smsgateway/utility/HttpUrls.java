@@ -73,8 +73,8 @@ public class HttpUrls {
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
 
-			result = postMethod.getResponseBodyAsString();
-			System.out.println("getting Response Body as String := " + statusCodeString);
+			String httpResponse = postMethod.getResponseBodyAsString();
+			System.out.println("getting Response Body as String := " + httpResponse);
 
 			String statusCodeString = Integer.toString(statusCode);
 			System.out.println("Status code is:" + statusCodeString);
