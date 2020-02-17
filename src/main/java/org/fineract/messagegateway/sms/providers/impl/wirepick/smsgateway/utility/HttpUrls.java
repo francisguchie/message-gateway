@@ -79,6 +79,7 @@ public class HttpUrls {
 			}
 
 		} else {
+			System.out.println(headers.toString());
 			System.out.println(" the headers are empty ");
 		}
 		postMethod.addParameters(data);
