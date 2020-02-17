@@ -63,7 +63,7 @@ public class HttpUrls {
 	private static final String GET = "GET";
 	private PostMethod postMethod;
 
-	public static void getJsonPrinter(WpkClientConfig config) throws UnsupportedEncodingException
+	public static void getJsonPrinter(WpkClientConfig config)
 	{
 		// this runs well too data is well formatted
 		// printJsonDataMitData(config);
@@ -79,7 +79,7 @@ public class HttpUrls {
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
 
-		getJsonPrinter(config);
+		getJsonPrinter();
 
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
