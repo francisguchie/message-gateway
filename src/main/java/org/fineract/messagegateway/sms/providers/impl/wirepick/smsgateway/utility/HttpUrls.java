@@ -70,7 +70,7 @@ public class HttpUrls {
 			}
 		}
 		postMethod.addParameters(data);
-		println("Sending this ${postMethod.toString()}");
+		System.out.println("Sending this ${postMethod.toString()}");
 		// I need to print the postMethod data
 		//String str = EntityUtils.toString(postMethod.getRequestEntity());
 		//System.out.println(str);
