@@ -26,12 +26,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
@@ -79,9 +73,9 @@ public class HttpUrls {
 		postMethod.addParameters(data);
 
 		// I need to print the postMethod data
-		StringRequestEntity requestEntity = new StringRequestEntity(JSON_STRING,"application/json",	"UTF-8");
-		postMethod.setRequestEntity(requestEntity);
-		System.out.println(requestEntity);
+		Gson gson = new Gson();
+		String output = gson.toJson(headers);
+		System.out.println(output);
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
