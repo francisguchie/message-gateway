@@ -196,7 +196,7 @@ public class Settings {
 		items.put("sender", config.getSender());
 
 		gson.toJson(items, System.out);
-
+		return null ;
 	}
 /*
 	static void printingJsonData() { // works well
