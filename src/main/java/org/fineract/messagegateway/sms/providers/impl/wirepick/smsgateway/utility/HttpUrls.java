@@ -52,7 +52,9 @@ public class HttpUrls {
 	public static MsgStatus sendByPostMethod(String sUrl, NameValuePair[] data,Map<String, String> headers) throws Exception {
 
 		HttpClient httpClient = new HttpClient() ;
-		
+		httpclient.getParams().setParameter(HttpClientParams.ALLOW_CIRCULAR_REDIRECTS, true);
+		httpclient.getParams().setParameter(HttpClientParams.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
+
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
 
@@ -61,14 +63,7 @@ public class HttpUrls {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
 			}
 		}
-
 		postMethod.addParameters(data);
-
-		/* // this is working well
-		Gson gson = new Gson();
-		String json = gson.toJson(postDataBytes);
-		System.out.println(" the nameValuePair = " + data);
-		*/
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
