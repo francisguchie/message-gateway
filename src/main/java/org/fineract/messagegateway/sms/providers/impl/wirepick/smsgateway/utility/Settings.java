@@ -182,7 +182,7 @@ public class Settings {
 		return nameValuePairs;
 	}
 
-	public static void prettyPrintingClass(String[] args){
+	public static void printingJsonData(String[] args){
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
@@ -193,8 +193,6 @@ public class Settings {
 		items.put("book", 5);
 
 		gson.toJson(items, System.out);
-
-		return null ;
 
 	}
 }
