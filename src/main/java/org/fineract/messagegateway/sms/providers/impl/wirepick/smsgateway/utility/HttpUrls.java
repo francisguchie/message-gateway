@@ -81,7 +81,7 @@ public class HttpUrls {
 
 			if (statusCode == HttpStatus.SC_OK) {
 
-				String httpResponse = postMethod.getResponseBodyAsString();
+				//String httpResponse = postMethod.getResponseBodyAsString();
 				System.out.println(" Response is " + httpResponse );
 
 				return Settings.parseWirepickResultXML(new StringReader(httpResponse)) ; 
