@@ -196,7 +196,8 @@ public class Settings {
 		items.put("sender", config.getSender());
 
 		gson.toJson(items, System.out);
-		return null ;
+
+		return items ;
 	}
 
 

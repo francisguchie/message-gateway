@@ -144,4 +144,40 @@ public class HttpUrls {
             }
         }
     }
+
+    public static MsgStatus sendByUrlHttpConnection2(String url) throws Exception {
+		String url="https://ebridgeafrica.com/api/v1/sendsms";
+		URL object=new URL(url);
+
+		HttpURLConnection con = (HttpURLConnection) object.openConnection();
+		con.setDoOutput(true);
+		con.setDoInput(true);
+		con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+		con.setRequestProperty("Accept", "application/json");
+		con.setRequestMethod("POST");
+
+		JSONObject jsonObject   = new JSONObject();
+		jsonObject = Settings.printJsonDataMitData.toString();
+
+		OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+		wr.write(jsonObject.toString());
+		wr.flush();
+
+        //display what returns the POST request
+
+		StringBuilder sb = new StringBuilder();
+		int HttpResult = con.getResponseCode();
+		if (HttpResult == HttpURLConnection.HTTP_OK) {
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(con.getInputStream(), "utf-8"));
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+			br.close();
+			System.out.println("" + sb.toString());
+		} else {
+			System.out.println(con.getResponseMessage());
+		}
+	}
 }

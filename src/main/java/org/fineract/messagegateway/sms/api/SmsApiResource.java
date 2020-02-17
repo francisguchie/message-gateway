@@ -68,6 +68,8 @@ public class SmsApiResource {
 
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
 
+                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+
                 /** this method works fine but most servers are now API based */
                 //MsgStatus msgStatus =  sms.SendGETSMS(config) ;
 
