@@ -182,7 +182,7 @@ public class Settings {
 		return nameValuePairs;
 	}
 
-	public static prettyPrintingClass(String[] args){
+	public static void prettyPrintingClass(String[] args){
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
