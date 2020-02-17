@@ -80,8 +80,8 @@ public class HttpUrls {
 		postMethod.addParameters(data);
 
 		// I need to print the postMethod data
+		Gson gson = new Gson();
 		gson.toJson(data, System.out);
-		//Gson gson = new Gson();
 		//String output = gson.toJson(headers);
 		//System.out.println(output);
 
