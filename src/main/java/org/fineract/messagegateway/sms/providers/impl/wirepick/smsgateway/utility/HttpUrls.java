@@ -73,15 +73,27 @@ public class HttpUrls {
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
 
-			String httpResponse = postMethod.getResponseBodyAsString();
-			System.out.println("getting Response Body as String := " + httpResponse);
+			//String httpResponse = postMethod.getResponseBodyAsString();
+			//System.out.println("getting Response Body as String := " + httpResponse);
+
+			InputStream inputStream = postMethod.getResponseBodyAsStream();
+
+			byte[] buffer = new byte[1024 * 1024 * 5];
+			String path = null;
+			int length;
+			while ((length = inputStream.read(buffer)) > 0) {
+				path = new String(buffer);
+			}
+			System.out.println("getting ResponseBody As String " + path);
+			System.out.println("==================");
+
 
 			String statusCodeString = Integer.toString(statusCode);
 			System.out.println("Status code is:" + statusCodeString);
 
 			if (statusCode == HttpStatus.SC_OK) {
 
-				//String httpResponse = postMethod.getResponseBodyAsString();
+				String httpResponse = postMethod.getResponseBodyAsString();
 				System.out.println(" Response is " + httpResponse );
 
 				return Settings.parseWirepickResultXML(new StringReader(httpResponse)) ; 
