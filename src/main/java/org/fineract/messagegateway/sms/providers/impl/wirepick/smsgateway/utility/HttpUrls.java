@@ -63,7 +63,7 @@ public class HttpUrls {
 	private static final String GET = "GET";
 	private PostMethod postMethod;
 
-	public static void getJsonPrinter(WpkClientConfig config)
+	public static String getJsonPrinter(WpkClientConfig config)
 	{
 		// this runs well too data is well formatted
 		// printJsonDataMitData(config);
