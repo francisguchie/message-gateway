@@ -170,8 +170,8 @@ public class Settings {
 
 	public static  NameValuePair[] GetParameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
-
-		printJsonDataMitData(config);
+		// this runs well too data is well formatted
+		//printJsonDataMitData(config);
 
 		ValidateParams(config);
 		NameValuePair[] nameValuePairs = new NameValuePair[5] ;
@@ -198,21 +198,6 @@ public class Settings {
 		gson.toJson(items, System.out);
 		return null ;
 	}
-/*
-	static void printingJsonData() { // works well
 
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		Map<String, String> items = new HashMap<>();
-
-		items.put("userid", "ACTB");
-		items.put("password", "");
-		items.put("message", "Testing");
-		items.put("phone", "23279194407");
-		items.put("sender", "ACTB");
-
-		gson.toJson(items, System.out);
-
-	}
-*/
 
 }

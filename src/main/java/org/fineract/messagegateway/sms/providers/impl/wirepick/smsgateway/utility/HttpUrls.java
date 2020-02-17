@@ -64,10 +64,10 @@ public class HttpUrls {
 		httpClient.getParams().setParameter(HttpClientParams.ALLOW_CIRCULAR_REDIRECTS, true);
 		httpClient.getParams().setParameter(HttpClientParams.COOKIE_POLICY, CookiePolicy.BROWSER_COMPATIBILITY);
 
-
 		PostMethod postMethod = new PostMethod(sUrl);
 		postMethod.setRequestHeader("Accept-Charset", "UTF-8");
 
+		Settings.printJsonDataMitData(config)
 
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
@@ -79,11 +79,6 @@ public class HttpUrls {
 			System.out.println(" the headers are empty ");
 		}
 		postMethod.addParameters(data);
-
-		// I need to print the postMethod data
-		//Gson gson = new Gson();
-		//gson.toJson(data, System.out); prints the NameValuePair[] data
-
 
 		try {
 			int statusCode = httpClient.executeMethod(postMethod);
@@ -106,6 +101,35 @@ public class HttpUrls {
 			
 		}
 		return null;
+	}
+
+	public static MsgStatus jsonPostRqstWithHttp(String[] Args) {
+
+		URL url = new URL ("https://ebridgeafrica.com/api/v1/sendsms");
+		HttpURLConnection con = (HttpURLConnection)url.openConnection();
+		con.setRequestMethod("POST");
+		con.setRequestProperty("Content-Type", "application/json; utf-8");
+		con.setRequestProperty("Accept", "application/json");
+		con.setDoOutput(true);
+
+		String jsonInputString = "{\"userid\":\"ACTB\",\"password\":\"VW3L8ttd\",\"message\":\"17feb-at-1515 - json api\",\"phone\":\"23280277388\",\"sender\":\"ACTB\"}";
+
+		//String jsonInputString = printJsonDataMitData(config);
+
+		try(OutputStream os = con.getOutputStream()) {
+			byte[] input = jsonInputString.getBytes("utf-8");
+			os.write(input, 0, input.length);
+		}
+
+		try(BufferedReader br = new BufferedReader(
+				new InputStreamReader(con.getInputStream(), "utf-8"))) {
+			StringBuilder response = new StringBuilder();
+			String responseLine = null;
+			while ((responseLine = br.readLine()) != null) {
+				response.append(responseLine.trim());
+			}
+			System.out.println(response.toString());
+		}
 	}
 
 	public static MsgStatus sendByUrlHttpConnection(String url) throws Exception {
