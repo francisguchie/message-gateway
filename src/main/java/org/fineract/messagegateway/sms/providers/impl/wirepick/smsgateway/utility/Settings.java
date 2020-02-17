@@ -108,10 +108,7 @@ public class Settings {
                     status.setStatus(eElement.getElementsByTagName(STATUS2).item(0).getTextContent());
 					status.setDescription(eElement.getElementsByTagName(DESCRIPTION).item(0).getTextContent());
 					status.setTime(eElement.getElementsByTagName(TIME).item(0).getTextContent());
-
-					System.out.println(" The phone No. is" + eElement.getElementsByTagName(PHONE).item(0).toString());
                 } else {
-					System.out.println(" there is no phone number");
                 	return null ;
                 }
                 
@@ -177,6 +174,7 @@ public class Settings {
 		nameValuePairs[3] = new NameValuePair("phone", config.getPhone()) ;
 		nameValuePairs[4] = new NameValuePair("sender", config.getSender()) ;
 
+		System.out.println(" print the name value pairs ......");
 		return nameValuePairs;
 	}
 }
