@@ -133,7 +133,7 @@ public class HttpUrls {
 			System.out.println( "The response code = " + Integer.toString(responseCode));
 
             if (responseCode == HttpStatus.SC_OK) {
-				System.out.println(" SMS is sent to \n " + url);
+				// System.out.println(" SMS is sent to \n " + url);
 
 			/**  THIS BELOW IS THE KILLER BUG that messed the whole code */
               //return  Settings.parseWirepickResultXML(con.getInputStream()) ;
