@@ -66,12 +66,10 @@ public class SmsApiResource {
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
 
-                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-
-                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
 
                 /** this method works fine but most servers are now API based */
-                //MsgStatus msgStatus =  sms.SendGETSMS(config) ;
+                MsgStatus msgStatus =  sms.SendGETSMS(config) ;
 
             } catch (NullPointerException e) {
                 //System.out.println(e);
