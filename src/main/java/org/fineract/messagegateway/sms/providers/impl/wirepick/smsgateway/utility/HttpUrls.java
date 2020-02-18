@@ -62,7 +62,8 @@ public class HttpUrls {
 	
 	private static final String GET = "GET";
 	private static final String CHARSET = "UTF-8";
-	private static final String KEEPALIVE = "keep-alive";
+	private static final String ACCEPT_TEXT = "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
+	private static final String KEEP_ALIVE = "keep-alive";
 	private static final String LANGUAGES = "en-US,en;q=0.5";
 	private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0";
 	private PostMethod postMethod;
@@ -119,11 +120,14 @@ public class HttpUrls {
             URL obj = new java.net.URL(url);
             con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod(GET);
-			con.setRequestProperty("Connection", KEEPALIVE);
-			con.setRequestProperty("User-Agent", USER_AGENT);
+
 			con.setRequestProperty("Accept-Charset", CHARSET);
+			con.setRequestProperty("Accept", ACCEPT_TEXT);
+			con.setRequestProperty("Connection", KEEP_ALIVE);
 			con.setRequestProperty("Accept-Language", LANGUAGES);
-			con.setRequestProperty("Upgrade-Insecure-Requests", "1");
+			con.setRequestProperty("User-Agent", USER_AGENT);
+
+			//con.setRequestProperty("Upgrade-Insecure-Requests", "1");
 			con.connect();
 
 			//System.out.println("Response code:" + con.getResponseCode());
