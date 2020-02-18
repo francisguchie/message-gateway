@@ -131,9 +131,6 @@ public class HttpUrls {
 
 			con.connect();
 
-			//InputStream test = con.getErrorStream();
-			//String result = new BufferedReader(new InputStreamReader(test)).lines().collect(Collectors.joining("\n"));
-
             int responseCode = con.getResponseCode();
 			System.out.println( "The response code is \n " + Integer.toString(responseCode));
 

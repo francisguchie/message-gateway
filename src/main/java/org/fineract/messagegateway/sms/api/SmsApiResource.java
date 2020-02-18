@@ -66,8 +66,11 @@ public class SmsApiResource {
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                //System.out.println(msgStatus.getMessageId());
+
                 /** this method works fine but we need to be sending POST requests with json Body */
                 MsgStatus msgStatus =  sms.SendGETSMS(config) ;
+                //System.out.println(msgStatus.getMessageId());
 
             } catch (NullPointerException e) {
                 //System.out.println(e);
