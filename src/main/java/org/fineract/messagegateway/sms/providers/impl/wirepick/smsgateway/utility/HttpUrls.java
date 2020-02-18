@@ -136,7 +136,7 @@ public class HttpUrls {
 
             if (responseCode == HttpStatus.SC_OK) {
 				System.out.println(" SMS is sent to \n " + url);
-              return  Settings.parseWirepickResultXML(con.getInputStream()) ; 
+              //return  Settings.parseWirepickResultXML(con.getInputStream()) ;
                
             } else {
 				System.out.println(" SMS is not sent");

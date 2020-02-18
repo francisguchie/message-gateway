@@ -44,8 +44,7 @@ public class WirepickSMS {
 		String httpUrl = Settings.HTTPparameters(clientConfig) ; 
 		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
 		{
-
-			return HttpUrls.sendByUrlHttpConnection(httpUrl) ;
+			//return HttpUrls.sendByUrlHttpConnection(httpUrl) ;
 		}
 		throw new Exception("Could not do stuff  :( " );
 		//return null;
