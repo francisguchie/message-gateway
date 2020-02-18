@@ -51,6 +51,20 @@ public class WirepickSMS {
 		//return null;
 	}
 
+	public static String SendGETSMS2(WpkClientConfig clientConfig) throws Exception
+	{
+		if(clientConfig == null)
+			throw new NullPointerException() ;
+		String httpUrl = Settings.HTTPparameters(clientConfig) ;
+		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
+		{
+
+			return HttpUrls.sendByUrlHttpConnection(httpUrl) ;
+		}
+		throw new Exception("Could not do stuff  :( " );
+		//return null;
+	}
+
 	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception
 	{
 
