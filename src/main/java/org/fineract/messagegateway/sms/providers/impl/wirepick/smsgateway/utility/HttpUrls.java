@@ -135,6 +135,7 @@ public class HttpUrls {
 			String result = new BufferedReader(new InputStreamReader(test)).lines().collect(Collectors.joining("\n"));
 
             int responseCode = con.getResponseCode();
+			System.out.println( "The response code is \n " + Integer.toString(responseCode));
 
             if (responseCode == HttpStatus.SC_OK) {
 				System.out.println(" SMS is sent to \n " + url);
