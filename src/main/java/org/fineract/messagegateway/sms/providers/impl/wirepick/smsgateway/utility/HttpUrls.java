@@ -145,7 +145,7 @@ public class HttpUrls {
         }
     }
 
-    public static MsgStatus sendByUrlHttpConnection2(String url, WpkClientConfig config) throws Exception {
+    public static MsgStatus sendByUrlHttpConnection2(String url) throws Exception {
 		//String url="https://ebridgeafrica.com/api/v1/sendsms";
 		URL object=new URL(url);
 
@@ -156,7 +156,9 @@ public class HttpUrls {
 		con.setRequestProperty("Accept", "application/json");
 		con.setRequestMethod("POST");
 
-		Settings.printJsonDataMitData(config);
+		// Settings.printJsonDataMitData(config);
+		Settings jsonPrinter = new Settings();
+		jsonPrinter.printJsonDataMitData(config);
 
 		//OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
 		//wr.write(jsonObject.toString());
@@ -178,5 +180,6 @@ public class HttpUrls {
 		} else {
 			System.out.println(con.getResponseMessage());
 		}
+
 	}
 }
