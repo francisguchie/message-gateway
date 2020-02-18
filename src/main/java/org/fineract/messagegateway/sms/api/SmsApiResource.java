@@ -73,7 +73,7 @@ public class SmsApiResource {
 
             } catch (NullPointerException e) {
                 //System.out.println(e);
-                System.out.println(" This is a null pointer exception \n This might mean that no responce SMS provider"+ e.toString());
+                System.out.println(" This is a null pointer exception \n This might mean that no responce SMS provider \n "+ e.toString());
                 ///e.printStackTrace();
 
             }catch (Exception e) {

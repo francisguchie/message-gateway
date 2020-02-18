@@ -124,6 +124,7 @@ public class Settings {
 	}
 
 	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
+	// this is for the curl
 	public static String HTTPparameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
 		StringBuffer buffer = new  StringBuffer(HOST) ; 
