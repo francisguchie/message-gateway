@@ -156,9 +156,7 @@ public class HttpUrls {
 		con.setRequestProperty("Accept", "application/json");
 		con.setRequestMethod("POST");
 
-		new JSONObject();
-		JSONObject jsonObject;
-		jsonObject = Settings.printJsonDataMitData.toString();
+		Settings.printJsonDataMitData(config);
 
 		OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
 		wr.write(jsonObject.toString());
