@@ -123,7 +123,7 @@ public class HttpUrls {
 			con.setRequestProperty("User-Agent", USER_AGENT);
 			con.setRequestProperty("Accept-Charset", CHARSET);
 			con.setRequestProperty("Accept-Language", LANGUAGES);
-			con.setRequestProperty("Upgrade-Insecure-Requests", 1);
+			con.setRequestProperty("Upgrade-Insecure-Requests", "1");
 			con.connect();
 
 			//System.out.println("Response code:" + con.getResponseCode());
