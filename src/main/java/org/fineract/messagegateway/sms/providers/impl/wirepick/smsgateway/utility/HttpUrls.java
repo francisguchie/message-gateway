@@ -114,9 +114,7 @@ public class HttpUrls {
 
 	public static String sendByUrlHttpConnection(String url) throws Exception {
 
-		//System.out.println( "BELOW IS THE REQUEST URL  \n "+ url); // this is working
-
-        HttpURLConnection con = null;
+	    HttpURLConnection con = null;
         try {
         	
             URL obj = new java.net.URL(url);
@@ -127,15 +125,17 @@ public class HttpUrls {
 			con.setRequestProperty("Connection", KEEP_ALIVE);
 			con.setRequestProperty("Accept-Language", LANGUAGES);
 			con.setRequestProperty("User-Agent", USER_AGENT);
-			con.setRequestProperty("authority", "ebridgeafrica.com");
+
 
 			con.connect();
 
             int responseCode = con.getResponseCode();
-			System.out.println( "The response code is \n " + Integer.toString(responseCode));
+			System.out.println( "The response code = " + Integer.toString(responseCode));
 
             if (responseCode == HttpStatus.SC_OK) {
 				System.out.println(" SMS is sent to \n " + url);
+
+			/**  THIS BELOW IS THE KILLER BUG that messed the whole code */
               //return  Settings.parseWirepickResultXML(con.getInputStream()) ;
                
             } else {
