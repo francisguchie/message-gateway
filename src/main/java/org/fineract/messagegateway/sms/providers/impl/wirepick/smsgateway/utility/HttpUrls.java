@@ -161,9 +161,9 @@ public class HttpUrls {
 		Settings jsonPrinter = new Settings();
 		jsonPrinter.printJsonDataMitData(config);
 
-		//OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
-		//wr.write(jsonObject.toString());
-		//wr.flush();
+		OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+		wr.write(jsonPrinter.printJsonDataMitData(config));
+		wr.flush();
 
         //display what returns the POST request
 
