@@ -173,6 +173,7 @@ public class Settings {
 		// this runs well too and the data is well formatted
 		//printJsonDataMitData(config);
 
+
 		ValidateParams(config);
 		NameValuePair[] nameValuePairs = new NameValuePair[5] ;
 		
