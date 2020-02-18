@@ -114,6 +114,8 @@ public class HttpUrls {
 
 	public static MsgStatus sendByUrlHttpConnection(String url) throws Exception {
 
+		System.out.println( "BELOW IS THE REQUEST URL  \n "+ url); // this is working
+
         HttpURLConnection con = null;
         try {
         	
