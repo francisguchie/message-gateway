@@ -126,6 +126,7 @@ public class HttpUrls {
 			con.setRequestProperty("Connection", KEEP_ALIVE);
 			con.setRequestProperty("Accept-Language", LANGUAGES);
 			con.setRequestProperty("User-Agent", USER_AGENT);
+			con.setRequestProperty("authority", 'ebridgeafrica.com');
 
 			//con.setRequestProperty("Upgrade-Insecure-Requests", "1");
 			con.connect();
