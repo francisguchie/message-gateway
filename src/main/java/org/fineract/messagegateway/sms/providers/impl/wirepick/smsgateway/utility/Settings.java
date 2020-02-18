@@ -197,7 +197,7 @@ public class Settings {
 
 		gson.toJson(items, System.out);
 
-		string s = gson.toJson(items) ;
+		String s = gson.toJson(items) ;
 		return s ;
 	}
 
