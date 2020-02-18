@@ -61,6 +61,8 @@ public class HttpUrls {
 
 	
 	private static final String GET = "GET";
+	private static final String CHARSET = "UTF-8";
+	private static final String CHARSET = "UTF-8";
 	private static final String USER_AGENT = "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0";
 	private PostMethod postMethod;
 
@@ -117,7 +119,8 @@ public class HttpUrls {
             con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod(GET);
 			con.setRequestProperty("User-Agent", USER_AGENT);
-			con.setRequestProperty("Accept-Charset", "UTF-8");
+			con.setRequestProperty("Accept-Charset", CHARSET);
+			con.setRequestProperty("Connection", "Keep-Alive");
 			con.connect();
 
 			System.out.println("Response code:" + con.getResponseCode());
