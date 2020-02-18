@@ -157,8 +157,8 @@ public class HttpUrls {
 		con.setRequestMethod("POST");
 
 		// Settings.printJsonDataMitData(config);
-		Settings jsonPrinter = new Settings(WpkClientConfig config);
-		jsonPrinter.printJsonDataMitData(config);
+		Settings jsonPrinter = new Settings();
+		jsonPrinter.printJsonDataMitData(WpkClientConfig config);
 
 		//OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
 		//wr.write(jsonObject.toString());
