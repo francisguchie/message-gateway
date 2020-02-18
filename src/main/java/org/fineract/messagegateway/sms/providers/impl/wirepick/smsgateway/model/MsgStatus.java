@@ -22,7 +22,6 @@ package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model
 public class MsgStatus {
 	//{"phone":"23279194407","status":"OK",
 	// "description":"Message has been sent successfully","time":"2020-02-13T16:43:58.9460874+00:00"}
-	// to recieve json formated response
 
 	private String phone;
 	private String status;

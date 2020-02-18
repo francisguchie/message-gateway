@@ -112,7 +112,7 @@ public class HttpUrls {
 		return null;
 	}
 
-	public static MsgStatus sendByUrlHttpConnection(String url) throws Exception {
+	public static String sendByUrlHttpConnection(String url) throws Exception {
 
 		//System.out.println( "BELOW IS THE REQUEST URL  \n "+ url); // this is working
 
