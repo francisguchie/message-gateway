@@ -123,8 +123,8 @@ public class HttpUrls {
 			con.setRequestProperty("Connection", "Keep-Alive");
 			con.connect();
 
-			System.out.println("Response code:" + con.getResponseCode());
-			System.out.println("Response message:" + con.getResponseMessage());
+			//System.out.println("Response code:" + con.getResponseCode());
+			//System.out.println("Response message:" + con.getResponseMessage());
 
 			InputStream test = con.getErrorStream();
 			String result = new BufferedReader(new InputStreamReader(test)).lines().collect(Collectors.joining("\n"));
