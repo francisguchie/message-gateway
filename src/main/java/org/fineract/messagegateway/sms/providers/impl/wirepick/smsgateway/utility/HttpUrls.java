@@ -145,7 +145,7 @@ public class HttpUrls {
         }
     }
 
-    public static MsgStatus sendByUrlHttpConnection2(String url) throws Exception {
+    public static MsgStatus sendByUrlHttpConnection2(String url, WpkClientConfig config) throws Exception {
 		//String url="https://ebridgeafrica.com/api/v1/sendsms";
 		URL object=new URL(url);
 
@@ -158,9 +158,9 @@ public class HttpUrls {
 
 		Settings.printJsonDataMitData(config);
 
-		OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
-		wr.write(jsonObject.toString());
-		wr.flush();
+		//OutputStreamWriter wr = new OutputStreamWriter(con.getOutputStream());
+		//wr.write(jsonObject.toString());
+		//wr.flush();
 
         //display what returns the POST request
 
