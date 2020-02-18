@@ -124,7 +124,7 @@ public class Settings {
 	}
 
 	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
-	// this is for the curl
+	// this is for the curl / wget
 	public static String HTTPparameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
 		StringBuffer buffer = new  StringBuffer(HOST) ; 
@@ -137,7 +137,7 @@ public class Settings {
 		buffer.append("&phone=").append(URLEncoder.encode(config.getPhone(), UTF_8));
 		buffer.append("&sender=").append(URLEncoder.encode(config.getSender(), UTF_8));
 
-		System.out.println(buffer.toString().toString());
+		// System.out.println(buffer.toString().toString());
 
 		return buffer.toString() ;
 

@@ -21,7 +21,6 @@ package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model
 
 public class WpkClientConfig {
 
-	/** For the APi json Posting of the SMS */
 	private String userid ;
 	private String password ;
 	private String message;

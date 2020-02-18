@@ -120,19 +120,14 @@ public class HttpUrls {
             URL obj = new java.net.URL(url);
             con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod(GET);
-
 			con.setRequestProperty("Accept-Charset", CHARSET);
 			con.setRequestProperty("Accept", ACCEPT_TEXT);
 			con.setRequestProperty("Connection", KEEP_ALIVE);
 			con.setRequestProperty("Accept-Language", LANGUAGES);
 			con.setRequestProperty("User-Agent", USER_AGENT);
-			con.setRequestProperty("authority", 'ebridgeafrica.com');
+			con.setRequestProperty("authority", "ebridgeafrica.com");
 
-			//con.setRequestProperty("Upgrade-Insecure-Requests", "1");
 			con.connect();
-
-			//System.out.println("Response code:" + con.getResponseCode());
-			//System.out.println("Response message:" + con.getResponseMessage());
 
 			InputStream test = con.getErrorStream();
 			String result = new BufferedReader(new InputStreamReader(test)).lines().collect(Collectors.joining("\n"));

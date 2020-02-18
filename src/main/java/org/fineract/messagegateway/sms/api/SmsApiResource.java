@@ -65,16 +65,14 @@ public class SmsApiResource {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
-
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-
-                /** this method works fine but most servers are now API based */
+                /** this method works fine but we need to be sending POST requests with json Body */
                 MsgStatus msgStatus =  sms.SendGETSMS(config) ;
 
             } catch (NullPointerException e) {
                 //System.out.println(e);
                 System.out.println(" This is a null pointer exception \n This might mean that no responce SMS provider \n "+ e.toString());
-                ///e.printStackTrace();
+                //e.printStackTrace();
 
             }catch (Exception e) {
                 System.out.println(e.toString());
