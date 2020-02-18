@@ -53,7 +53,6 @@ import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.httpclient.cookie.CookiePolicy;
 import org.apache.commons.httpclient.params.HttpClientParams;
 
-import org.json.simple.JSONObject;
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.WpkClientConfig;
@@ -147,7 +146,7 @@ public class HttpUrls {
     }
 
     public static MsgStatus sendByUrlHttpConnection2(String url) throws Exception {
-		String url="https://ebridgeafrica.com/api/v1/sendsms";
+		//String url="https://ebridgeafrica.com/api/v1/sendsms";
 		URL object=new URL(url);
 
 		HttpURLConnection con = (HttpURLConnection) object.openConnection();
