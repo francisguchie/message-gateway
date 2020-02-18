@@ -63,10 +63,10 @@ public class Settings {
 	private static final String UTF_8 = "UTF-8";
 
 	/** This is for sendByPostMethod and has a cookie issue */
-	public static final String HOST = "https://ebridgeafrica.com/api/v1/sendsms" ;
+	//public static final String HOST = "https://ebridgeafrica.com/api/v1/sendsms" ;
 
 	/** this is sendByUrlHttpConnection and its working */
-	// public static final String HOST = "https://ebridgeafrica.com/api" ;
+	public static final String HOST = "https://ebridgeafrica.com/api" ;
 
 	//private static final String DEFAULT_AFFILIATE = "999" ;
 
