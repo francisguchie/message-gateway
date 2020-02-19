@@ -50,7 +50,7 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.
 public class Settings {
 	//{"status":"OK","code":200, "message":"Message has been sent successfully"}
 	private static final String STATUS = "status";
-	private static final int CODE = "code";
+	private static final String CODE = "code";
 	private static final String MESSAGE = "message";
 
 	private static final String SMS = "sms";
@@ -149,15 +149,13 @@ public class Settings {
 	{
 		// this runs well too and the data is well formatted
 		//printJsonDataMitData(config);
-
 		ValidateParams(config);
-		NameValuePair[] nameValuePairs = new NameValuePair[5] ;
-		
-		nameValuePairs[0] = new NameValuePair("userid", config.getUserId()) ;
-		nameValuePairs[1] = new NameValuePair("password", config.getPassword()) ;
-		nameValuePairs[2] = new NameValuePair("message",config.getMessage()) ;
-		nameValuePairs[3] = new NameValuePair("msisdn", config.getMsisdn()) ;
-		nameValuePairs[4] = new NameValuePair("username", config.getUsername()) ;
+		NameValuePair[] nameValuePairs = new NameValuePair[4] ;
+
+		nameValuePairs[0] = new NameValuePair("msisdn", config.getMsisdn()) ;
+		nameValuePairs[1] = new NameValuePair("message",config.getMessage()) ;
+		nameValuePairs[2] = new NameValuePair("username", config.getUsername()) ;
+		nameValuePairs[3] = new NameValuePair("password", config.getPassword()) ;
 
 		return nameValuePairs;
 	}
