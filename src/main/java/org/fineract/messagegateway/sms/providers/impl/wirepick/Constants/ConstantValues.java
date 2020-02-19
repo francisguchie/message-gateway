@@ -21,12 +21,10 @@ package org.fineract.messagegateway.sms.providers.impl.wirepick.Constants;
 
 public class ConstantValues {
 
-	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
-
 	//public static final String SMS_CLIENT_AFFILIATE = "999";
 	//public static final String SMS_TAG = "api";
-	public static final String SMS_CLIENT_USER_ID = "ACTB";
-	public static final String SMS_CLIENT_PASSWORD = "VW3L8ttd";
-	public static final String SMS_CLIENT_SENDER = "ACTB";
+	public static final String SMS_CLIENT_USER_NAME = "advanc";
+	public static final String SMS_CLIENT_PASSWORD = "2017Aumf#";
+
 	
 }

@@ -65,17 +65,15 @@ public class SmsApiResource {
             WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
                     sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
             try {
-                //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 //System.out.println(msgStatus.getMessageId());
 
                 /** this method works fine but we need to be sending POST requests with json Body */
                 //this refers to MsgStatus with defined response sends a null pointer error during run time
                 // MsgStatus msgStatus =  sms.SendGETSMS(config) ;
-
-                sms.SendGETSMS2(config);
-
-
                 //System.out.println(msgStatus.getMessageId());
+
+                sms.SendGETSMS2(config); // simple but works like a cham
 
             } catch (NullPointerException e) {
                 //System.out.println(e);

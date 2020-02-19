@@ -48,25 +48,20 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.WpkClientConfig;
 
 public class Settings {
-
-	//{"phone":"23279194407","status":"OK",
-	// "description":"Message has been sent successfully","time":"2020-02-13T16:43:58.9460874+00:00"}
-
-
-	private static final String PHONE = "phone";
-	private static final String STATUS2 = "status";
-	private static final String DESCRIPTION = "description";
-	private static final String TIME = "time";
+	//{"status":"OK","code":200, "message":"Message has been sent successfully"}
+	private static final String STATUS = "status";
+	private static final int CODE = "code";
+	private static final String MESSAGE = "message";
 
 	private static final String SMS = "sms";
 	private static final String API = "API";
 	private static final String UTF_8 = "UTF-8";
 
 	/** This is for sendByPostMethod and has a cookie issue */
-	//public static final String HOST = "https://ebridgeafrica.com/api/v1/sendsms" ;
+	public static final String HOST = "http://mysms.trueafrican.com/v1/api/esme/send" ;
 
 	/** this is sendByUrlHttpConnection and its working */
-	public static final String HOST = "https://ebridgeafrica.com/api" ;
+	//public static final String HOST = "https://ebridgeafrica.com/api" ;
 
 	//private static final String DEFAULT_AFFILIATE = "999" ;
 
@@ -97,51 +92,36 @@ public class Settings {
 
 	private static MsgStatus DocumentProcessor(Document doc) {
 		NodeList nList = doc.getElementsByTagName(SMS);
-
         MsgStatus status = new MsgStatus();
         
         for (int temp = 0; temp < nList.getLength(); temp++) {
-
             Node nNode = nList.item(temp);
-
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
                 Element eElement = (Element) nNode;
-
-                if (eElement.getElementsByTagName(PHONE) != null) {
-                    status.setPhone(eElement.getElementsByTagName(PHONE).item(0).getTextContent());
-                    status.setStatus(eElement.getElementsByTagName(STATUS2).item(0).getTextContent());
-					status.setDescription(eElement.getElementsByTagName(DESCRIPTION).item(0).getTextContent());
-					status.setTime(eElement.getElementsByTagName(TIME).item(0).getTextContent());
+                if (eElement.getElementsByTagName(STATUS) != null) {
+                    status.setStatus(eElement.getElementsByTagName(STATUS).item(0).getTextContent());
+					status.setTime(eElement.getElementsByTagName(CODE).item(0).getTextContent());
+					status.setDescription(eElement.getElementsByTagName(MESSAGE).item(0).getTextContent());
                 } else {
                 	return null ;
                 }
-                
-                break ; 
-            }
+                break ;             }
         }
 		return status;
 	}
 
-	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&phone=XXXXXXXXXXX&sender=ACTB
-	// this is for the curl / wget
+	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&msisdn=XXXXXXXXXXX&username=ACTB
+	// this is for the curl / wget but True African dont have this anywhere
 	public static String HTTPparameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
-		StringBuffer buffer = new  StringBuffer(HOST) ; 
-		
+		StringBuffer buffer = new  StringBuffer(HOST) ;
 		ValidateParams(config);
-		
-		buffer.append("?userid=").append(URLEncoder.encode(config.getUserId(), UTF_8)) ;
-		buffer.append("&password=").append(URLEncoder.encode(config.getPassword(), UTF_8));
-		buffer.append("&message=").append(URLEncoder.encode(config.getMessage(), UTF_8));
-		buffer.append("&phone=").append(URLEncoder.encode(config.getPhone(), UTF_8));
-		buffer.append("&sender=").append(URLEncoder.encode(config.getSender(), UTF_8));
-
+		buffer.append("?msisdn=").append(URLEncoder.encode(config.getUserId(), UTF_8)) ;
+		buffer.append("&message=").append(URLEncoder.encode(config.getPassword(), UTF_8));
+		buffer.append("&username=").append(URLEncoder.encode(config.getMessage(), UTF_8));
+		buffer.append("&password=").append(URLEncoder.encode(config.getMsisdn(), UTF_8));
 		// System.out.println(buffer.toString().toString());
-
 		return buffer.toString() ;
-
-		
 	}
 
 
@@ -159,13 +139,13 @@ public class Settings {
 		{
 			throw new NullPointerException("Message is required") ;
 		}
-		else if(config.getPhone() == null || config.getPhone().isEmpty())
+		else if(config.getMsisdn() == null || config.getMsisdn().isEmpty())
 		{
-			throw new NullPointerException("Phone is required") ;
+			throw new NullPointerException("Msisdn is required") ;
 		}
-		else if(config.getSender() == null || config.getSender().isEmpty())
+		else if(config.getUsername() == null || config.getUsername().isEmpty())
 		{
-			throw new NullPointerException("Sender is required") ;
+			throw new NullPointerException("Username is required") ;
 		}
 	}
 
@@ -180,8 +160,8 @@ public class Settings {
 		nameValuePairs[0] = new NameValuePair("userid", config.getUserId()) ;
 		nameValuePairs[1] = new NameValuePair("password", config.getPassword()) ;
 		nameValuePairs[2] = new NameValuePair("message",config.getMessage()) ;
-		nameValuePairs[3] = new NameValuePair("phone", config.getPhone()) ;
-		nameValuePairs[4] = new NameValuePair("sender", config.getSender()) ;
+		nameValuePairs[3] = new NameValuePair("msisdn", config.getMsisdn()) ;
+		nameValuePairs[4] = new NameValuePair("username", config.getUsername()) ;
 
 		return nameValuePairs;
 	}
@@ -193,8 +173,8 @@ public class Settings {
 		items.put("userid", config.getUserId());
 		items.put("password", config.getPassword());
 		items.put("message", config.getMessage());
-		items.put("phone", config.getPhone());
-		items.put("sender", config.getSender());
+		items.put("msisdn", config.getMsisdn());
+		items.put("username", config.getUsername());
 
 		gson.toJson(items, System.out);
 		return null ;

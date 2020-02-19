@@ -100,7 +100,7 @@ public class HttpUrls {
 				String httpResponse = postMethod.getResponseBodyAsString();
 				System.out.println(" Response is " + httpResponse );
 
-				return Settings.parseWirepickResultXML(new StringReader(httpResponse)) ; 
+				// return Settings.parseWirepickResultXML(new StringReader(httpResponse)) ;
 				
 			}
 		}  catch (Exception e) {

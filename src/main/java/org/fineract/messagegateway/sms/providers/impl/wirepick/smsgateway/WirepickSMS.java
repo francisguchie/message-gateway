@@ -36,9 +36,9 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.
 
 
 public class WirepickSMS {
-	
-	public MsgStatus SendGETSMS(WpkClientConfig clientConfig) throws Exception
-	{
+
+	// this guy calls the MsgStatus method
+	public MsgStatus SendGETSMS(WpkClientConfig clientConfig) throws Exception {
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HTTPparameters(clientConfig) ; 
@@ -50,32 +50,28 @@ public class WirepickSMS {
 		//return null;
 	}
 
-	public static String SendGETSMS2(WpkClientConfig clientConfig) throws Exception
-	{
+	// avoiding to call the MsgStatus guy
+	public static String SendGETSMS2(WpkClientConfig clientConfig) throws Exception	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HTTPparameters(clientConfig) ;
 		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
 		{
-
 			return HttpUrls.sendByUrlHttpConnection(httpUrl) ;
 		}
 		throw new Exception("Could not do stuff  :( " );
 		//return null;
 	}
 
+	// this guy calls the MsgStatus method too - if any issues avoid him
 	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception
 	{
-
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 			String httpUrl = Settings.HOST ;
 			NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
-
 			// Guchie added -- the section above is working well
 			//System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
-
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
-
 	}
 }

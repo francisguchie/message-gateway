@@ -21,42 +21,30 @@ package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model
 
 public class WpkClientConfig {
 
-	private String userid ;
-	private String password ;
+	private String msisdn ;
 	private String message;
-	private String phone ;
-	private String sender;
+	private String username;
+	private String password ;
 
 	public WpkClientConfig()
 	{
 		
 	}
 	
-	public WpkClientConfig(String userid, String password,String message,  String phone,  String sender) {
-		this.userid = userid;
-		this.password = password;
+	public WpkClientConfig( String msisdn, String message, String username,String password) {
+
+		this.msisdn = msisdn;
 		this.message = message;
-		this.phone = phone;
-		this.sender = sender;
+		this.username = username;
+		this.password = password;
 
 	}
-	public String getUserId() {
-		return userid;
+
+	public String getMsisdn() {
+		return msisdn;
 	}
-	public void setUserId(String userid) {
-		this.userid = userid;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setMsisdn(String msisdn) {
+		this.msisdn = msisdn;
 	}
 	public String getMessage() {
 		return message;
@@ -64,11 +52,17 @@ public class WpkClientConfig {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public String getSender() {
-		return sender;
+	public String getUsername() {
+		return username;
 	}
-	public void setSender(String sender) {
-		this.sender = sender;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
