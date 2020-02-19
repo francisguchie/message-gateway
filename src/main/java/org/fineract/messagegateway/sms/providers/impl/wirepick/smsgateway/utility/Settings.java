@@ -100,7 +100,7 @@ public class Settings {
                 Element eElement = (Element) nNode;
                 if (eElement.getElementsByTagName(STATUS) != null) {
                     status.setStatus(eElement.getElementsByTagName(STATUS).item(0).getTextContent());
-					status.setCode(eElement.getElementsByTagName(CODE).item(0).getTextContent());
+					status.setCode(eElement.getElementsByTagName(CODE).item(0).Integer.parseInt(getTextContent()));
 					status.setMessage(eElement.getElementsByTagName(MESSAGE).item(0).getTextContent());
                 } else {
                 	return null ;
