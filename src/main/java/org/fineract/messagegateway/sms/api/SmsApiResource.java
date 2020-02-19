@@ -62,8 +62,8 @@ public class SmsApiResource {
 
     	WirepickSMS sms = new WirepickSMS() ;
          for(SMSMessage sMessage : payload) {
-            WpkClientConfig config = new WpkClientConfig(ConstantValues.SMS_CLIENT_USER_ID, ConstantValues.SMS_CLIENT_PASSWORD,
-                    sMessage.getMessage(),sMessage.getMobileNumber(), ConstantValues.SMS_CLIENT_SENDER) ;
+            WpkClientConfig config = new WpkClientConfig(sMessage.getMobileNumber(),sMessage.getMessage(),
+                    ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
                 //System.out.println(msgStatus.getMessageId());

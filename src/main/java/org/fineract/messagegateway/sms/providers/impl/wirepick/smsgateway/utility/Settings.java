@@ -100,8 +100,8 @@ public class Settings {
                 Element eElement = (Element) nNode;
                 if (eElement.getElementsByTagName(STATUS) != null) {
                     status.setStatus(eElement.getElementsByTagName(STATUS).item(0).getTextContent());
-					status.setTime(eElement.getElementsByTagName(CODE).item(0).getTextContent());
-					status.setDescription(eElement.getElementsByTagName(MESSAGE).item(0).getTextContent());
+					status.setCode(eElement.getElementsByTagName(CODE).item(0).getTextContent());
+					status.setMessage(eElement.getElementsByTagName(MESSAGE).item(0).getTextContent());
                 } else {
                 	return null ;
                 }
@@ -116,36 +116,32 @@ public class Settings {
 	{
 		StringBuffer buffer = new  StringBuffer(HOST) ;
 		ValidateParams(config);
-		buffer.append("?msisdn=").append(URLEncoder.encode(config.getUserId(), UTF_8)) ;
-		buffer.append("&message=").append(URLEncoder.encode(config.getPassword(), UTF_8));
-		buffer.append("&username=").append(URLEncoder.encode(config.getMessage(), UTF_8));
-		buffer.append("&password=").append(URLEncoder.encode(config.getMsisdn(), UTF_8));
-		// System.out.println(buffer.toString().toString());
+		buffer.append("?msisdn=").append(URLEncoder.encode(config.getMsisdn(), UTF_8)) ;
+		buffer.append("&message=").append(URLEncoder.encode(config.getMessage(), UTF_8));
+		buffer.append("&username=").append(URLEncoder.encode(config.getUsername(), UTF_8));
+		buffer.append("&password=").append(URLEncoder.encode(config.getPassword(), UTF_8));
+
 		return buffer.toString() ;
 	}
 
 
 	private static void ValidateParams(WpkClientConfig config) {
 
-		if(config.getUserId() == null || config.getUserId().isEmpty())
+		if(config.getMsisdn() == null || config.getMsisdn().isEmpty())
 		{
-			throw new NullPointerException("User id is required") ;
-		}
-		else if(config.getPassword() == null || config.getPassword().isEmpty())
-		{
-			throw new NullPointerException("Password is required") ;
+			throw new NullPointerException("Msisdn is required") ;
 		}
 		else if(config.getMessage() == null || config.getMessage().isEmpty())
 		{
 			throw new NullPointerException("Message is required") ;
 		}
-		else if(config.getMsisdn() == null || config.getMsisdn().isEmpty())
-		{
-			throw new NullPointerException("Msisdn is required") ;
-		}
 		else if(config.getUsername() == null || config.getUsername().isEmpty())
 		{
 			throw new NullPointerException("Username is required") ;
+		}
+		else if(config.getPassword() == null || config.getPassword().isEmpty())
+		{
+			throw new NullPointerException("Password is required") ;
 		}
 	}
 
@@ -170,11 +166,10 @@ public class Settings {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
 
-		items.put("userid", config.getUserId());
-		items.put("password", config.getPassword());
-		items.put("message", config.getMessage());
 		items.put("msisdn", config.getMsisdn());
+		items.put("message", config.getMessage());
 		items.put("username", config.getUsername());
+		items.put("password", config.getPassword());
 
 		gson.toJson(items, System.out);
 		return null ;
