@@ -70,8 +70,9 @@ public class WirepickSMS {
 			throw new NullPointerException() ;
 			String httpUrl = Settings.HOST ;
 			NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
+
 			// Guchie added -- the section above is working well
-			//System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
+			System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
 }

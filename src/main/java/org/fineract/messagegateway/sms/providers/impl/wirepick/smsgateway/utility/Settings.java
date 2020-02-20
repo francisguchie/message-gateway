@@ -112,8 +112,7 @@ public class Settings {
 
 	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&msisdn=XXXXXXXXXXX&username=ACTB
 	// this is for the curl / wget but True African dont have this anywhere
-	public static String HTTPparameters(WpkClientConfig config) throws UnsupportedEncodingException
-	{
+	public static String HTTPparameters(WpkClientConfig config) throws UnsupportedEncodingException	{
 		StringBuffer buffer = new  StringBuffer(HOST) ;
 		ValidateParams(config);
 		buffer.append("?msisdn=").append(URLEncoder.encode(config.getMsisdn(), UTF_8)) ;
@@ -123,7 +122,6 @@ public class Settings {
 
 		return buffer.toString() ;
 	}
-
 
 	private static void ValidateParams(WpkClientConfig config) {
 
@@ -148,7 +146,9 @@ public class Settings {
 	public static  NameValuePair[] GetParameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
 		// this runs well too and the data is well formatted
+		// System.out.println(" the json formatted is below ");
 		//printJsonDataMitData(config);
+
 		ValidateParams(config);
 		NameValuePair[] nameValuePairs = new NameValuePair[4] ;
 
@@ -159,6 +159,7 @@ public class Settings {
 
 		return nameValuePairs;
 	}
+	/** this is my own json formatting method / function */
 	public static String printJsonDataMitData(WpkClientConfig config) {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
