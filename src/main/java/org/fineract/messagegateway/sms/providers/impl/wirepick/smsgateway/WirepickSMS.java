@@ -33,8 +33,6 @@ import java.util.Arrays;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.Utility.*;
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.*;
 
-
-
 public class WirepickSMS {
 
 	// this guy calls the MsgStatus method
@@ -50,7 +48,7 @@ public class WirepickSMS {
 		//return null;
 	}
 
-	// avoiding to call the MsgStatus guy
+	// avoiding to call the MsgStatus guy as MsgStatus works well with json responses
 	public static String SendGETSMS2(WpkClientConfig clientConfig) throws Exception	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
@@ -70,9 +68,7 @@ public class WirepickSMS {
 			throw new NullPointerException() ;
 			String httpUrl = Settings.HOST ;
 			NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
-
-			// Guchie added -- the section above is working well
-			System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
+			//System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 	}
 }

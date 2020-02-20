@@ -67,8 +67,8 @@ public class SmsApiResource {
             try {
 
                 MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                System.out.println(" Printing the code from server ");
-                System.out.println(msgStatus.getCode());
+                //System.out.println(" Printing the code from server ");
+                //System.out.println(msgStatus.getCode());
 
 
                 //this refers to MsgStatus with defined response sends a null pointer error during run time

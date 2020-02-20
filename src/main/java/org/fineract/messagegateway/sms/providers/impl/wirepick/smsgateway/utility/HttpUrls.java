@@ -80,8 +80,11 @@ public class HttpUrls {
 		if (headers != null && !headers.isEmpty()) {
 			for (Entry<String, String> entry : headers.entrySet()) {
 				postMethod.addRequestHeader(entry.getKey(), entry.getValue());
-				System.out.println(" print the name value pairs ......");
+				System.out.println(" LINE 1 print the name value pairs ......");
+				System.out.println(entry);
 			}
+			System.out.println(" LINE 2 print the name value pairs ......");
+			System.out.println();
 
 		} else {
 			System.out.println(headers.toString());
