@@ -62,13 +62,26 @@ public class WirepickSMS {
 	}
 
 	// this guy calls the MsgStatus method too - if any issues avoid him
-	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception
-	{
+	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 			String httpUrl = Settings.HOST ;
 			NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 			//System.out.println("SendPOSTSMS of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
+		throw new Exception("Could not do stuff  :( " );
+	}
+
+	public static String SendPOSTSMS2(WpkClientConfig clientConfig) throws Exception
+	{
+		if(clientConfig == null)
+			throw new NullPointerException() ;
+		String httpUrl = Settings.HOST ;
+		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
+
+		System.out.println("SendPOSTSMS2 of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
+		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
+
+		throw new Exception("Could not do stuff " );
 	}
 }
