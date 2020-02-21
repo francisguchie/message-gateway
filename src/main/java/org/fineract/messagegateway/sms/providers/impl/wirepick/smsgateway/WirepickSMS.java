@@ -82,6 +82,6 @@ public class WirepickSMS {
 		System.out.println("SendPOSTSMS2 of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 
-		throw new Exception("Could not do stuff " );
+		//throw new Exception("Could not do stuff " );
 	}
 }
