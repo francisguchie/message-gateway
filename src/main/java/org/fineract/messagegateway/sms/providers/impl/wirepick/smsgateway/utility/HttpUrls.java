@@ -108,7 +108,8 @@ public class HttpUrls {
 				
 			}
 		}  catch (Exception e) {
-			throw e;
+			// throw e;
+			e.printStackTrace();
 		} finally {
 			postMethod.releaseConnection();
 			
