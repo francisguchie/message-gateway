@@ -68,7 +68,8 @@ public class HttpUrls {
 	private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0";
 	private PostMethod postMethod;
 
-	public static MsgStatus sendByPostMethod(String sUrl, NameValuePair[] data,Map<String, String> headers) throws Exception {
+	/** use string instead of MsgStatus lets see */
+	public static String sendByPostMethod(String sUrl, NameValuePair[] data,Map<String, String> headers) throws Exception {
 
 		HttpClient httpClient = new HttpClient() ;
 		httpClient.getParams().setParameter(HttpClientParams.ALLOW_CIRCULAR_REDIRECTS, true);
