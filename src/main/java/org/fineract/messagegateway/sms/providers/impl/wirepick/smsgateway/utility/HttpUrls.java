@@ -155,4 +155,47 @@ public class HttpUrls {
         return null ;
     }
 
+	public static String printJsonDataMitData2(WpkClientConfig config) {
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Map<String, String> items = new HashMap<>();
+		String[] msisdnArray = {config.getMsisdn()};
+
+		items.put("msisdn", gson.toJson(msisdnArray));
+		items.put("message", config.getMessage());
+		items.put("username", config.getUsername());
+		items.put("password", config.getPassword());
+
+		gson.toJson(items, System.out);
+		return null ;
+	}
+
+	public static String sendByPostMethod2(String sUrl, Settings printJsonDataMitData2) throws Exception {
+
+		URL url = new URL (sUrl);
+		HttpURLConnection con = (HttpURLConnection)url.openConnection();
+		con.setRequestMethod("POST");
+		con.setRequestProperty("Content-Type", "application/json; utf-8");
+		con.setRequestProperty("Accept", "application/json");
+		con.setDoOutput(true);
+
+		String jsonInputString = printJsonDataMitData2(config);
+
+		try(OutputStream os = con.getOutputStream()) {
+			byte[] input = jsonInputString.getBytes("utf-8");
+			os.write(input, 0, input.length);
+		}
+
+		try(BufferedReader br = new BufferedReader(
+				new InputStreamReader(con.getInputStream(), "utf-8"))) {
+			StringBuilder response = new StringBuilder();
+			String responseLine = null;
+			while ((responseLine = br.readLine()) != null) {
+				response.append(responseLine.trim());
+			}
+			System.out.println(response.toString());
+		}
+
+		return null;
+	}
 }
