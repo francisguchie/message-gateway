@@ -79,7 +79,7 @@ public class WirepickSMS {
 		String httpUrl = Settings.HOST ;
 		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
-		System.out.println("SendPOSTSMS2 of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
+		//System.out.println("SendPOSTSMS2 of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
 		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
 
 		//throw new Exception("Could not do stuff " );

@@ -66,9 +66,11 @@ public class SmsApiResource {
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
 
-                //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                System.out.println(" Printing Settings.printJsonDataMitData2 ");
+                Settings.printJsonDataMitData(config);
 
-                sms.SendPOSTSMS2(config);
+                //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
+                //sms.SendPOSTSMS2(config);
                 //System.out.println(" Printing the code from server ");
                 //System.out.println(msgStatus.getCode());
 
@@ -81,7 +83,9 @@ public class SmsApiResource {
 
             } catch (NullPointerException e) {
                 //System.out.println(e);
-                System.out.println(" This is a null pointer exception \n This might mean that no responce SMS provider \n "+ e.toString());
+                System.out.println(" This is a null pointer exception \n " +
+                        "This might mean that no responce SMS provider \n "
+                        + e.toString());
                 //e.printStackTrace();
 
             }catch (Exception e) {

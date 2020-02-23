@@ -27,11 +27,16 @@ import java.net.URLEncoder;
 import java.nio.ByteBuffer;
 import java.util.Calendar;
 import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
+
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.util.HashMap;
-import java.util.Map;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -159,6 +164,7 @@ public class Settings {
 
 		return nameValuePairs;
 	}
+
 	/** this is my own json formatting method / function */
 	public static String printJsonDataMitData(WpkClientConfig config) {
 
@@ -173,6 +179,20 @@ public class Settings {
 		gson.toJson(items, System.out);
 		return null ;
 	}
+	/** this is my own json formatting method / function */
+	public static String printJsonDataMitData2(WpkClientConfig config) {
 
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Map<String, String> items = new HashMap<>();
+
+		//items.put("msisdn", config.getMsisdn());
+		items.put(new Point(config.getMsisdn()),"msisdn");
+		items.put("message", config.getMessage());
+		items.put("username", config.getUsername());
+		items.put("password", config.getPassword());
+
+		gson.toJson(items, System.out);
+		return null ;
+	}
 
 }
