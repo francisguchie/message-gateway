@@ -66,11 +66,10 @@ public class SmsApiResource {
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
 
-                System.out.println(" Printing Settings.printJsonDataMitData2 ");
-                Settings.printJsonDataMitData(config);
-
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
-                //sms.SendPOSTSMS2(config);
+
+                sms.SendPOSTSMS2(config);
+
                 //System.out.println(" Printing the code from server ");
                 //System.out.println(msgStatus.getCode());
 

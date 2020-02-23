@@ -151,8 +151,9 @@ public class Settings {
 	public static  NameValuePair[] GetParameters(WpkClientConfig config) throws UnsupportedEncodingException
 	{
 		// this runs well too and the data is well formatted
-		// System.out.println(" the json formatted is below ");
-		//printJsonDataMitData(config);
+		System.out.println(" the json formatted is below in 2 forms ");
+		printJsonDataMitData(config);
+		printJsonDataMitData2(config);
 
 		ValidateParams(config);
 		NameValuePair[] nameValuePairs = new NameValuePair[4] ;
@@ -184,9 +185,9 @@ public class Settings {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
+		String[] msisdnArray = config.getMsisdn()
 
-		//items.put("msisdn", config.getMsisdn());
-		items.put(new Point(config.getMsisdn()),"msisdn");
+		items.put("msisdn", gson.toJson(msisdnArray));
 		items.put("message", config.getMessage());
 		items.put("username", config.getUsername());
 		items.put("password", config.getPassword());
