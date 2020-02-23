@@ -185,7 +185,7 @@ public class Settings {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
-		String[] msisdnArray = config.getMsisdn()
+		String[] msisdnArray = {config.getMsisdn()};
 
 		items.put("msisdn", gson.toJson(msisdnArray));
 		items.put("message", config.getMessage());
