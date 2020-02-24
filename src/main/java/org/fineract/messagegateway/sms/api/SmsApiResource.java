@@ -62,7 +62,7 @@ public class SmsApiResource {
 
     	WirepickSMS sms = new WirepickSMS() ;
          for(SMSMessage sMessage : payload) {
-             TrueAfricanConfig config = new WpkClientConfig(sMessage.getMobileNumber(),sMessage.getMessage(),
+             TrueAfricanConfig config = new TrueAfricanConfig(sMessage.getMobileNumber(),sMessage.getMessage(),
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
 
