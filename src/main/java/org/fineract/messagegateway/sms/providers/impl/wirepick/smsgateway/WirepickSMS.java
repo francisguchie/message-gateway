@@ -96,7 +96,7 @@ public class WirepickSMS {
 		//String[] msisdnArray = new String[] {strMsisdn};
 		//System.out.println(msisdnArray[0]); //prints "name"
 
-		String[] msisdnArray = {clientConfig.getMsisdn()};
+		String[] msisdnArray = clientConfig.getMsisdn();
 		//items.put("msisdn", gson.toJson(msisdnArray));
 
 		//List<String> msidnList = new ArrayList<String>();
