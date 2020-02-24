@@ -162,7 +162,7 @@ public class Settings {
 		return nameValuePairs;
 	}
 
-	/** this is my own json formatting method / function */
+	/** this is my own json formatting method / function
 	public static String printJsonDataMitData(WpkClientConfig config) {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -176,5 +176,6 @@ public class Settings {
 		gson.toJson(items, System.out);
 		return null ;
 	}
+	*/
 
 }
