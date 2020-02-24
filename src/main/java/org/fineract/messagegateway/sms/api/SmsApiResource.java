@@ -67,7 +67,7 @@ public class SmsApiResource {
              String[] msisdnArray = new String[] {strMsisdn};
              System.out.println(msisdnArray[0]); //prints "name"
 
-             TrueAfricanConfig config = new TrueAfricanConfig(msisdnArray[0],sMessage.getMessage(),
+             TrueAfricanConfig config = new TrueAfricanConfig(msisdnArray,sMessage.getMessage(),
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
 
