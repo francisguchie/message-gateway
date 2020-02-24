@@ -96,7 +96,7 @@ public class WirepickSMS {
 
 
 		//items.put("msisdn", clientConfig.getMsisdn());
-		body1.put("msisdn", new String[] clientConfig.getMsisdn());
+		body1.put("msisdn", new String[1] clientConfig.getMsisdn());
 
 		body2.put("message", clientConfig.getMessage());
 		body2.put("username", clientConfig.getUsername());
