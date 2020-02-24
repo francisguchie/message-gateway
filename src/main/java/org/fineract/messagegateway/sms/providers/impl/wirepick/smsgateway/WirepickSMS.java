@@ -97,7 +97,7 @@ public class WirepickSMS {
 		Map<String, String> body2 = new HashMap<>();
 
 		//items.put("msisdn", clientConfig.getMsisdn());
-		body1.put("msisdn", msisdnArray[0]);
+		body1.put("msisdn", msisdnArray);
 
 		body2.put("message", clientConfig.getMessage());
 		body2.put("username", clientConfig.getUsername());
