@@ -90,14 +90,17 @@ public class WirepickSMS {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
-		String[] msisdnArray = {clientConfig.getMsisdn()};
 
-		items.put("msisdn", gson.toJson(msisdnArray));
+		//String[] msisdnArray = {clientConfig.getMsisdn()};
+		//items.put("msisdn", gson.toJson(msisdnArray));
+
+		items.put("msisdn", "["+clientConfig.getMsisdn()+"]");
 		items.put("message", clientConfig.getMessage());
 		items.put("username", clientConfig.getUsername());
 		items.put("password", clientConfig.getPassword());
 
-		// gson.toJson(items, System.out);
+		System.out.println(" this below is the json built ");
+		gson.toJson(items, System.out);
 
 		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(items));
 
