@@ -19,7 +19,7 @@
 
 package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model;
 
-public class TrueAficanConfig {
+public class TrueAfricanConfig {
 
     private String[] msisdn ;
     private String message;
@@ -31,7 +31,7 @@ public class TrueAficanConfig {
 
     }
 
-    public TrueAficanConfig(String[] msisdn, String message, String username,String password) {
+    public TrueAfricanConfig(String[] msisdn, String message, String username,String password) {
 
         this.msisdn = msisdn;
         this.message = message;
