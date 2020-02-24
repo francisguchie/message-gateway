@@ -89,8 +89,8 @@ public class WirepickSMS {
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HOST ;
 
-		String[] msisdnArray = new String[] clientConfig.getMsisdn();
-		System.out.println(msisdnArray[0]); //prints "name"
+		String[] msisdnArray = new String[1] clientConfig.getMsisdn();
+		System.out.println(msisdnArray[0]); //prints "msisdn array of one element"
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		HashMap<String, String[]> body1 = new HashMap<String, String[]>();
