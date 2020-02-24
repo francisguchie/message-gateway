@@ -89,18 +89,21 @@ public class WirepickSMS {
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HOST ;
 
+
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		Map<String, String> items = new HashMap<>();
+		HashMap<String, String[]> body1 = new HashMap<String, String[]>();
+		Map<String, String> body2 = new HashMap<>();
 
 
 		//items.put("msisdn", clientConfig.getMsisdn());
-		items.put("msisdn", new String[] clientConfig.getMsisdn());
-		items.put("message", clientConfig.getMessage());
-		items.put("username", clientConfig.getUsername());
-		items.put("password", clientConfig.getPassword());
+		body1.put("msisdn", new String[] clientConfig.getMsisdn());
+
+		body2.put("message", clientConfig.getMessage());
+		body2.put("username", clientConfig.getUsername());
+		body2.put("password", clientConfig.getPassword());
 
 		System.out.println(" this below is the json built ");
-		gson.toJson(items, System.out);
+		gson.toJson(body1+body2, System.out);
 
 		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(items));
 
