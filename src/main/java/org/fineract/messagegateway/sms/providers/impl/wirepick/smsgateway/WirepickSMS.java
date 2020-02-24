@@ -92,14 +92,15 @@ public class WirepickSMS {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		Map<String, String> items = new HashMap<>();
 
-		String[] msisdnArray = {clientConfig.getMsisdn()};
+		//String[] msisdnArray = {clientConfig.getMsisdn()};
 		//items.put("msisdn", gson.toJson(msisdnArray));
 
 		//List<String> msidnList = new ArrayList<String>();
 		//msidnList.add(clientConfig.getMsisdn());
 
 		//items.put("msisdn", msidnList);
-		items.put("msisdn", gson.toJson(msisdnArray));
+		//items.put("msisdn", gson.toJson(msisdnArray));
+		items.put("msisdn", clientConfig.getMsisdn());
 		items.put("message", clientConfig.getMessage());
 		items.put("username", clientConfig.getUsername());
 		items.put("password", clientConfig.getPassword());
