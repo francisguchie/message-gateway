@@ -25,6 +25,7 @@ import org.apache.commons.lang.StringUtils;
 import java.io.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Iterator;
 import java.util.Arrays;
 import java.util.Map;
@@ -94,7 +95,10 @@ public class WirepickSMS {
 		//String[] msisdnArray = {clientConfig.getMsisdn()};
 		//items.put("msisdn", gson.toJson(msisdnArray));
 
-		items.put("msisdn", "["+clientConfig.getMsisdn()+"]");
+		List<String> msidnList = new ArrayList<String>();
+		msidnList.add(clientConfig.getMsisdn());
+
+		items.put("msisdn", msidnList);
 		items.put("message", clientConfig.getMessage());
 		items.put("username", clientConfig.getUsername());
 		items.put("password", clientConfig.getPassword());
