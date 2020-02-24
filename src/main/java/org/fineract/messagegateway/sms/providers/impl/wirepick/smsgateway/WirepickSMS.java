@@ -83,7 +83,7 @@ public class WirepickSMS {
 	}
 
 
-	public static String SendPOSTSMS2(WpkClientConfig clientConfig) throws Exception
+	public static String SendPOSTSMS2(TrueAfricanConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;

@@ -21,7 +21,7 @@ package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model
 
 public class WpkClientConfig {
 
-	private String[] msisdn ;
+	private String msisdn ;
 	private String message;
 	private String username;
 	private String password ;
@@ -31,7 +31,7 @@ public class WpkClientConfig {
 		
 	}
 	
-	public WpkClientConfig(String[] msisdn, String message, String username,String password) {
+	public WpkClientConfig(String msisdn, String message, String username,String password) {
 
 		this.msisdn = msisdn;
 		this.message = message;
