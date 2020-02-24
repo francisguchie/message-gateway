@@ -105,7 +105,7 @@ public class WirepickSMS {
 		//items.put("msisdn", msidnList);
 		//items.put("msisdn", gson.toJson(msisdnArray));
 
-		items.put("msisdn", {clientConfig.getMsisdn()});
+		items.put("msisdn", msisdnArray[0]);
 		items.put("message", clientConfig.getMessage());
 		items.put("username", clientConfig.getUsername());
 		items.put("password", clientConfig.getPassword());
