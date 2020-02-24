@@ -155,22 +155,7 @@ public class HttpUrls {
         return null ;
     }
 
-	public static String printJsonDataMitData2(WpkClientConfig config) {
-
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		Map<String, String> items = new HashMap<>();
-		String[] msisdnArray = {config.getMsisdn()};
-
-		items.put("msisdn", gson.toJson(msisdnArray));
-		items.put("message", config.getMessage());
-		items.put("username", config.getUsername());
-		items.put("password", config.getPassword());
-
-		gson.toJson(items, System.out);
-		return null ;
-	}
-
-	public static String sendByPostMethod2(String sUrl, Settings printJsonDataMitData2) throws Exception {
+	public static String sendByPostMethod2(String sUrl, String jsonBody) throws Exception {
 
 		URL url = new URL (sUrl);
 		HttpURLConnection con = (HttpURLConnection)url.openConnection();
@@ -179,7 +164,7 @@ public class HttpUrls {
 		con.setRequestProperty("Accept", "application/json");
 		con.setDoOutput(true);
 
-		String jsonInputString = printJsonDataMitData2(config);
+		String jsonInputString = jsonBody;
 
 		try(OutputStream os = con.getOutputStream()) {
 			byte[] input = jsonInputString.getBytes("utf-8");

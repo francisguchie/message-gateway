@@ -28,6 +28,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Arrays;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.Utility.*;
@@ -72,15 +78,25 @@ public class WirepickSMS {
 		throw new Exception("Could not do stuff  :( " );
 	}
 
+
 	public static String SendPOSTSMS2(WpkClientConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HOST ;
-		NameValuePair[] valuePairs = Settings.GetParameters(clientConfig) ;
 
-		//System.out.println("SendPOSTSMS2 of WirepickSMS.java \n the array in use is " + Arrays.toString(valuePairs));
-		return HttpUrls.sendByPostMethod(httpUrl, valuePairs, null);
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Map<String, String> items = new HashMap<>();
+		String[] msisdnArray = {clientConfig.getMsisdn()};
+
+		items.put("msisdn", gson.toJson(msisdnArray));
+		items.put("message", clientConfig.getMessage());
+		items.put("username", clientConfig.getUsername());
+		items.put("password", clientConfig.getPassword());
+
+		// gson.toJson(items, System.out);
+
+		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(items));
 
 		//throw new Exception("Could not do stuff " );
 	}
