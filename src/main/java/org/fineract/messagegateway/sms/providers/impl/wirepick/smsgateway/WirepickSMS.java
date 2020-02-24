@@ -98,15 +98,14 @@ public class WirepickSMS {
 
 		//items.put("msisdn", clientConfig.getMsisdn());
 		body1.put("msisdn", msisdnArray);
-
 		body2.put("message", clientConfig.getMessage());
 		body2.put("username", clientConfig.getUsername());
 		body2.put("password", clientConfig.getPassword());
 
 		System.out.println(" this below is the json built ");
-		gson.toJson(body1+body2, System.out);
+		gson.toJson(body1, body2, System.out);
 
-		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(items));
+		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(body1,body2));
 
 		//throw new Exception("Could not do stuff " );
 	}
