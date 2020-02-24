@@ -26,7 +26,7 @@ public class TrueAfricanConfig {
     private String username;
     private String password ;
 
-    public TrueAficanConfig()
+    public TrueAfricanConfig()
     {
 
     }
