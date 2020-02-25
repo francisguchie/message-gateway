@@ -37,20 +37,20 @@ public class TrueAfricanMsisdnList {
 
     public TrueAfricanMsisdnList(String message, String username,String password) {
 
-        //this.msisdn = msisdn;
+        this.msisdn = msisdn;
         this.message = message;
         this.username = username;
         this.password = password;
 
     }
-    /**
-    public String getMsisdn() {
+
+    public List<String> getMsisdn() {
         return msisdn;
     }
-    public void setMsisdn(String msisdn) {
+    public void setMsisdn(List<String> msisdn) {
         this.msisdn = msisdn;
     }
-    */
+
     public String getMessage() {
         return message;
     }

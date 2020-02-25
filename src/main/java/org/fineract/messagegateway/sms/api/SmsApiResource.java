@@ -73,13 +73,15 @@ public class SmsApiResource {
              String[] msisdnArray = new String[] {strMsisdn};
              System.out.println(msisdnArray[0]); //prints "name"
               */
-             /** // how i got the List<String> to  work
-             //String strMsisdn = sMessage.getMobileNumber();
-             //List<String> msisdnList = Arrays.asList(strMsisdn);
-             //System.out.println(supplierNames.get(1));
-              */
+             /** // how i got the List<String> to  work */
+             String strMsisdn = sMessage.getMobileNumber();
+             List<String> msisdnList = Arrays.asList(strMsisdn);
 
-             TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(sMessage.getMobileNumber(),sMessage.getMessage(),
+             System.out.println(" Printing the msisdn smsApiResource line 80 ");
+             System.out.println(msisdnList.get(1));
+
+
+             TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(msisdnList,sMessage.getMessage(),
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
 
