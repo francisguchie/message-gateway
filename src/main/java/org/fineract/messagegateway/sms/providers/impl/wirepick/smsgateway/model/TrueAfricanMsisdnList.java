@@ -26,7 +26,7 @@ import java.util.Arrays;
 
 public class TrueAfricanMsisdnList {
 
-    private List<String> msisdn ;
+    private String msisdn ;
     private String message;
     private String username;
     private String password ;
@@ -34,7 +34,7 @@ public class TrueAfricanMsisdnList {
     public TrueAfricanMsisdnList() {
     }
 
-    public TrueAfricanMsisdnList(List<String> msisdn, String message, String username,String password) {
+    public TrueAfricanMsisdnList(String msisdn, String message, String username,String password) {
 
         this.msisdn = msisdn;
         this.message = message;
@@ -43,10 +43,10 @@ public class TrueAfricanMsisdnList {
 
     }
 
-    public List<String> getMsisdn() {
+    public String getMsisdn() {
         return msisdn;
     }
-    public void setMsisdn(List<String> msisdn) {
+    public void setMsisdn(String msisdn) {
         this.msisdn = msisdn;
     }
     public String getMessage() {

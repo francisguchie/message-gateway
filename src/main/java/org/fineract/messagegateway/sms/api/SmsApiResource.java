@@ -73,11 +73,11 @@ public class SmsApiResource {
              String[] msisdnArray = new String[] {strMsisdn};
              System.out.println(msisdnArray[0]); //prints "name"
               */
-             String strMsisdn = sMessage.getMobileNumber();
-             List<String> msisdnList = Arrays.asList(strMsisdn);
+             //String strMsisdn = sMessage.getMobileNumber();
+             //List<String> msisdnList = Arrays.asList(strMsisdn);
              //System.out.println(supplierNames.get(1));
 
-             TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(msisdnList,sMessage.getMessage(),
+             TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(sMessage.getMobileNumber(),sMessage.getMessage(),
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
 
