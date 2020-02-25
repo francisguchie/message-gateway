@@ -115,11 +115,13 @@ public class WirepickSMS {
 
 		String strMsisdn = clientConfig.getMsisdn();
 		List<String> msisdnList = Arrays.asList(strMsisdn);
-		//System.out.println(msisdnList.get(1));
+
+		System.out.println(" Printing the list below to be used for json ");
+		System.out.println(msisdnList.get(0));
 
 		TrueAfricanMsisdnList taMsisdnList = new TrueAfricanMsisdnList();
 
-		taMsisdnList.setMsisdn(msisdnList);
+		taMsisdnList.setMsisdn(msisdnList.get(0));
 		taMsisdnList.setMessage(clientConfig.getMessage());
 		taMsisdnList.setUsername(clientConfig.getUsername());
 		taMsisdnList.setPassword(clientConfig.getPassword());
