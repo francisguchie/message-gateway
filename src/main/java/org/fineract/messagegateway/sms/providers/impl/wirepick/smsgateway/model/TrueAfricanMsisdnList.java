@@ -50,7 +50,6 @@ public class TrueAfricanMsisdnList {
     public void setMsisdn(List<String> msisdn) {
         this.msisdn = msisdn;
     }
-
     public String getMessage() {
         return message;
     }

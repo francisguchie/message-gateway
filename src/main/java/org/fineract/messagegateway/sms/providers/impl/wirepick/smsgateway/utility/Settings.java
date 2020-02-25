@@ -68,8 +68,6 @@ public class Settings {
 	/** this is sendByUrlHttpConnection and its working */
 	//public static final String HOST = "https://ebridgeafrica.com/api" ;
 
-	//private static final String DEFAULT_AFFILIATE = "999" ;
-
 
 	public static MsgStatus parseWirepickResultXML(InputStream stream) throws Exception, IOException  {
         DocumentBuilder objDocumentBuilder = DocBuilder();

@@ -105,6 +105,7 @@ public class WirepickSMS {
 		//throw new Exception("Could not do stuff " );
 	}
 
+	/** this is what hit the jack pot */
 	public static String SendPOSTSMS3(TrueAfricanMsisdnList clientConfig) throws Exception
 	{
 		if(clientConfig == null)
@@ -113,21 +114,14 @@ public class WirepickSMS {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-		//String strMsisdn = clientConfig.getMsisdn();
-		//List<String> msisdnList = Arrays.asList(strMsisdn);
-
-		//System.out.println(" Printing the list below to be used for json ");
-		//System.out.println(msisdnList.get(0));
-
 		TrueAfricanMsisdnList taMsisdnList = new TrueAfricanMsisdnList();
-
 		taMsisdnList.setMsisdn(clientConfig.getMsisdn());
 		taMsisdnList.setMessage(clientConfig.getMessage());
 		taMsisdnList.setUsername(clientConfig.getUsername());
 		taMsisdnList.setPassword(clientConfig.getPassword());
 
-		System.out.println(" this below is the json built ");
-		gson.toJson(taMsisdnList, System.out);
+		//System.out.println(" this below is the json built ");
+		//gson.toJson(taMsisdnList, System.out);
 
 		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(taMsisdnList));
 

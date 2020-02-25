@@ -77,9 +77,8 @@ public class SmsApiResource {
              String strMsisdn = sMessage.getMobileNumber();
              List<String> msisdnList = Arrays.asList(strMsisdn);
 
-             System.out.println(" Printing the msisdn smsApiResource line 80 ");
-             System.out.println(msisdnList.get(0));
-
+             //System.out.println(" Printing the msisdn smsApiResource line 80 ");
+             //System.out.println(msisdnList.get(0));
 
              TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(msisdnList,sMessage.getMessage(),
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
@@ -107,7 +106,8 @@ public class SmsApiResource {
 
             }catch (Exception e) {
                 System.out.println(e.toString());
-              System.out.println("See that User Id, Password, Message and sender are provided. Also make sure the Phone number includes the international code without the plus sign");
+              System.out.println("See that User Id, Password, Message and sender are provided.\n" +
+                      " Also make sure the Phone number includes the international code without the plus sign");
             }
         }
 
