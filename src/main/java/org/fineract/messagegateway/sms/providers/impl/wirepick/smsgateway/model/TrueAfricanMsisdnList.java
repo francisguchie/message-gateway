@@ -35,7 +35,7 @@ public class TrueAfricanMsisdnList {
     public TrueAfricanMsisdnList() {
     }
 
-    public TrueAfricanMsisdnList(String message, String username,String password) {
+    public TrueAfricanMsisdnList(List<String> msisdn,String message, String username,String password) {
 
         this.msisdn = msisdn;
         this.message = message;
