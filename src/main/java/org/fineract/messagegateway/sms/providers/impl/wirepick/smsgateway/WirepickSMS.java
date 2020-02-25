@@ -114,7 +114,9 @@ public class WirepickSMS {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
 		TrueAfricanMsisdnList taMsisdnList = new TrueAfricanMsisdnList();
-		taMsisdnList.setMsisdn(Arrays.asList(clientConfig.getMsisdn()));
+
+		taMsisdnList.setMsisdn(Arrays.asList(clientConfig.getMsisdn().toString()));
+
 		taMsisdnList.setMessage(clientConfig.getMessage());
 		taMsisdnList.setUsername(clientConfig.getUsername());
 		taMsisdnList.setPassword(clientConfig.getPassword());
