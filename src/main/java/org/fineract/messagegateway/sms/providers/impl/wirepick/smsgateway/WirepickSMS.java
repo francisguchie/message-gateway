@@ -113,9 +113,13 @@ public class WirepickSMS {
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+		String strMsisdn = clientConfig.getMsisdn();
+		List<String> msisdnList = Arrays.asList(strMsisdn);
+		//System.out.println(msisdnList.get(1));
+
 		TrueAfricanMsisdnList taMsisdnList = new TrueAfricanMsisdnList();
 
-		taMsisdnList.setMsisdn(Arrays.asList(clientConfig.getMsisdn().toString()));
+		taMsisdnList.setMsisdn(Arrays.asList(msisdnList.get(1)));
 
 		taMsisdnList.setMessage(clientConfig.getMessage());
 		taMsisdnList.setUsername(clientConfig.getUsername());
