@@ -73,7 +73,7 @@ public class SmsApiResource {
 
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
 
-                sms.SendPOSTSMS2(config);
+                sms.SendPOSTSMS3(config);
 
                 //System.out.println(" Printing the code from server ");
                 //System.out.println(msgStatus.getCode());

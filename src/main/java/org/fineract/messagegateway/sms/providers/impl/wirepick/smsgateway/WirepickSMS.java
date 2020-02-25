@@ -82,30 +82,47 @@ public class WirepickSMS {
 		throw new Exception("Could not do stuff  :( " );
 	}
 
-
-	public static String SendPOSTSMS2(TrueAfricanConfig clientConfig) throws Exception
+    /**  only for string body with not array / list in body */
+	public static String SendPOSTSMS2(WpkClientConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HOST ;
 
-		String[] msisdnArray = clientConfig.getMsisdn();
-		System.out.println(msisdnArray[0]); //prints "msisdn array of one element"
-
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		HashMap<String, String[]> body1 = new HashMap<String, String[]>();
-		Map<String, String> body2 = new HashMap<>();
+		Map<String, String> body = new HashMap<>();
 
-		//items.put("msisdn", clientConfig.getMsisdn());
-		body1.put("msisdn", msisdnArray);
-		body2.put("message", clientConfig.getMessage());
-		body2.put("username", clientConfig.getUsername());
-		body2.put("password", clientConfig.getPassword());
+		body.put("msisdn", clientConfig.getMsisdn());
+		body.put("message", clientConfig.getMessage());
+		body.put("username", clientConfig.getUsername());
+		body.put("password", clientConfig.getPassword());
 
 		System.out.println(" this below is the json built ");
-		gson.toJson(body1, body2, System.out);
+		gson.toJson(body, System.out);
 
-		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(body1,body2));
+		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(body));
+
+		//throw new Exception("Could not do stuff " );
+	}
+
+	public static String SendPOSTSMS3(TrueAfricanMsisdnList clientConfig) throws Exception
+	{
+		if(clientConfig == null)
+			throw new NullPointerException() ;
+		String httpUrl = Settings.HOST ;
+
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+		TrueAfricanMsisdnList taMsisdnList = new TrueAfricanMsisdnList();
+		taMsisdnList.setMsisdn(Arrays.asList(clientConfig.getMsisdn()));
+		taMsisdnList.setMessage(clientConfig.getMessage());
+		taMsisdnList.setUsername(clientConfig.getUsername());
+		taMsisdnList.setPassword(clientConfig.getPassword());
+
+		System.out.println(" this below is the json built ");
+		gson.toJson(taMsisdnList, System.out);
+
+		return HttpUrls.sendByPostMethod2(httpUrl, gson.toJson(taMsisdnList));
 
 		//throw new Exception("Could not do stuff " );
 	}
