@@ -78,7 +78,7 @@ public class SmsApiResource {
              List<String> msisdnList = Arrays.asList(strMsisdn);
 
              System.out.println(" Printing the msisdn smsApiResource line 80 ");
-             System.out.println(msisdnList.get(1));
+             System.out.println(msisdnList.get(0));
 
 
              TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(msisdnList,sMessage.getMessage(),
