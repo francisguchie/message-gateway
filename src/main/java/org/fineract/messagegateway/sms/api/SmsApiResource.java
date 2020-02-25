@@ -81,7 +81,7 @@ public class SmsApiResource {
              System.out.println(msisdnList.get(1));
 
 
-             TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(msisdnList.get(1),sMessage.getMessage(),
+             TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(msisdnList,sMessage.getMessage(),
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
 
