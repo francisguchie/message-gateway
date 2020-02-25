@@ -19,6 +19,11 @@
 
 package org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Iterator;
+import java.util.Arrays;
+
 public class TrueAfricanMsisdnList {
 
     private List<String> msisdn ;
