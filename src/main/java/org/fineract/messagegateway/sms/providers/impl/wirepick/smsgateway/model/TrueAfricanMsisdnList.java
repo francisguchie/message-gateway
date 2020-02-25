@@ -30,6 +30,7 @@ public class TrueAfricanMsisdnList {
     private String message;
     private String username;
     private String password ;
+    private List<String> msisdnlist;
 
     public TrueAfricanMsisdnList() {
     }
