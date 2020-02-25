@@ -19,7 +19,12 @@
 package org.fineract.messagegateway.sms.api;
 
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+
 
 import org.apache.http.impl.cookie.IgnoreSpecProvider;
 
@@ -63,11 +68,13 @@ public class SmsApiResource {
     	WirepickSMS sms = new WirepickSMS() ;
          for(SMSMessage sMessage : payload) {
 
+             /** // this is for arrays only not a mixture of them
              String strMsisdn = sMessage.getMobileNumber();
              String[] msisdnArray = new String[] {strMsisdn};
              System.out.println(msisdnArray[0]); //prints "name"
+              */
 
-             TrueAfricanConfig config = new TrueAfricanConfig(msisdnArray,sMessage.getMessage(),
+             TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(sMessage.getMobileNumber(),sMessage.getMessage(),
                     ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
             try {
 
