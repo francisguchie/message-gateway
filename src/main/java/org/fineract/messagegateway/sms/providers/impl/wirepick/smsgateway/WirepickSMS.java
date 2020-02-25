@@ -119,7 +119,7 @@ public class WirepickSMS {
 
 		TrueAfricanMsisdnList taMsisdnList = new TrueAfricanMsisdnList();
 
-		taMsisdnList.setMsisdn(Arrays.asList(strMsisdn));
+		taMsisdnList.setMsisdn(msisdnList.get(1));
 
 		taMsisdnList.setMessage(clientConfig.getMessage());
 		taMsisdnList.setUsername(clientConfig.getUsername());
