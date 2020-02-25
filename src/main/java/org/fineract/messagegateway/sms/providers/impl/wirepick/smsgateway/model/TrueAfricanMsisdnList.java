@@ -26,30 +26,31 @@ import java.util.Arrays;
 
 public class TrueAfricanMsisdnList {
 
-    private String msisdn ;
+    private List<String> msisdn ;
     private String message;
     private String username;
     private String password ;
-    private List<String> msisdnlist;
+
 
     public TrueAfricanMsisdnList() {
     }
 
-    public TrueAfricanMsisdnList(String msisdn, String message, String username,String password) {
+    public TrueAfricanMsisdnList(String message, String username,String password) {
 
-        this.msisdn = msisdn;
+        //this.msisdn = msisdn;
         this.message = message;
         this.username = username;
         this.password = password;
 
     }
-
+    /**
     public String getMsisdn() {
         return msisdn;
     }
     public void setMsisdn(String msisdn) {
         this.msisdn = msisdn;
     }
+    */
     public String getMessage() {
         return message;
     }
