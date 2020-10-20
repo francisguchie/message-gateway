@@ -94,7 +94,7 @@ public class AppHiveConfig {
     }
 
     public String getContent() {
-        return Content;
+        return content;
     }
     public void setContent(String content) {
         this.content = content;

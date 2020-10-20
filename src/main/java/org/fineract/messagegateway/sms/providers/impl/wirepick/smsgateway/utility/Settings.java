@@ -50,7 +50,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.MsgStatus;
-import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.WpkClientConfig;
+import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.AppHiveConfig;
 
 public class Settings {
 //Reply from appHive
