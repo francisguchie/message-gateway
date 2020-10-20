@@ -65,7 +65,7 @@ public class SmsApiResource {
     		@RequestHeader(MessageGatewayConstants.TENANT_APPKEY_HEADER) final String appKey, 
     		@RequestBody final List<SMSMessage> payload) {
 
-    	WirepickSMS sms = new WirepickSMS() ;
+    	AppHiveSMS sms = new AppHiveSMS() ;
          for(SMSMessage sMessage : payload) {
 
              /** // this is for arrays only not a mixture of them
@@ -73,6 +73,7 @@ public class SmsApiResource {
              String[] msisdnArray = new String[] {strMsisdn};
              System.out.println(msisdnArray[0]); //prints "name"
               */
+
              /** // how i got the List<String> to  work */
              String strMsisdn = sMessage.getMobileNumber();
              List<String> msisdnList = Arrays.asList(strMsisdn);
@@ -80,13 +81,26 @@ public class SmsApiResource {
              //System.out.println(" Printing the msisdn smsApiResource line 80 ");
              //System.out.println(msisdnList.get(0));
 
-             TrueAfricanMsisdnList config = new TrueAfricanMsisdnList(msisdnList,sMessage.getMessage(),
-                    ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD) ;
+             /* app hive 
+             {
+                "From": "ACTB",
+                "To": "23279194407",
+                "Content": "hello alhaji hawalaji",
+                "Reference": "json Messages",
+                "CallbackUrl": ""
+            }
+            */
+
+             AppHiveSingleSMS config = new AppHiveSingleSMS(
+                    ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD,ConstantValues.SMS_CLIENT_FROM,
+                    sMessage.getMobileNumber(),sMessage.getMessage(),
+                    ConstantValues.SMS_CLIENT_REFERENCE, ConstantValues.SMS_CLIENT_CALLBACKURL) ;
             try {
 
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
 
-                sms.SendPOSTSMS3(config);
+                // sms.SendPOSTSMS3(config); this is for Arrays
+                sms.SendPOSTSMS2(config);
 
                 //System.out.println(" Printing the code from server ");
                 //System.out.println(msgStatus.getCode());
@@ -100,13 +114,13 @@ public class SmsApiResource {
             } catch (NullPointerException e) {
                 //System.out.println(e);
                 System.out.println(" This is a null pointer exception \n " +
-                        "This might mean that no responce SMS provider \n "
+                        "This might mean that no response form SMS provider \n "
                         + e.toString());
                 //e.printStackTrace();
 
             }catch (Exception e) {
                 System.out.println(e.toString());
-              System.out.println("See that User Id, Password, Message and sender are provided.\n" +
+              System.out.println("See that From, To, Content, Reference and CallbackUrl are prodived.\n" +
                       " Also make sure the Phone number includes the international code without the plus sign");
             }
         }

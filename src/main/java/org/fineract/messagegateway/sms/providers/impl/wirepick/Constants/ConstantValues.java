@@ -23,8 +23,18 @@ public class ConstantValues {
 
 	//public static final String SMS_CLIENT_AFFILIATE = "999";
 	//public static final String SMS_TAG = "api";
-	public static final String SMS_CLIENT_USER_NAME = "advanc";
-	public static final String SMS_CLIENT_PASSWORD = "2017Aumf#";
+	//public static final String SMS_CLIENT_USER_NAME = "advanc";
+	//public static final String SMS_CLIENT_PASSWORD = "2017Aumf#";
+
+	public static final String SMS_CLIENT_USER_NAME = "879jgbnhg";
+	public static final String SMS_CLIENT_PASSWORD = "456hdbfdsfsvnm,xcdjk8723232uijkdsjksdjsd";
+	public static final String SMS_CLIENT_FROM = "ACTB";
+	public static final String SMS_CLIENT_REFERENCE = "Bank Alert";
+	//TO DO - we must use callbackUrl to get reports
+	public static final String SMS_CLIENT_CALLBACKURL = "";
+
+	//public static final String SMS_CLIENT_USER_NAME = "advanc";
+	//public static final String SMS_CLIENT_PASSWORD = "2017Aumf#";
 
 	
 }

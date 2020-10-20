@@ -53,22 +53,40 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.
 import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.WpkClientConfig;
 
 public class Settings {
-	//{"status":"OK","code":200, "message":"Message has been sent successfully"}
-	private static final String STATUS = "status";
-	private static final String CODE = "code";
-	private static final String MESSAGE = "message";
+//Reply from appHive
+/*
+	{
+    "Cost": 0.0,
+    "Destination": "23279194407",
+    "Id": "6ea123d1-6369-4159-9020-c2a551902b5f",
+    "Ticket": "6ea123d1-6369-4159-9020-c2a551902b5f",
+    "ClientReference": "json Messages",
+    "Status": "pending"
+	}
+*/
+
+	private static final float COST = "Cost";
+	private static final String DESTINATION = "Destination";
+	private static final String ID = "Id";
+	private static final String TICKET = "Ticket";
+	private static final String CLIENTREFERENCE = "ClientReference";
+	private static final String STATUS = "Status";
 
 	private static final String SMS = "sms";
 	private static final String API = "API";
 	private static final String UTF_8 = "UTF-8";
 
-	/** This is for sendByPostMethod and has a cookie issue */
-	public static final String HOST = "http://mysms.trueafrican.com/v1/api/esme/send" ;
+	/** This is for sendByPostMethod for appHive */
+	public static final String HOST = "https://api.sierrahive.com/v1/messages/sms" ;
+
 
 	/** this is sendByUrlHttpConnection and its working */
-	//public static final String HOST = "https://ebridgeafrica.com/api" ;
+	//public static final String HOST = "https://api.sierrahive.com/v1/messages/sms" ;
 
+	
 
+//___________________________________________________________________________________________________________
+// we are not using this part of the code 
 	public static MsgStatus parseWirepickResultXML(InputStream stream) throws Exception, IOException  {
         DocumentBuilder objDocumentBuilder = DocBuilder();
         
@@ -113,49 +131,81 @@ public class Settings {
 		return status;
 	}
 
-	// https://ebridgeafrica.com/api?userid=XXXXX&password=XXXXXXXX&message=test&msisdn=XXXXXXXXXXX&username=ACTB
-	// this is for the curl / wget but True African dont have this anywhere
-	public static String HTTPparameters(WpkClientConfig config) throws UnsupportedEncodingException	{
+// END OF we are not using this part of the code  
+//___________________________________________________________________________________________________________
+
+// For the Get method only ----------------------------------------------------------
+	//https://api.sierrahive.com/v1/messages/sms
+	//?clientid=879jgbnhg
+	//&clientsecret=456hdbfdsfsvnm,xcdjk8723232uijkdsjksdjsd
+	//&token=3f4abf4e047946db97328abf43eec91f
+	//&from=ACTB
+	//&to=+23278448846
+	//&reference=674843
+	//&content=Testing APTELL SMS Servers
+
+	public static String HTTPparameters(AppHiveConfig config) throws UnsupportedEncodingException	{
 		StringBuffer buffer = new  StringBuffer(HOST) ;
 		ValidateParams(config);
-		buffer.append("?msisdn=").append(URLEncoder.encode(config.getMsisdn(), UTF_8)) ;
-		buffer.append("&message=").append(URLEncoder.encode(config.getMessage(), UTF_8));
-		buffer.append("&username=").append(URLEncoder.encode(config.getUsername(), UTF_8));
-		buffer.append("&password=").append(URLEncoder.encode(config.getPassword(), UTF_8));
+		buffer.append("?clientid=").append(URLEncoder.encode(config.getClientId(), UTF_8)) ;
+		buffer.append("&clientsecret=").append(URLEncoder.encode(config.getClientSecret(), UTF_8));
+		buffer.append("&token=").append(URLEncoder.encode(config.getToken(), UTF_8));
+		buffer.append("&from=").append(URLEncoder.encode(config.getFrom(), UTF_8));
+		buffer.append("&to=").append(URLEncoder.encode(config.getTo(), UTF_8));
+		buffer.append("&reference=").append(URLEncoder.encode(config.getReference(), UTF_8));
+		buffer.append("&content=").append(URLEncoder.encode(config.getContent(), UTF_8));
+
+
 
 		return buffer.toString() ;
 	}
 
-	private static void ValidateParams(WpkClientConfig config) {
+	private static void ValidateParams(AppHiveConfig config) {
 
-		if(config.getMsisdn() == null || config.getMsisdn().isEmpty())
+		if(config.getClientId() == null || config.getClientId().isEmpty())
 		{
-			throw new NullPointerException("Msisdn is required") ;
+			throw new NullPointerException("ClientId is required") ;
 		}
-		else if(config.getMessage() == null || config.getMessage().isEmpty())
+		else if(config.getClientSecret() == null || config.getClientSecret().isEmpty())
 		{
-			throw new NullPointerException("Message is required") ;
+			throw new NullPointerException("Client Secret is required") ;
 		}
-		else if(config.getUsername() == null || config.getUsername().isEmpty())
+		else if(config.getToken() == null || config.getToken().isEmpty())
 		{
-			throw new NullPointerException("Username is required") ;
+			throw new NullPointerException("Token is required") ;
 		}
-		else if(config.getPassword() == null || config.getPassword().isEmpty())
+		else if(config.getFrom() == null || config.getFrom().isEmpty())
 		{
-			throw new NullPointerException("Password is required") ;
+			throw new NullPointerException("From which Company") ;
+		}
+		else if(config.getTo() == null || config.getTo().isEmpty())
+		{
+			throw new NullPointerException("Phone number is required") ;
+		}
+		else if(config.getReference() == null || config.getReference().isEmpty())
+		{
+			throw new NullPointerException("Reference is required") ;
+		}
+		else if(config.getContent() == null || config.getContent().isEmpty())
+		{
+			throw new NullPointerException("The Content of the message is missing") ;
 		}
 	}
 
-	public static  NameValuePair[] GetParameters(WpkClientConfig config) throws UnsupportedEncodingException
+	public static  NameValuePair[] GetParameters(AppHiveConfig config) throws UnsupportedEncodingException
 	{
 
 		ValidateParams(config);
 		NameValuePair[] nameValuePairs = new NameValuePair[4] ;
 
-		nameValuePairs[0] = new NameValuePair("msisdn", config.getMsisdn()) ;
-		nameValuePairs[1] = new NameValuePair("message",config.getMessage()) ;
-		nameValuePairs[2] = new NameValuePair("username", config.getUsername()) ;
-		nameValuePairs[3] = new NameValuePair("password", config.getPassword()) ;
+		nameValuePairs[0] = new NameValuePair("clientid", config.getClientId()) ;
+		nameValuePairs[1] = new NameValuePair("clientsecret",config.getClientSecret()) ;
+		nameValuePairs[2] = new NameValuePair("token", config.getToken()) ;
+		nameValuePairs[3] = new NameValuePair("from", config.getFrom()) ;
+		nameValuePairs[4] = new NameValuePair("to", config.getTo()) ;
+		nameValuePairs[5] = new NameValuePair("reference", config.getReference()) ;
+		nameValuePairs[5] = new NameValuePair("content", config.getContent()) ;
+		
 
 		return nameValuePairs;
 	}

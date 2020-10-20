@@ -161,6 +161,7 @@ public class HttpUrls {
 		HttpURLConnection con = (HttpURLConnection)url.openConnection();
 		con.setRequestMethod("POST");
 		con.setRequestProperty("Content-Type", "application/json; utf-8");
+		con.setRequestProperty("X-Wallet", "Token 3f4abf4e047946db97328abf43eec91f");
 		con.setRequestProperty("Accept", "application/json");
 		con.setDoOutput(true);
 
