@@ -46,7 +46,7 @@ import org.fineract.messagegateway.sms.providers.impl.wirepick.smsgateway.model.
 public class AppHiveSMS {
 
 	// this guy calls the MsgStatus method
-	public MsgStatus SendGETSMS(WpkClientConfig clientConfig) throws Exception {
+	public MsgStatus SendGETSMS(AppHiveConfig clientConfig) throws Exception {
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HTTPparameters(clientConfig) ; 
@@ -59,7 +59,7 @@ public class AppHiveSMS {
 	}
 
 	// avoiding to call the MsgStatus guy as MsgStatus works well with json responses
-	public static String SendGETSMS2(WpkClientConfig clientConfig) throws Exception	{
+	public static String SendGETSMS2(AppHiveConfig clientConfig) throws Exception	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 		String httpUrl = Settings.HTTPparameters(clientConfig) ;
@@ -72,7 +72,7 @@ public class AppHiveSMS {
 	}
 
 	// this guy calls the MsgStatus method too - if any issues avoid him
-	public MsgStatus SendPOSTSMS(WpkClientConfig clientConfig) throws Exception	{
+	public MsgStatus SendPOSTSMS(AppHiveConfig clientConfig) throws Exception	{
 		if(clientConfig == null)
 			throw new NullPointerException() ;
 			String httpUrl = Settings.HOST ;
