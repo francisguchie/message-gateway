@@ -96,7 +96,7 @@ public class AppHiveSMS {
 		body.put("To", clientConfig.getTo());
 		body.put("Content", clientConfig.getContent());
 		body.put("Reference", clientConfig.getReference());
-		body.put("CallbackUrl", clientConfig.getCallBackUrl());
+		body.put("CallbackUrl", clientConfig.getCallbackUrl());
 
 
 		System.out.println(" this below is the json built ");
