@@ -34,11 +34,11 @@ public class AppHiveConfig {
     private String clientId ;
     private String clientsecret ;
     private String token ;
-    private String from ;
-    private String to ;
-    private String content;
-    private String reference;
-    private String callbackUrl ;
+    private String From ;
+    private String To ;
+    private String Content;
+    private String Reference;
+    private String CallbackUrl ;
 
     public AppHiveConfig()
     {
@@ -50,11 +50,11 @@ public class AppHiveConfig {
         this.clientId = clientId;
         this.clientsecret = clientsecret;
         this.token = token;
-        this.from = from;
-        this.to = to;
-        this.content = content;
-        this.reference = reference;
-        this.callbackUrl = callbackUrl;
+        this.from = From;
+        this.to = To;
+        this.content = Content;
+        this.reference = Reference;
+        this.callbackUrl = CallbackUrl;
 
     }
 
