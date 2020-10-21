@@ -65,7 +65,7 @@ public class Settings {
 	}
 */
 
-	private static final float COST = "Cost";
+	private static final String COST = "Cost";
 	private static final String DESTINATION = "Destination";
 	private static final String ID = "Id";
 	private static final String TICKET = "Ticket";
@@ -114,15 +114,19 @@ public class Settings {
 	private static MsgStatus DocumentProcessor(Document doc) {
 		NodeList nList = doc.getElementsByTagName(SMS);
         MsgStatus status = new MsgStatus();
+
         
         for (int temp = 0; temp < nList.getLength(); temp++) {
             Node nNode = nList.item(temp);
             if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                 Element eElement = (Element) nNode;
-                if (eElement.getElementsByTagName(STATUS) != null) {
-                    status.setStatus(eElement.getElementsByTagName(STATUS).item(0).getTextContent());
-					//status.setCode(eElement.getElementsByTagName(CODE).item(0).getTextContent());
-					status.setMessage(eElement.getElementsByTagName(MESSAGE).item(0).getTextContent());
+                if (eElement.getElementsByTagName(COST) != null) {
+                    status.setStatus(eElement.getElementsByTagName(COST).item(0).getTextContent());
+					status.setMessage(eElement.getElementsByTagName(DESTINATION).item(0).getTextContent());
+					status.setStatus(eElement.getElementsByTagName(ID).item(0).getTextContent());
+					status.setStatus(eElement.getElementsByTagName(TICKET).item(0).getTextContent());
+					status.setStatus(eElement.getElementsByTagName(CLIENTREFERENCE).item(0).getTextContent());
+					status.setStatus(eElement.getElementsByTagName(STATUS).item(0).getTextContent());
                 } else {
                 	return null ;
                 }
