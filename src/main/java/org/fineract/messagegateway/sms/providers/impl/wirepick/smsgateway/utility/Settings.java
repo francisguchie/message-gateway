@@ -148,7 +148,7 @@ public class Settings {
 	//&reference=674843
 	//&content=Testing APTELL SMS Servers
 
-	public static String HTTPparameters(AppHiveConfig config) throws UnsupportedEncodingException	{
+	public static String HTTPparametersAppHive(AppHiveConfig config) throws UnsupportedEncodingException	{
 		StringBuffer buffer = new  StringBuffer(HOST) ;
 		ValidateParams(config);
 		buffer.append("?clientid=").append(URLEncoder.encode(config.getClientId(), UTF_8)) ;
