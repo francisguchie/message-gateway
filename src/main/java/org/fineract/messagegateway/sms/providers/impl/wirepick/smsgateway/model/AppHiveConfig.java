@@ -29,16 +29,18 @@ public class AppHiveConfig {
     //&token=3f4abf4e047946db97328abf43eec91f
     //&from=ACTB
     //&to=+23278448846
-    //&reference=674843&content=Testing APTELL SMS Servers
+    //&reference=674843
+    //&content=Testing APTELL SMS Servers
 
     private String clientId ;
     private String clientsecret ;
     private String token ;
     private String from ;
     private String to ;
-    private String content;
     private String reference;
-    private String callbackUrl ;
+    private String content;
+    
+   // private String callbackUrl ;
 
     public AppHiveConfig()
     {
@@ -46,7 +48,7 @@ public class AppHiveConfig {
     }
 
     public AppHiveConfig(String clientId, String clientsecret
-        ,String token,String from, String to,String content, String reference,String callbackUrl) 
+        ,String token,String from, String to, String reference,String content) 
     {
 
         this.clientId = clientId;
@@ -54,9 +56,10 @@ public class AppHiveConfig {
         this.token = token;
         this.from = from;
         this.to = to;
-        this.content = content;
         this.reference = reference;
-        this.callbackUrl = callbackUrl;
+        this.content = content;
+        
+        //this.callbackUrl = callbackUrl;
 
     }
 
@@ -95,13 +98,6 @@ public class AppHiveConfig {
         this.to = to;
     }
 
-    public String getContent() {
-        return content;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public String getReference() {
         return reference;
     }
@@ -109,11 +105,20 @@ public class AppHiveConfig {
         this.reference = reference;
     }
 
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) {
+        this.content = content;
+    }
+ 
+    /*
     public String getCallbackUrl() {
         return callbackUrl;
     }
     public void setCallbackUrl(String callbackUrl) {
         this.callbackUrl = callbackUrl;
     }
+    */
 
 }

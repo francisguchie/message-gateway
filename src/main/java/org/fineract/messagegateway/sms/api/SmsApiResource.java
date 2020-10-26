@@ -91,10 +91,26 @@ public class SmsApiResource {
             }
             */
 
-             AppHiveSingleSMS config = new AppHiveSingleSMS(
-                    ConstantValues.SMS_CLIENT_USER_NAME, ConstantValues.SMS_CLIENT_PASSWORD,ConstantValues.SMS_CLIENT_FROM,
-                    sMessage.getMobileNumber(),sMessage.getMessage(),
-                    ConstantValues.SMS_CLIENT_REFERENCE, ConstantValues.SMS_CLIENT_CALLBACKURL) ;
+        // For the Get method only ----------------------------------------------------------
+        //https://api.sierrahive.com/v1/messages/sms
+        //?clientid=879jgbnhg
+        //&clientsecret=456hdbfdsfsvnm,xcdjk8723232uijkdsjksdjsd
+        //&token=3f4abf4e047946db97328abf43eec91f
+        //&from=ACTB
+        //&to=+23278448846
+        //&reference=674843
+        //&content=Testing APTELL SMS Servers
+
+             AppHiveConfig config = new AppHiveConfig(
+                    ConstantValues.SMS_CLIENT_USER_NAME, 
+                    ConstantValues.SMS_CLIENT_PASSWORD,
+                    ConstantValues.SMS_CLIENT_TOKEN,
+                    ConstantValues.SMS_CLIENT_FROM,
+                    sMessage.getMobileNumber(),
+                    ConstantValues.SMS_CLIENT_REFERENCE,
+                    sMessage.getMessage()
+                    
+                    ) ;
             try {
 
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;

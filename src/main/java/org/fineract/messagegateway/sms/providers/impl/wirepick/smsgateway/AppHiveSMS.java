@@ -49,7 +49,7 @@ public class AppHiveSMS {
 	public MsgStatus SendGETSMS(AppHiveConfig clientConfig) throws Exception {
 		if(clientConfig == null)
 			throw new NullPointerException() ;
-		String httpUrl = Settings.HTTPparameters(clientConfig) ; 
+		String httpUrl = Settings.HTTPparametersAppHive(clientConfig) ; 
 		if(httpUrl != null && httpUrl.startsWith(Settings.HOST))
 		{
 			//return HttpUrls.sendByUrlHttpConnection(httpUrl) ;

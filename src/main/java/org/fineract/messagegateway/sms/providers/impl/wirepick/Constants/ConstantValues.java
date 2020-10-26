@@ -21,13 +21,20 @@ package org.fineract.messagegateway.sms.providers.impl.wirepick.Constants;
 
 public class ConstantValues {
 
-	//public static final String SMS_CLIENT_AFFILIATE = "999";
-	//public static final String SMS_TAG = "api";
-	//public static final String SMS_CLIENT_USER_NAME = "advanc";
-	//public static final String SMS_CLIENT_PASSWORD = "2017Aumf#";
+	    // For the Get method only ----------------------------------------------------------
+        //https://api.sierrahive.com/v1/messages/sms
+        //?clientid=879jgbnhg
+        //&clientsecret=456hdbfdsfsvnm,xcdjk8723232uijkdsjksdjsd
+        //&token=3f4abf4e047946db97328abf43eec91f
+        //&from=ACTB
+        //&to=+23278448846
+        //&reference=674843
+        //&content=Testing APTELL SMS Servers
+
 
 	public static final String SMS_CLIENT_USER_NAME = "879jgbnhg";
 	public static final String SMS_CLIENT_PASSWORD = "456hdbfdsfsvnm,xcdjk8723232uijkdsjksdjsd";
+	public static final String SMS_CLIENT_TOKEN = "3f4abf4e047946db97328abf43eec91f";
 	public static final String SMS_CLIENT_FROM = "ACTB";
 	public static final String SMS_CLIENT_REFERENCE = "Bank Alert";
 	//TO DO - we must use callbackUrl to get reports
