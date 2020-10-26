@@ -82,7 +82,7 @@ public class AppHiveSMS {
 		throw new Exception("Could not do stuff  :( " );
 	}
 
-    /**  only for string body with no arrays / list in body */
+    /*
 	public static String SendPOSTSMS2(AppHiveConfig clientConfig) throws Exception
 	{
 		if(clientConfig == null)
@@ -106,6 +106,8 @@ public class AppHiveSMS {
 
 		//throw new Exception("Could not do stuff " );
 	}
+	*  only for string body with no arrays / list in body 
+	*/
 
 	/** this is what hit the jack pot for appHive it will work on the arrays / bulk SMSs */
 	public static String SendPOSTSMS3(TrueAfricanMsisdnList clientConfig) throws Exception
