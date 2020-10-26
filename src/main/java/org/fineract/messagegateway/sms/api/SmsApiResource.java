@@ -100,7 +100,7 @@ public class SmsApiResource {
                 //MsgStatus msgStatus =  sms.SendPOSTSMS(config) ;
 
                 // sms.SendPOSTSMS3(config); this is for Arrays
-                sms.SendPOSTSMS2(config);
+                //sms.SendPOSTSMS2(config);
 
                 //System.out.println(" Printing the code from server ");
                 //System.out.println(msgStatus.getCode());
@@ -109,7 +109,7 @@ public class SmsApiResource {
                 // MsgStatus msgStatus =  sms.SendGETSMS(config) ;
 
                 /** this method works fine but we need to be sending POST requests with json Body */
-                //sms.SendGETSMS2(config); // simple but works like a cham
+                sms.SendGETSMS2(config); // simple but works like a cham
 
             } catch (NullPointerException e) {
                 //System.out.println(e);
